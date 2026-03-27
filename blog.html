@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Entraînement Endurance & Trail | Conseils d'experts - SUMMITRAINING</title>
+    <meta name="description"
+        content="Découvrez les conseils de Julien Planaz en trail, physiologie de l'effort, tests VAM, et préparation pour vos courses en Haute-Savoie.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog Entraînement Endurance & Trail | SUMMITRAINING">
+    <meta property="og:description"
+        content="Conseils, physiologie et stratégie de course par votre coach expert STAPS / Biologie.">
+    <meta property="og:url" content="https://www.summitraining.fr/blog.html">
+    <meta property="og:image" content="https://www.summitraining.fr/img/photo%20coach.jpg">
+    <link rel="canonical" href="https://www.summitraining.fr/blog.html">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-accent);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--color-accent);
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-category {
+            color: var(--color-accent);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .blog-extract {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .blog-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1rem;
+        }
+
+        .read-more {
+            color: var(--color-text-main);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--color-accent);
+        }
+    </style>
+</head>
+
+<body style="padding-top: 100px;"> <!-- Padding for fixed header -->
+    <header id="site-header">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">
+                <img src="img/logo.png" alt="Summitraining Logo">
+            </a>
+            <nav class="main-nav">
+                <a href="index.html#methodology">Méthode</a>
+                <a href="index.html#about">À propos</a>
+                <a href="trail.html">Trail</a>
+                <a href="route.html">Route</a>
+                <a href="outils.html">Outils</a>
+                <a href="blog.html" class="text-accent">Blog</a>
+            </nav>
+            <a href="index.html#contact" class="btn btn-primary">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" id="page-header">
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">Le Blog <span class="text-accent">Summitraining</span></h1>
+                    <p class="section-subtitle">Conseils d'experts, méthodes d'entraînement et décryptage scientifique
+                        des sports d'endurance.</p>
+                </div>
+
+                <div class="blog-grid">
+
+                    <!-- Article 1 -->
+                    <article class="blog-card fade-in">
+                        <a href="article-maxi-race.html" style="display: block;">
+                            <img src="https://images.unsplash.com/photo-1549740425-5e9ed4d8cd34?q=80&w=800&auto=format&fit=crop"
+                                alt="Coureur en montagne lors de la Maxi-Race" class="blog-image">
+                        </a>
+                        <div class="blog-content">
+                            <span class="blog-category">Événement Local</span>
+                            <h2 class="blog-title"><a href="article-maxi-race.html"
+                                    style="color: inherit; text-decoration: none;">Maxi-Race d'Annecy 2026 :
+                                    Modélisation Stratégique</a></h2>
+                            <p class="blog-extract">S'engager sur un ultra-trail de 100 km et 5782 m de D+ requiert une
+                                gestion systémique. Découvrez l'approche biomécanique et la stratégie idéale pour un
+                                objectif de 16h30.</p>
+                            <div class="blog-footer">
+                                <span style="font-size: 0.85rem; color: var(--color-text-muted);">Temps de lecture : 6
+                                    min</span>
+                                <a href="article-maxi-race.html" class="read-more">Lire l'article <span>→</span></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="blog-card fade-in">
+                        <a href="article-vma-vs-vc.html" style="display: block;">
+                            <img src="img/vma-vs-vc-header.png" alt="Concept de Vitesse Critique" class="blog-image">
+                        </a>
+                        <div class="blog-content">
+                            <span class="blog-category">Physiologie de l'Entraînement</span>
+                            <h2 class="blog-title"><a href="article-vma-vs-vc.html"
+                                    style="color: inherit; text-decoration: none;">Vitesse Critique vs VMA : Le Nouveau
+                                    Standard pour vos Zones d'Entraînement</a></h2>
+                            <p class="blog-extract">La VMA est une métrique historique, mais dépassée pour déterminer
+                                vos vraies zones d'endurance. Découvrez le paradigme de la Vitesse Critique, le nouveau
+                                Standard universel.</p>
+                            <div class="blog-footer">
+                                <span style="font-size: 0.85rem; color: var(--color-text-muted);">Temps de lecture : 7
+                                    min</span>
+                                <a href="article-vma-vs-vc.html" class="read-more">Lire l'article <span>→</span></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="blog-card fade-in">
+                        <img src="https://images.unsplash.com/photo-1502904550040-7534597429ae?q=80&w=800&auto=format&fit=crop"
+                            alt="Outils Trail" class="blog-image">
+                        <div class="blog-content">
+                            <span class="blog-category">Outils & Données</span>
+                            <h2 class="blog-title">Estimer ses allures : Le guide complet de notre calculateur</h2>
+                            <p class="blog-extract">Apprenez à utiliser gratuitement notre outil d'estimation de VAM et
+                                de Puissance pour définir vos propres zones d'entraînement dès votre prochaine sortie.
+                            </p>
+                            <div class="blog-footer">
+                                <span style="font-size: 0.85rem; color: var(--color-text-muted);">Temps de lecture : 4
+                                    min</span>
+                                <a href="#" class="read-more">Lire l'article <span>→</span></a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <img src="img/logo.png" alt="Summitraining Logo">
+            </div>
+            <p>Coaching Endurance & Trail par Julien Planaz - Bassin Annécien & Suisse Romande</p>
+            <div class="footer-links">
+                <a href="#">Mentions Légales</a>
+                <a href="#">CGV</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
