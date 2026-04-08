@@ -1,0 +1,6 @@
+.vercel
+nextjs/node_modules
+nextjs/.next
+nextjs/out
+nextjs/build
+*.log
