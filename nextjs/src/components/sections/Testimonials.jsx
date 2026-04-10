@@ -1,5 +1,4 @@
-'use client';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Testimonials() {
   const testimonials = [
@@ -24,14 +23,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <motion.section 
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="section bg-alt" 
-      id="testimonials"
-    >
+    <section className="section bg-alt" id="testimonials">
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">Ils me font <span className="text-accent">Confiance</span></h2>
@@ -41,7 +33,7 @@ export default function Testimonials() {
         <div className="methodology-grid">
           {testimonials.map((t, idx) => (
             <div key={idx} className="card" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-              <div style={{ fontSize: '2rem', color: 'var(--color-accent)', marginBottom: '1rem' }}>"</div>
+              <div style={{ fontSize: '2rem', color: 'var(--color-accent)', marginBottom: '1rem' }}>&quot;</div>
               <p style={{ fontStyle: 'italic', flexGrow: 1, marginBottom: '1.5rem', color: 'var(--color-text-main)' }}>
                 {t.text}
               </p>
@@ -58,6 +50,6 @@ export default function Testimonials() {
           ))}
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

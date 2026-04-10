@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Testimonials from '@/components/sections/Testimonials';
+import Testimonials from '../../components/sections/Testimonials';
 
 export const metadata = {
   title: 'À Propos de Julien Planaz',
@@ -10,7 +10,7 @@ export const metadata = {
 export default function About() {
   return (
     <>
-      <section className="section fade-in" style={{ paddingTop: '100px' }}>
+      <section className="section" style={{ paddingTop: '100px' }}>
         <div className="container about-wrapper">
           <div className="about-image">
             <Image src="/img/photo coach.jpg" alt="Julien Planaz, Coach Sportif Endurance" width={400} height={533} className="coach-photo" />
@@ -27,7 +27,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section bg-alt fade-in">
+      <section className="section bg-alt">
         <div className="container">
           <div className="section-header">
             <h2 className="section-title">Ma double expertise : <span className="text-accent">Science & Terrain</span></h2>
@@ -61,7 +61,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section fade-in">
+      <section className="section">
         <div className="container">
           <div className="section-header">
             <h2 className="section-title">Une Vision <span className="text-accent">Holistique</span></h2>
@@ -78,7 +78,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       <Testimonials />
     </>
   );

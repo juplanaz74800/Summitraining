@@ -1,12 +1,18 @@
-import { Outfit, Inter } from 'next/font/google';
+import { Lexend, Space_Grotesk, Inter } from 'next/font/google';
 import './globals.css';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
+import { Providers } from './providers';
 
-const outfit = Outfit({
+const lexend = Lexend({
   subsets: ['latin'],
-  weight: ['300', '400', '600', '800'],
-  variable: '--font-outfit',
+  variable: '--font-lexend',
+  display: 'swap',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-space-grotesk',
   display: 'swap',
 });
 
@@ -36,11 +42,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className={`${outfit.variable} ${inter.variable}`}>
+    <html lang="fr" className={`${lexend.variable} ${spaceGrotesk.variable} ${inter.variable}`} suppressHydrationWarning>
       <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <Providers>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

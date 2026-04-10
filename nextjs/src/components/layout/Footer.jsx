@@ -1,7 +1,15 @@
+'use client';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Footer() {
+  const [year, setYear] = useState(new Date().getFullYear());
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="site-footer">
       <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', textAlign: 'center' }}>
@@ -20,13 +28,9 @@ export default function Footer() {
           </Link>
         </div>
         <p style={{ color: 'rgba(156, 163, 175, 0.4)', fontSize: '0.8rem' }}>
-          © {new Date().getFullYear()} SUMMITRAINING
+          © {year} SUMMITRAINING
         </p>
       </div>
-
-      <style jsx>{`
-        .footer-link:hover { color: var(--color-accent) !important; }
-      `}</style>
     </footer>
   );
 }

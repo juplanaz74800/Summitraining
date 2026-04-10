@@ -4,31 +4,53 @@
    CSS Variables & Design System
    ========================================================================== */
 :root {
-    /* Colors */
-    --color-bg-dark: #0B1120;
-    /* Deep Navy/Black */
-    --color-bg-alt: #111827;
-    /* Slate */
+    /* --- DAY MODE (Summit Peak Performance) --- */
+    --color-bg: #fff8f0;
+    --color-surface: #fff8f0;
+    --color-surface-container: #f5edde;
+    --color-surface-container-high: #f0e7d9;
+    --color-surface-container-low: #fbf3e4;
+    
+    --color-primary: #0053d0;
+    --color-primary-container: #2b6cf2;
     --color-accent: #0088FF;
-    /* Electric Blue */
-    --color-accent-hover: #0066CC;
-    --color-text-main: #F3F4F6;
-    --color-text-muted: #9CA3AF;
+    
+    --color-text-main: #1f1b13;
+    --color-text-muted: #625b50;
+    --color-outline: #737686;
 
     /* Typography */
-    --font-heading: var(--font-outfit), 'Outfit', sans-serif;
+    --font-heading: var(--font-lexend), 'Lexend', sans-serif;
     --font-body: var(--font-inter), 'Inter', sans-serif;
+    --font-technical: var(--font-space-grotesk), 'Space Grotesk', monospace;
 
-    /* Spacing */
+    /* Spacing & Utilities */
     --space-sm: 0.5rem;
     --space-md: 1rem;
     --space-lg: 2rem;
     --space-xl: 4rem;
     --space-xxl: 8rem;
 
-    /* Transitions */
     --transition-fast: 0.2s ease;
     --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --border-radius: 0.5rem;
+}
+
+[class~="dark"] {
+    /* --- NIGHT MODE (Adaptive Dark) --- */
+    --color-bg: #0B1120;
+    --color-surface: #0B1120;
+    --color-surface-container: #111827;
+    --color-surface-container-high: #1E293B;
+    --color-surface-container-low: #0F172A;
+
+    --color-primary: #0088FF;
+    --color-primary-container: #006d77;
+    --color-accent: #0088FF;
+
+    --color-text-main: #F3F4F6;
+    --color-text-muted: #9CA3AF;
+    --color-outline: #ffffff10;
 }
 
 /* ==========================================================================
@@ -46,10 +68,11 @@ html {
 
 body {
     font-family: var(--font-body);
-    background-color: var(--color-bg-dark);
+    background-color: var(--color-bg);
     color: var(--color-text-main);
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1,
@@ -60,7 +83,8 @@ h5,
 h6 {
     font-family: var(--font-heading);
     font-weight: 800;
-    line-height: 1.2;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
 }
 
 a {
@@ -118,31 +142,49 @@ img {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--color-accent) 0%, #005bb5 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-container) 100%);
     color: #ffffff;
-    box-shadow: 0 4px 15px rgba(0, 136, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 83, 208, 0.2);
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 136, 255, 0.4);
-    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 83, 208, 0.4);
+    filter: brightness(1.1);
 }
 
 .btn-secondary {
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: var(--color-surface-container-high);
     color: var(--color-text-main);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
 }
 
 .btn-secondary:hover {
-    border-color: var(--color-accent);
-    background-color: rgba(0, 136, 255, 0.1);
-    color: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    background-color: var(--color-surface-container);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Base sections
+   ========================================================================== */
+.section {
+    padding: var(--space-xl) 0;
+    position: relative;
 }
 
 /* ==========================================================================
@@ -172,10 +214,16 @@ img {
     align-items: center;
 }
 
-.logo img {
+.site-header img {
     height: 45px;
     width: auto;
     display: block;
+    transition: filter 0.3s ease;
+}
+
+:root:not(.dark) .site-header img,
+html:not(.dark) .site-header img {
+    filter: invert(1) brightness(0.2);
 }
 
 .main-nav {
@@ -321,12 +369,16 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
+    background: radial-gradient(circle at 80% 30%, rgba(0, 136, 255, 0.1) 0%, transparent 40%),
+        linear-gradient(to bottom, var(--color-bg) 0%, transparent 40%, transparent 60%, var(--color-bg) 100%);
+    z-index: 2;
+    opacity: 0.85;
+}
+
+[class~="dark"] .hero-overlay {
     background: radial-gradient(circle at 80% 30%, rgba(0, 136, 255, 0.15) 0%, transparent 40%),
         radial-gradient(circle at 20% 80%, rgba(1, 15, 41, 0.8) 0%, transparent 50%),
         rgba(11, 17, 32, 0.6);
-    /* Additional dark tint for text legibility */
-    z-index: 2;
-    mix-blend-mode: multiply;
 }
 
 /* ==========================================================================
@@ -428,7 +480,7 @@ img {
 }
 
 .bg-alt {
-    background-color: var(--color-bg-alt);
+    background-color: var(--color-surface-container-low);
 }
 
 .section-header {
@@ -463,16 +515,15 @@ img {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
+    background: var(--color-surface-container-low);
+    border-radius: var(--border-radius);
     padding: var(--space-lg);
-    transition: transform var(--transition-fast), border-color var(--transition-fast);
+    transition: transform var(--transition-fast), background-color var(--transition-fast);
 }
 
 .card:hover {
     transform: translateY(-5px);
-    border-color: rgba(0, 136, 255, 0.3);
+    background-color: var(--color-surface-container);
 }
 
 .card-icon {
@@ -512,13 +563,13 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to top, rgba(11, 17, 32, 1) 0%, rgba(11, 17, 32, 0.6) 50%, rgba(11, 17, 32, 0.2) 100%);
+    background: linear-gradient(to top, var(--color-bg) 0%, transparent 100%);
     z-index: 1;
     transition: background var(--transition-smooth);
 }
 
 .methodology-card:hover::before {
-    background: rgba(11, 17, 32, 0.9);
+    background: linear-gradient(to top, var(--color-bg) 40%, transparent 100%);
 }
 
 .methodology-card .card-content {
@@ -1280,3 +1331,75 @@ img {
     position: relative;
 }
 
+
+/* ==========================================================================
+   Article Content Styles
+   ========================================================================== */
+.article-content h2 {
+    font-size: 1.8rem;
+    margin: 3rem 0 1.5rem;
+    color: var(--color-accent);
+}
+
+.article-content h3 {
+    font-size: 1.4rem;
+    margin: 2rem 0 1rem;
+    color: #fff;
+}
+
+.article-content p {
+    margin-bottom: 1.5rem;
+}
+
+.article-content ul, .article-content ol {
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+}
+
+.article-content li {
+    margin-bottom: 0.75rem;
+}
+
+.article-content .chapeau {
+    font-size: 1.25rem;
+    color: var(--color-text-main);
+    font-weight: 500;
+    border-left: 3px solid var(--color-accent);
+    padding-left: 1.5rem;
+    margin-bottom: 3rem;
+    font-style: italic;
+}
+
+.article-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.article-table th, .article-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.article-table th {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.article-table tr:last-child td {
+    border-bottom: none;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 3rem;
+}
