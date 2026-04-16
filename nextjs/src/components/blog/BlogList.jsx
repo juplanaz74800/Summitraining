@@ -14,6 +14,31 @@ export default function BlogContent() {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem', marginTop: '3rem' }}>
 
+          {/* Article 0 - New: Borg Scale */}
+          <motion.article 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="blog-card" 
+            style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '12px', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}
+          >
+            <Link href="/blog/echelle-de-borg" style={{ display: 'block' }}>
+              <Image src="/img/blog/borg_hero_holographic_7_1776028139870.png" alt="Guide Échelle de Borg RPE" width={400} height={200} style={{ width: '100%', height: '200px', objectFit: 'cover', borderBottom: '2px solid var(--color-accent)' }} unoptimized />
+            </Link>
+            <div style={{ padding: '1.5rem', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+              <span style={{ color: 'var(--color-accent)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 600, marginBottom: '0.5rem' }}>Méthodologie</span>
+              <h2 style={{ fontSize: '1.25rem', marginBottom: '1rem', lineHeight: 1.4 }}>
+                <Link href="/blog/echelle-de-borg" style={{ color: 'inherit', textDecoration: 'none' }}>Guide Complet de l'Échelle de Borg : Mesurer la Perception de l'Effort (RPE)</Link>
+              </h2>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginBottom: '1.5rem', lineHeight: 1.6 }}>Le cerveau est l'outil de biofeedback le plus puissant. Apprenez à utiliser l'échelle de Borg pour calibrer vos entraînements avec une précision chirurgicale.</p>
+              <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255, 255, 255, 0.05)', paddingTop: '1rem' }}>
+                <span style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>Temps de lecture : 8 min</span>
+                <Link href="/blog/echelle-de-borg" style={{ color: 'var(--color-text-main)', textDecoration: 'none', fontWeight: 600 }}>Lire l'article <span>→</span></Link>
+              </div>
+            </div>
+          </motion.article>
+
           {/* Article 1 */}
           <motion.article 
             initial={{ opacity: 0, y: 40 }}

@@ -563,13 +563,13 @@ html:not(.dark) .site-header img {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to top, var(--color-bg) 0%, transparent 100%);
+    background: linear-gradient(to top, rgba(11, 17, 32, 0.9) 0%, rgba(11, 17, 32, 0.4) 60%, transparent 100%);
     z-index: 1;
     transition: background var(--transition-smooth);
 }
 
 .methodology-card:hover::before {
-    background: linear-gradient(to top, var(--color-bg) 40%, transparent 100%);
+    background: linear-gradient(to top, rgba(11, 17, 32, 0.95) 0%, rgba(11, 17, 32, 0.7) 50%, rgba(11, 17, 32, 0.2) 100%);
 }
 
 .methodology-card .card-content {
@@ -1345,6 +1345,25 @@ html:not(.dark) .site-header img {
     font-size: 1.4rem;
     margin: 2rem 0 1rem;
     color: #fff;
+}
+
+.article-content h2, .article-content h3 {
+    color: var(--color-text-main);
+    margin-top: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.article-content h2 {
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+    border-bottom: 1px solid var(--color-outline);
+    padding-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+.article-content h3 {
+    font-size: clamp(1.4rem, 2vw, 1.7rem);
+    color: var(--color-accent); /* Give H3 a bit of professional flair */
+    margin-top: 2.5rem;
 }
 
 .article-content p {

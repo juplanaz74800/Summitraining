@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Testimonials from '../../components/sections/Testimonials';
+import Testimonials from '@/components/sections/Testimonials';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import CTASection from '@/components/sections/CTASection';
 
 export const metadata = {
   title: 'À Propos de Julien Planaz',
@@ -10,7 +12,11 @@ export const metadata = {
 export default function About() {
   return (
     <>
-      <section className="section" style={{ paddingTop: '100px' }}>
+      <div style={{ paddingTop: '80px' }}>
+        <Breadcrumbs />
+      </div>
+
+      <section className="section" id="about-hero">
         <div className="container about-wrapper">
           <div className="about-image">
             <Image src="/img/photo coach.jpg" alt="Julien Planaz, Coach Sportif Endurance" width={400} height={533} className="coach-photo" />
@@ -18,7 +24,7 @@ export default function About() {
           <div className="about-content">
             <h1 className="section-title">Le <span className="text-accent">Coach</span></h1>
             <h2>Julien Planaz</h2>
-            <p className="subtitle text-accent" style={{ fontWeight: 600, fontSize: '1.2rem', marginTop: '-0.5rem', marginBottom: '2rem' }}>
+            <p className="subtitle text-accent font-technical" style={{ fontWeight: 600, fontSize: '1.2rem', marginTop: '-0.5rem', marginBottom: '2rem' }}>
               Expert en Physiologie de l'Effort | +10 ans d'expérience
             </p>
             <p>Mon expertise s'est forgée au cœur de l'altitude, à Font-Romeu. Durant mon cursus universitaire en STAPS « Entraînement & Altitude », j'ai eu l'opportunité d'étudier et de côtoyer les athlètes de haut niveau du CREPS, tout en me spécialisant en physiologie de l'exercice sous l'enseignement de <strong>Grégory Doucende</strong>.</p>
@@ -48,7 +54,7 @@ export default function About() {
               <div className="card-icon">🏔️</div>
               <h3>Expérience Coaching & Terrain</h3>
               <p>Plus de 10 ans de pratique passionnée en trail et ultra-trail. Mon expérience me permet de traduire les données scientifiques en conseils exploitables sur les sentiers.</p>
-              <div style={{ marginTop: '1.5rem', padding: '1.5rem', borderLeft: '3px solid var(--color-accent)', background: 'rgba(0,136,255,0.05)', borderRadius: '0 8px 8px 0' }}>
+              <div style={{ marginTop: '1.5rem', padding: '1.5rem', borderLeft: '3px solid var(--color-accent)', background: 'var(--color-surface-container-high)', borderRadius: '0 8px 8px 0' }}>
                  <p><strong>Expertise spécifique :</strong></p>
                  <ul style={{ listStyle: 'none', marginTop: '0.5rem', color: 'var(--color-text-main)' }}>
                      <li>🏃 Accompagnement d'athlètes de haut niveau en Trail.</li>
@@ -72,13 +78,18 @@ export default function About() {
             <p style={{ marginBottom: '1.5rem' }}>Ma philosophie repose sur un <strong>partenariat actif</strong>. Je ne suis pas là pour vous donner un plan de 10 semaines et attendre le résultat. Mon rôle est de vous donner les clés de compréhension de l'entraînement.</p>
             <p style={{ marginBottom: '1.5rem' }}>Pour vous offrir le meilleur de la science du sport, je réalise une <strong>veille scientifique constante</strong> sur les derniers travaux publiés. Mon approche est nourrie par les recherches d'experts de référence tels que <strong>Guillaume Millet</strong> (physiologie de la fatigue), <strong>Rémi Rivet / KS Training</strong> (préparation physique moderne) et <strong>Upside Strength</strong> (modélisation métabolique).</p>
             <p style={{ marginBottom: '1.5rem' }}>En utilisant des outils de modélisation (Puissance Critique, Vitesse Critique, VFC), je m'assure que chaque séance est parfaitement calibrée à votre état de forme du jour, tout en respectant votre intégrité physique et votre équilibre personnel.</p>
-            <div className="text-center" style={{ marginTop: '3rem' }}>
-                <Link href="/#contact" className="btn btn-primary btn-large">Réserver un échange gratuit</Link>
-            </div>
           </div>
         </div>
       </section>
+
       <Testimonials />
+
+      <CTASection 
+        title="Prêt à commencer l'aventure ?"
+        subtitle="Analysons ensemble votre profil pour définir votre stratégie de progression."
+        primaryButtonText="Réserver un échange gratuit"
+        secondaryButtonText="Voir mes services"
+      />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import CTASection from '@/components/sections/CTASection';
 
 export const metadata = {
   title: 'Coaching Course sur Route | SUMMITRAINING',
@@ -9,7 +10,10 @@ export const metadata = {
 export default function Route() {
   return (
     <>
-      <section className="section" id="page-header" style={{ paddingTop: '100px' }}>
+      <div style={{ paddingTop: '80px' }}>
+      </div>
+
+      <section className="section" id="page-header">
         <div className="container">
           <div className="section-header">
             <h1 className="section-title">Coaching <span className="text-accent">Course sur Route</span></h1>
@@ -42,7 +46,7 @@ export default function Route() {
       <section className="section bg-alt" id="faq-route" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
         <div className="container">
           <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '2rem' }}>Questions <span className="text-accent">Fréquentes</span></h2>
-          <div style={{ maxWidth: '800px', margin: '0 auto', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '12px', padding: '2rem' }}>
+          <div style={{ maxWidth: '800px', margin: '0 auto', background: 'var(--color-surface-container-low)', borderRadius: '12px', padding: '2rem' }}>
             <div style={{ marginBottom: '1.5rem' }}>
               <h3 style={{ fontSize: '1.15rem', color: 'var(--color-accent)', marginBottom: '0.5rem' }}>Comment bien se préparer pour un 10km ou un marathon sur route ?</h3>
               <p style={{ color: 'var(--color-text-main)', fontSize: '0.95rem', lineHeight: 1.6 }}>La performance sur route exige une mécanique de précision, notamment par l'optimisation de l'économie de course et le calibrage de vos allures clés avec la Vitesse Critique, une donnée bien plus fiable que la VMA traditionnelle pour l'entraînement polarisé.</p>
@@ -55,18 +59,12 @@ export default function Route() {
         </div>
       </section>
 
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="container" style={{ textAlign: 'center' }}>
-          <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '12px', padding: '3rem', maxWidth: '800px', margin: '0 auto' }}>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', fontFamily: 'var(--font-heading)' }}>Envie d'explorer les sentiers ?</h3>
-            <p style={{ color: 'var(--color-text-muted)', marginBottom: '2rem' }}>Je vous accompagne également dans votre préparation Trail et Ultra-Trail pour affronter le dénivelé sereinement.</p>
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link href="/trail" className="btn btn-secondary">Découvrir le coaching Trail</Link>
-              <Link href="/#offers" className="btn btn-primary">Voir les formules</Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTASection 
+        title="Envie d'explorer les sentiers ?"
+        subtitle="Je vous accompagne également dans votre préparation Trail et Ultra-Trail pour affronter le dénivelé sereinement."
+        primaryButtonText="Réserver mon coaching"
+        secondaryButtonText="Découvrir le coaching Trail"
+      />
 
       {/* FAQ Schema */}
       <script
@@ -81,7 +79,7 @@ export default function Route() {
                 "name": "Comment bien se préparer pour un 10km ou un marathon sur route ?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "La performance sur route exige une mécanique de précision, notamment par l'optimisation de l'économie de course et le calibrage de vos allures clés avec la Vitesse Critique, une donnée bien plus fiable que la VMA traditionnelle."
+                  "text": "La performance sur route exige une mécanique de précision, notamment par l'optimisation de l'économie de course et le calibrage de vos allures clés avec la Vitesse Critique."
                 }
               },
               {

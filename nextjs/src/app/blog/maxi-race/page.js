@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import ArticleLayout from '@/components/blog/ArticleLayout';
 
 export const metadata = {
@@ -17,6 +16,12 @@ export default function MaxiRace() {
         readTime="6 min de lecture"
         heroImage="https://images.unsplash.com/photo-1549740425-5e9ed4d8cd34?q=80&w=1200&auto=format&fit=crop"
         heroAlt="Coureur de trail dans les montagnes de Haute-Savoie"
+        relatedPost={{
+          title: "Vitesse Critique vs VMA : Quelle intensité pour le trail ?",
+          href: "/blog/vma-vs-vitesse-critique",
+          image: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=400&auto=format&fit=crop",
+          excerpt: "Pourquoi la VMA est souvent un mauvais indicateur pour les coureurs de longue distance et comment la Vitesse Critique révolutionne votre entraînement."
+        }}
       >
         <p className="chapeau">S'engager sur un ultra-trail de 100 km et 5782 m de dénivelé positif (D+) requiert bien plus qu'une simple accumulation kilométrique à l'entraînement. C'est une épreuve de gestion systémique : il faut préserver l'intégrité de ses fibres musculaires, optimiser l'oxydation des substrats énergétiques et retarder la fatigue neuromusculaire.</p>
         
@@ -69,15 +74,6 @@ export default function MaxiRace() {
 
         <h2 id="conclusion">Conclusion : La méthode prime sur le dogme</h2>
         <p>Ce guide n'est pas une vérité absolue, mais un exemple de réflexion. En ultra-endurance, rien n'est figé. C'est la rigueur de votre entraînement et vos tests grandeur nature qui forgeront votre adaptation et votre confiance le jour J.</p>
-
-        <div style={{ marginTop: '4rem', padding: '2.5rem', background: 'rgba(0, 136, 255, 0.05)', borderRadius: '16px', border: '1px solid rgba(0, 136, 255, 0.2)', textAlign: 'center' }}>
-          <h4 style={{ color: 'var(--color-text-main)', fontSize: '1.5rem', marginBottom: '1rem' }}>Vous préparez un objectif sur les sentiers ?</h4>
-          <p style={{ color: 'var(--color-text-muted)', marginBottom: '2rem', fontSize: '1.1rem' }}>Découvrez mon approche de coaching spécifique Trail scientifique et 100% individualisée.</p>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <Link href="/#offers" className="btn btn-primary">Découvrir mes formules</Link>
-            <Link href="/outils" className="btn btn-secondary">Estimer ma Puissance Critique</Link>
-          </div>
-        </div>
       </ArticleLayout>
 
       {/* JSON-LD Structured Data */}

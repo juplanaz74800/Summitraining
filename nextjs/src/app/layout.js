@@ -49,6 +49,44 @@ export default function RootLayout({ children }) {
           <main>{children}</main>
           <Footer />
         </Providers>
+
+        {/* Global SEO Schemas */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "SUMMITRAINING",
+              "url": "https://www.summitraining.fr",
+              "logo": "https://www.summitraining.fr/img/logo.png",
+              "founder": {
+                "@type": "Person",
+                "name": "Julien Planaz"
+              },
+              "sameAs": [
+                "https://www.instagram.com/julien_planaz/",
+                "https://www.linkedin.com/in/julien-planaz/"
+              ]
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "SUMMITRAINING",
+              "url": "https://www.summitraining.fr",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.summitraining.fr/blog?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
+        />
       </body>
     </html>
   );

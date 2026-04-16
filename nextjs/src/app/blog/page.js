@@ -1,4 +1,6 @@
 import BlogList from '@/components/blog/BlogList';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import CTASection from '@/components/sections/CTASection';
 
 export const metadata = {
   title: 'Blog Entraînement Endurance & Trail | Conseils d\'experts - SUMMITRAINING',
@@ -8,7 +10,18 @@ export const metadata = {
 export default function Blog() {
   return (
     <>
+      <div style={{ paddingTop: '80px' }}>
+        <Breadcrumbs />
+      </div>
+      
       <BlogList />
+
+      <CTASection 
+        title="Besoin d'un plan d'entraînement ?"
+        subtitle="Ne suivez pas un plan générique. Obtenez une programmation basée sur vos propres données physiologiques."
+        primaryButtonText="Démarrer mon coaching"
+        secondaryButtonText="Voir les tarifs"
+      />
     </>
   );
 }
