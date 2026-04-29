@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import CTASection from '@/components/sections/CTASection';
 
+import { CheckCircle2 } from 'lucide-react';
+
 export const metadata = {
   title: 'Coaching Course sur Route | SUMMITRAINING',
   description: 'Optimisez vos chronos sur 10km, Semi-Marathon et Marathon.',
@@ -17,7 +19,7 @@ export default function Route() {
         <div className="container">
           <div className="section-header">
             <h1 className="section-title">Coaching <span className="text-accent">Course sur Route</span></h1>
-            <p className="section-subtitle">Du 10km au Marathon : atteignez vos chronos grâce à une approche holistique et sur-mesure.</p>
+            <p className="section-subtitle">Chaque seconde compte. Voici comment les chercher au bon endroit.</p>
           </div>
 
           <div className="container about-wrapper" style={{ marginTop: '3rem' }}>
@@ -26,18 +28,18 @@ export default function Route() {
             </div>
             <div className="about-content" style={{ order: 1 }}>
               <h2>La route exige de la précision</h2>
-              <p>La performance sur route requiert une mécanique de précision. Sur 10km, semi-marathon ou marathon, chaque seconde compte. Ma méthode repose sur l'optimisation de votre économie de course et le calibrage parfait de vos allures clés (via l'analyse de votre <strong><Link href="/outils" style={{ color: 'var(--color-accent)', fontWeight: 500, textDecoration: 'underline' }}>Vitesse Critique</Link></strong>).</p>
+              <p>Beaucoup s'entraînent trop dur sur les séances faciles et pas assez sur les séances clés. C'est là que se cachent vos secondes perdues. Ma méthode repose sur le calibrage parfait de vos allures via l'analyse de votre <strong><Link href="/outils" style={{ color: 'var(--color-accent)', fontWeight: 500, textDecoration: 'underline' }}>Vitesse Critique</Link></strong> : une donnée bien plus fiable que la VMA pour construire un entraînement polarisé efficace.</p>
 
-              <p>Au travers de mon expertise en Biochimie et Physiologie de l'effort, je base mes plans sur la modélisation de votre <strong>Puissance Critique</strong> et de votre <strong>Endurance Index</strong> pour déterminer exactement les allures qui vous feront progresser sans vous blesser.</p>
+              <p>Grâce à mon expertise en Biochimie et Physiologie de l'effort, je modélise votre <strong>Puissance Critique</strong> et votre <strong>Endurance Index</strong> pour déterminer exactement les allures qui vous feront progresser, sans vous blesser.</p>
 
               <h3 style={{ marginTop: '2rem', marginBottom: '1rem' }}>La méthode spécifique Route :</h3>
               <ul style={{ listStyleType: 'none', paddingLeft: 0, color: 'var(--color-text-main)' }}>
-                <li><i className="icon-check">✓</i> <strong>Ciblage de l'allure spécifique :</strong> Travail au seuil et développement de l'économie de course.</li>
-                <li><i className="icon-check">✓</i> <strong>Périodisation millimétrée :</strong> Blocs d'entraînement et phase d'affûtage pour arriver au pic de forme le jour J.</li>
-                <li><i className="icon-check">✓</i> <strong>Prévention des blessures :</strong> Intégration de renforcement (PPG) indispensable pour encaisser les chocs de la route.</li>
+                <li style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> <strong>Ciblage de l'allure spécifique :</strong> Travail au seuil et développement de l'économie de course.</li>
+                <li style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> <strong>Périodisation millimétrée :</strong> Blocs d'entraînement et phase d'affûtage pour arriver au pic de forme le jour J.</li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> <strong>Prévention des blessures :</strong> Intégration de renforcement (PPG) indispensable pour encaisser les chocs de la route.</li>
               </ul>
 
-              <Link href="/#contact" className="btn btn-primary btn-large mt-4">Je veux battre mon record personnel</Link>
+              <Link href="/#contact" className="btn btn-primary btn-large mt-4">Battre mon record personnel</Link>
             </div>
           </div>
         </div>
@@ -60,8 +62,8 @@ export default function Route() {
       </section>
 
       <CTASection 
-        title="Envie d'explorer les sentiers ?"
-        subtitle="Je vous accompagne également dans votre préparation Trail et Ultra-Trail pour affronter le dénivelé sereinement."
+        title="Vous courez aussi sur les sentiers ?"
+        subtitle="Trail, ultra, dénivelé — je vous accompagne pour préparer la montagne avec la même rigueur scientifique."
         primaryButtonText="Réserver mon coaching"
         secondaryButtonText="Découvrir le coaching Trail"
       />

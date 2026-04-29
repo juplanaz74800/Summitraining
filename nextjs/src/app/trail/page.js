@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import CTASection from '@/components/sections/CTASection';
 
+import { CheckCircle2 } from 'lucide-react';
+
 export const metadata = {
   title: 'Coach Trail Annecy & Haute-Savoie | SUMMITRAINING',
   description: 'Entraînement 100% individualisé pour le trail et l\'ultra-trail en Haute-Savoie.',
@@ -17,26 +19,25 @@ export default function Trail() {
         <div className="container">
           <div className="section-header">
             <h1 className="section-title">Coaching <span className="text-accent">Trail</span> & Ultra-Trail</h1>
-            <p className="section-subtitle">Votre préparation millimétrée pour conquérir les dénivelés de Haute-Savoie et d'ailleurs.</p>
+            <p className="section-subtitle">Le trail exige plus qu'un bon cardio. Voici comment le préparer sérieusement.</p>
           </div>
 
           <div className="container about-wrapper" style={{ marginTop: '3rem' }}>
             <div className="about-content">
               <h2>Une approche scientifique de la montagne</h2>
-              <p>Le trail est une discipline aux variables multiples où la performance ne se résume plus à une simple allure ou une VMA. La performance en Trail est une équation complexe : elle demande une maîtrise de la verticalité, une protection face à la casse de fibres en descente et une haute efficience métabolique.</p>
-
-              <p>Mon expertise s'est forgée au cœur de l'altitude, à Font-Romeu. Durant mon cursus universitaire (Licence STAPS Entraînement & Altitude), j'ai eu l'opportunité de côtoyer l'élite sportive au CREPS et de me spécialiser en physiologie de l'exercice sous l'enseignement de <strong>Grégory Doucende</strong>. Grâce à cette rigueur scientifique, je calibre votre <strong><Link href="/outils" style={{ color: 'var(--color-accent)', fontWeight: 500, textDecoration: 'underline' }}>Test de Puissance Critique</Link></strong> pour qu'il devienne votre boussole de performance face aux exigences réelles de la montagne.</p>
+              <p>En trail, courir vite en montée ne suffit pas. La casse musculaire en descente, la gestion métabolique sur 10h d'effort, le pacing au dénivelé : ce sont des compétences qui s'apprennent. Et qui s'entraînent.</p>
+              <p>Mon expertise s'est forgée à Font-Romeu, au cœur de l'altitude. Licence STAPS Entraînement & Altitude, spécialisation en physiologie de l'exercice sous <strong>Grégory Doucende</strong>. Depuis, je calibre votre <strong><Link href="/outils" style={{ color: 'var(--color-accent)', fontWeight: 500, textDecoration: 'underline' }}>profil physiologique complet</Link></strong> pour qu'il devienne votre boussole de performance en conditions réelles.</p>
 
               <h3 style={{ marginTop: '2rem', marginBottom: '1rem' }}>Les piliers du suivi Trail :</h3>
               <ul style={{ listStyleType: 'none', paddingLeft: 0, color: 'var(--color-text-main)' }}>
-                <li style={{ marginBottom: '0.5rem' }}><i className="icon-check">✓</i> <strong>Apprentissage technique :</strong> Maîtrise de la foulée en dénivelé, biomécanique et aisance dans les descentes techniques.</li>
-                <li style={{ marginBottom: '0.5rem' }}><i className="icon-check">✓</i> <strong>Stratégie de course & Pacing :</strong> Régulation de l'allure via la VAM et la puissance pour lisser votre effort sur ultra-trail.</li>
-                <li style={{ marginBottom: '0.5rem' }}><i className="icon-check">✓</i> <strong>Alimentation & Hydratation :</strong> Planification nutritionnelle sur-mesure pour éviter les défaillances métaboliques en ultra-endurance.</li>
-                <li style={{ marginBottom: '0.5rem' }}><i className="icon-check">✓</i> <strong>Renforcement musculaire :</strong> Programmation spécifique de force, PPG et prévention des blessures musculaires et articulaires.</li>
-                <li><i className="icon-check">✓</i> <strong>Gestion de l'effort & Modélisation :</strong> Analyse de la charge d'entraînement et de la fatigue (VFC) pour progresser sans surentraînement.</li>
+                <li style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> <strong>Apprentissage technique :</strong> Maîtrise de la foulée en dénivelé, biomécanique et aisance dans les descentes techniques.</li>
+                <li style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> <strong>Stratégie de course & Pacing :</strong> Régulation de l'allure via la VAM et la puissance pour lisser votre effort sur ultra-trail.</li>
+                <li style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> <strong>Alimentation & Hydratation :</strong> Planification nutritionnelle sur-mesure pour éviter les défaillances métaboliques en ultra-endurance.</li>
+                <li style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> <strong>Renforcement musculaire :</strong> Programmation spécifique de force, PPG et prévention des blessures musculaires et articulaires.</li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> <strong>Gestion de l'effort & Modélisation :</strong> Analyse de la charge d'entraînement et de la fatigue (VFC) pour progresser sans surentraînement.</li>
               </ul>
 
-              <Link href="/#contact" className="btn btn-primary btn-large mt-4">Je veux préparer mon prochain Trail</Link>
+              <Link href="/#contact" className="btn btn-primary btn-large mt-4">Préparer mon prochain trail</Link>
             </div>
             <div className="about-image">
               <Image src="/img/thib.jpeg" alt="Entraînement Trail" width={400} height={533} className="coach-photo" style={{ objectPosition: 'center', objectFit: 'cover' }} />
@@ -78,8 +79,8 @@ export default function Trail() {
       </section>
 
       <CTASection 
-        title="Envie de vitesse sur le bitume ?"
-        subtitle="Je vous accompagne également dans votre préparation sur route pour vos objectifs chronométriques (10km, Semi, Marathon)."
+        title="La route vous attend aussi ?"
+        subtitle="Un coaching spécifique pour vos objectifs sur route : 10km, Semi-Marathon, Marathon. Chaque seconde compte, on les cherche ensemble."
         primaryButtonText="Réserver mon coaching"
         secondaryButtonText="Découvrir le coaching Route"
       />

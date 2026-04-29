@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700;800;900&amp;family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "secondary-container": "#e2e2e2",
+                "on-background": "#1f1b13",
+                "surface-container-highest": "#eae2d3",
+                "background": "#fff8f0",
+                "inverse-surface": "#343027",
+                "primary-fixed": "#dae1ff",
+                "on-surface": "#1f1b13",
+                "surface-dim": "#e1d9cb",
+                "on-secondary-fixed": "#1b1b1b",
+                "surface-container-lowest": "#ffffff",
+                "error-container": "#ffdad6",
+                "tertiary-fixed": "#ece1d3",
+                "on-primary-fixed": "#001849",
+                "on-surface-variant": "#424655",
+                "surface-container-high": "#f0e7d9",
+                "primary": "#0053d0",
+                "on-tertiary-fixed-variant": "#4d463c",
+                "secondary-fixed": "#e2e2e2",
+                "primary-container": "#2b6cf2",
+                "surface-variant": "#eae2d3",
+                "primary-fixed-dim": "#b3c5ff",
+                "on-primary": "#ffffff",
+                "surface": "#fff8f0",
+                "tertiary": "#625b50",
+                "inverse-primary": "#b3c5ff",
+                "surface-container": "#f5edde",
+                "surface-tint": "#0055d5",
+                "surface-container-low": "#fbf3e4",
+                "tertiary-container": "#7c7368",
+                "surface-bright": "#fff8f0",
+                "on-tertiary": "#ffffff",
+                "on-error-container": "#93000a",
+                "on-error": "#ffffff",
+                "secondary": "#5e5e5e",
+                "outline-variant": "#c3c6d7",
+                "on-primary-fixed-variant": "#003fa3",
+                "on-secondary-fixed-variant": "#474747",
+                "inverse-on-surface": "#f8f0e1",
+                "error": "#ba1a1a",
+                "on-tertiary-fixed": "#201b12",
+                "on-tertiary-container": "#fffbff",
+                "on-secondary-container": "#646464",
+                "on-secondary": "#ffffff",
+                "outline": "#737686",
+                "on-primary-container": "#fffcff"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "fontFamily": {
+                "headline": ["Lexend"],
+                "body": ["Inter"],
+                "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-primary-gradient {
+            background: linear-gradient(135deg, #0053d0 0%, #2b6cf2 100%);
+        }
+        .hero-mask {
+            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="bg-[#fff8f0]/80 dark:bg-[#1f1b13]/80 backdrop-blur-md sticky top-0 z-50 shadow-[0px_20px_40px_rgba(31,27,19,0.06)]">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto font-lexend text-on-surface dark:text-on-surface-variant">
+<div class="text-2xl font-black tracking-tighter text-[#0053d0] dark:text-[#2b6cf2]">Summitraining</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#625b50] dark:text-[#ece1d3] hover:text-[#2b6cf2] transition-colors duration-300" href="#">Entraînement</a>
+<a class="text-[#625b50] dark:text-[#ece1d3] hover:text-[#2b6cf2] transition-colors duration-300" href="#">Coaching</a>
+<a class="text-[#0053d0] dark:text-[#2b6cf2] font-bold border-b-2 border-[#0053d0] hover:text-[#2b6cf2] transition-colors duration-300" href="#">Tarifs</a>
+<a class="text-[#625b50] dark:text-[#ece1d3] hover:text-[#2b6cf2] transition-colors duration-300" href="#">À propos</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary-gradient text-white px-6 py-2.5 rounded-full font-label text-sm font-bold tracking-wider uppercase scale-95 active:scale-90 transition-transform">Démarrer</button>
+</div>
+</div>
+</nav>
+<main class="min-h-screen">
+<!-- Hero Section -->
+<section class="relative pt-24 pb-16 px-6 overflow-hidden">
+<div class="max-w-7xl mx-auto text-center relative z-10">
+<span class="font-label text-primary font-bold tracking-[0.2em] uppercase mb-4 block">Performance endurance</span>
+<h1 class="font-headline text-5xl md:text-7xl font-black text-on-background tracking-tighter mb-6 leading-tight">Summit Lab</h1>
+<p class="font-headline text-xl md:text-2xl text-tertiary max-w-2xl mx-auto">Un accompagnement haute performance pour ceux qui refusent de stagner.</p>
+</div>
+<!-- Abstract Kinetic Background Element -->
+<div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px]"></div>
+</section>
+<!-- Pricing Controls Section -->
+<section class="px-6 pb-24">
+<div class="max-w-7xl mx-auto">
+<!-- Bento Grid Pricing Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+<!-- Main Focus Card: Remote Coaching -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-8 md:p-12 shadow-[0px_20px_40px_rgba(31,27,19,0.06)] flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8">
+<span class="material-symbols-outlined text-primary/10 text-8xl scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-500" data-icon="settings_input_antenna"></span>
+</div>
+<div class="relative z-10">
+<h3 class="font-headline text-3xl font-bold text-on-background mb-2">À distance</h3>
+<p class="text-tertiary mb-8 font-bold text-sm tracking-wide"><b>"La science du sport au service de votre autonomie."</b></p><div><i>Découvrez un coaching à distance où l'analyse rigoureuse de vos métriques rencontre une planification sur-mesure, pour des résultats mesurables et durables.</i></div><p></p>
+<div class="grid grid-cols-1 gap-y-6 mb-10 max-w-2xl">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-xl mt-1" data-icon="architecture"></span>
+<div>
+<h4 class="text-sm font-bold text-on-background mb-1">Audit Stratégique Individuel</h4>
+<p class="text-xs text-tertiary leading-relaxed">Une analyse approfondie de votre historique et de vos contraintes pour concevoir une architecture d’entraînement strictement alignée sur vos ambitions.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-xl mt-1" data-icon="fingerprint"></span>
+<div>
+<h4 class="text-sm font-bold text-on-background mb-1">Signature Physiologique exclusive</h4>
+<p class="text-xs text-tertiary leading-relaxed">Détermination de votre profil unique (VMA, Puissance Critique) pour calibrer vos zones de travail réelles sur votre interface experte Intervals.icu.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-xl mt-1" data-icon="monitoring"></span>
+<div>
+<h4 class="text-sm font-bold text-on-background mb-1">Programmation Adaptative</h4>
+<p class="text-xs text-tertiary leading-relaxed">Un plan d'entraînement qui évolue avec vous. Chaque séance est réajustée hebdomadairement selon vos indicateurs de fatigue (VFC/RPE) pour garantir une progression sécurisée.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-xl mt-1" data-icon="handshake"></span>
+<div>
+<h4 class="text-sm font-bold text-on-background mb-1">Partenariat Expert</h4>
+<p class="text-xs text-tertiary leading-relaxed">Un échange continu pour décrypter le sens de chaque bloc de travail, plaçant la compréhension et l'autonomie au cœur de votre réussite.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-xl mt-1" data-icon="hub"></span>
+<div>
+<h4 class="text-sm font-bold text-on-background mb-1">Écosystème de Performance</h4>
+<p class="text-xs text-tertiary leading-relaxed">Un accès privilégié à des protocoles pointus (nutrition, technique, séances croisées) pour optimiser chaque paramètre de votre potentiel.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 relative z-10 pt-8 border-t border-outline-variant/10">
+<div>
+<span class="font-label text-4xl font-bold text-on-background tracking-tighter">130€</span>
+<span class="text-tertiary font-label">/mois</span>
+<p class="text-[10px] uppercase tracking-widest text-primary font-bold mt-2">FACTURATION MENSUELLE</p>
+</div>
+<button class="bg-primary-gradient text-on-primary px-10 py-4 rounded-full font-label font-bold tracking-widest uppercase hover:shadow-lg transition-all group-hover:scale-[1.02] active:scale-95">Rejoindre le Lab</button>
+</div>
+</div>
+<!-- Secondary Feature Card: In-Person -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="flex-1 bg-on-background rounded-xl p-8 text-surface flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -bottom-10 -right-10 opacity-10 group-hover:scale-110 transition-transform duration-700 pointer-events-none">
+<img class="w-64 h-64 object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfoKWllJ8umRUfoyP-uFR95mbwYjnuvUoidUkKxim9I59l4hG4UKsQMAuLfFixZRlwW4uVUb_q3AsJSqNkveDNicpl2BzpsTh5LtwefKtqLB3eSyE2uvBkyuC2spiLUd-bS46MBJPrU_XNLT6FKoltGONfyCXCddvq0wOfW9WjJujMfXzjNqA1qUueaPY2w7pknPAZp4cQAaTnv6dqKqhSnToZd8ldIU6INJZpoXxCtBlgCBCZdM646Ic6TTkGc4vTfhKnmcS3mgHI"/>
+</div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-headline text-2xl font-bold">Présentiel</h3>
+<span class="bg-primary text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Sur site</span>
+</div>
+<!-- Interactive Toggle -->
+<div class="bg-white/10 p-1 rounded-full flex items-center mb-8 w-fit border border-white/5">
+<button class="px-6 py-2 rounded-full bg-surface text-on-background font-label font-bold text-xs transition-all">Solo Performance</button>
+<button class="px-6 py-2 rounded-full text-surface-variant font-label font-bold text-xs hover:text-white transition-all">Mini-Groupe</button>
+</div>
+<div class="space-y-6">
+<div class="group/solo">
+<h4 class="font-bold text-primary text-sm mb-2 flex flex-col">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg" data-icon="person"></span> Solo Performance</span>
+<span class="text-[10px] uppercase tracking-widest opacity-80 mt-1">Coaching 1-to-1 (L'Expertise Haute Couture)</span>
+</h4>
+<ul class="space-y-2 text-surface-variant/80 text-[11px] leading-snug">
+<li class="flex gap-2"><span>1.</span> Correction technique millimétrée : Analyse et ajustement en direct de la foulée, de la posture et de l'économie de course.</li>
+<li class="flex gap-2"><span>2.</span> Individualisation adaptative : Ajustement de l'intensité de la séance selon l'état de forme visible à l'œil nu.</li>
+<li class="flex gap-2"><span>3.</span> Échange privilégié : Temps dédié pour aborder la stratégie de course, la nutrition et l'aspect psychologique.</li>
+<li class="flex gap-2"><span>4.</span> Sécurité maximale : Identification précoce des signes de fatigue ou des mauvaises postures.</li>
+</ul>
+</div>
+<div class="group/group opacity-60">
+<h4 class="font-bold text-surface text-sm mb-2 flex flex-col">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg" data-icon="groups"></span> Mini-Groupe</span>
+<span class="text-[10px] uppercase tracking-widest opacity-80 mt-1">Coaching en Mini-Groupe (L'Énergie Collective)</span>
+</h4>
+<ul class="space-y-2 text-surface-variant/80 text-[11px] leading-snug">
+<li class="flex gap-2"><span>1.</span> Émulation et dépassement : L'effet de groupe facilite la réalisation des séances de haute intensité (VMA, seuil, côtes).</li>
+<li class="flex gap-2"><span>2.</span> Dynamique sociale : Création d'une communauté d'athlètes, réduisant la solitude de l'entraînement de fond.</li>
+<li class="flex gap-2"><span>3.</span> Ratio Qualité/Prix optimal : Accès à l'expertise pour l'athlète à un coût réduit.</li>
+<li class="flex gap-2"><span>4.</span> Gestion de l'adversité : Apprendre à gérer son allure en fonction des autres, une compétence cruciale.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="relative z-10 pt-6 border-t border-surface-variant/10 mt-8">
+<div class="flex items-baseline gap-2 mb-4">
+<span class="font-label text-3xl font-bold italic text-surface">70€</span>
+<span class="text-surface-variant/60 text-xs">/séance (Solo)</span><span class="text-surface-variant/40 mx-1">|</span><span class="font-label font-bold text-surface">25€</span><span class="text-surface-variant/60 text-xs"> /pers. (Groupe)</span>
+</div>
+<button class="w-full bg-surface text-on-background py-3 rounded-full font-label font-bold text-sm tracking-widest uppercase hover:bg-primary-container hover:text-on-primary transition-all">Réserver une séance</button>
+</div>
+</div>
+<!-- Mini Stats/Injected Card -->
+<div class="bg-primary-gradient rounded-xl p-8 text-on-primary">
+<div class="flex items-center justify-between mb-4">
+<h4 class="font-label font-bold uppercase tracking-widest text-xs opacity-80">Taux d'occupation du Lab</h4>
+<span class="bg-white/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase">Limité</span>
+</div>
+<div class="flex items-end justify-between mb-6">
+<div>
+<p class="font-headline text-4xl font-black italic">94%</p>
+<p class="text-xs font-bold text-white/90">Seulement 2 places disponibles ce mois-ci</p>
+</div>
+<div class="text-right">
+<span class="material-symbols-outlined text-4xl" data-icon="leaderboard"></span>
+</div>
+</div>
+<div class="mt-4 h-2 w-full bg-white/20 rounded-full overflow-hidden">
+<div class="h-full bg-white w-[94%] shadow-[0_0_15px_rgba(255,255,255,0.5)]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Comparison Section -->
+<section class="py-24 bg-surface-container-low px-6">
+<div class="max-w-5xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline text-4xl font-bold tracking-tight mb-4">Au cœur de l'Écosystème</h2>
+<p class="text-tertiary">Comparaison technique des différentes méthodes d'accompagnement.</p>
+</div>
+<div class="space-y-4">
+<!-- Tech Row 1 -->
+<div class="grid grid-cols-1 md:grid-cols-3 p-6 bg-surface-container rounded-xl items-center">
+<div class="font-label font-bold text-on-background">Programmation Dynamique</div>
+<div class="flex items-center gap-2 text-sm text-tertiary md:justify-center py-2 md:py-0">
+<span class="material-symbols-outlined text-primary" data-icon="check" data-weight="fill"></span>
+                            À distance
+                        </div>
+<div class="flex items-center gap-2 text-sm text-tertiary md:justify-end">
+<span class="material-symbols-outlined text-primary" data-icon="check" data-weight="fill"></span>
+                            Présentiel
+                        </div>
+</div>
+<!-- Tech Row 2 -->
+<div class="grid grid-cols-1 md:grid-cols-3 p-6 bg-surface-container-high rounded-xl items-center">
+<div class="font-label font-bold text-on-background">Feedback Biomécanique</div>
+<div class="flex items-center gap-2 text-sm text-tertiary md:justify-center py-2 md:py-0">
+<span class="material-symbols-outlined text-tertiary/30" data-icon="close"></span>
+                            À distance
+                        </div>
+<div class="flex items-center gap-2 text-sm text-tertiary md:justify-end">
+<span class="material-symbols-outlined text-primary" data-icon="check" data-weight="fill"></span>
+                            Présentiel
+                        </div>
+</div>
+<!-- Tech Row 3 -->
+<div class="grid grid-cols-1 md:grid-cols-3 p-6 bg-surface-container rounded-xl items-center">
+<div class="font-label font-bold text-on-background">Intégration Capteurs</div>
+<div class="flex items-center gap-2 text-sm text-tertiary md:justify-center py-2 md:py-0">
+<span class="material-symbols-outlined text-primary" data-icon="check" data-weight="fill"></span>
+                            À distance
+                        </div>
+<div class="flex items-center gap-2 text-sm text-tertiary md:justify-end">
+<span class="material-symbols-outlined text-tertiary/30" data-icon="close"></span>
+                            Présentiel
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Anchor (Full Width CTA) -->
+<section class="h-[600px] relative flex items-center justify-center text-center px-6">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuItCHYVymD5OzHGxdsyGaJTpeRfavORzM6dh605B-z7GAKElli3E640_8sFhc4-wmfczVcmGBrKLo0Pu9O1Yl0uMgLTThsS1YWR_-Bvs0-kkirv9hp2XbcExc7H2Ga_w_z2ubPWZRQFmQIO-2-Aw_mYRpqGkFBPiyqrprK6ke3khlwv6zUlslwEwB9-neEy2VgC0kCUesLxHYaJC1QxII9CzsGgTQB4fwdJJ1W2qp1qprY3fyuErh131b87KOBI0JASLfKAeuvlJ4"/>
+<div class="absolute inset-0 bg-on-background/60 backdrop-blur-[2px]"></div>
+</div>
+<div class="relative z-10 max-w-3xl">
+<h2 class="font-headline text-5xl md:text-7xl font-black text-surface tracking-tighter mb-8 leading-none">Prêt pour l'ascension ?</h2>
+<p class="font-body text-xl text-surface-variant/90 mb-12">Les places sont limitées pour garantir une précision 1:1 absolue.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-primary-gradient text-on-primary px-12 py-5 rounded-full font-label font-bold tracking-[0.2em] uppercase shadow-2xl hover:scale-105 active:scale-95 transition-transform">Déposer une candidature</button>
+<button class="bg-surface/10 backdrop-blur-md text-surface border border-surface/20 px-12 py-5 rounded-full font-label font-bold tracking-[0.2em] uppercase hover:bg-surface/20 transition-all">Appel stratégique</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#ece1d3] dark:bg-[#1f1b13] full-width py-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto font-inter text-sm tracking-wide text-[#625b50] dark:text-[#ece1d3]">
+<div class="mb-8 md:mb-0 text-center md:text-left">
+<div class="font-lexend font-bold text-[#1f1b13] dark:text-[#fff8f0] text-xl mb-2">Summitraining</div>
+<p class="opacity-80">© 2024 Summitraining. La performance cinétique au sommet.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 md:gap-12">
+<a class="text-[#625b50] hover:text-[#0053d0] dark:hover:text-[#2b6cf2] transition-all opacity-80 hover:opacity-100" href="#">Conditions</a>
+<a class="text-[#625b50] hover:text-[#0053d0] dark:hover:text-[#2b6cf2] transition-all opacity-80 hover:opacity-100" href="#">Confidentialité</a>
+<a class="text-[#625b50] hover:text-[#0053d0] dark:hover:text-[#2b6cf2] transition-all opacity-80 hover:opacity-100" href="#">Contact</a>
+<a class="text-[#625b50] hover:text-[#0053d0] dark:hover:text-[#2b6cf2] transition-all opacity-80 hover:opacity-100" href="#">Presse</a>
+</div>
+</div>
+</footer>
+</body></html>

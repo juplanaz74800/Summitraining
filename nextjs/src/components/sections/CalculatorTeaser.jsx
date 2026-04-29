@@ -9,19 +9,19 @@ export default function CalculatorTeaser() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="section bg-alt" 
+      className="section" 
       id="calculator"
     >
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Outils & <span className="text-accent">Ressources</span></h2>
-          <p className="section-subtitle">Testez par vous-même : découvrez mon Calculateur de Puissance Critique.</p>
+          <h2 className="section-title">Connaissez-vous vos vraies <span className="text-accent">zones d'entraînement ?</span></h2>
+          <p className="section-subtitle">Beaucoup s'entraînent à la mauvaise intensité. Ce calculateur, basé sur vos chronos réels, vous révèle vos zones en 2 minutes.</p>
         </div>
-        <div className="calculator-teaser">
+        <div className="calculator-teaser card">
           <div className="calculator-content">
-            <h3>Calculateur de Puissance & Vitesse Critique</h3>
-            <p>J'ai développé cet outil pour vous permettre d'estimer vos propres zones d'entraînement (Allures et Puissance) à partir de vos récents chronos. Une première étape vers une pratique plus scientifique et précise.</p>
-            <Link href="/outils" className="btn btn-primary btn-large mt-4">Tester le Calculateur</Link>
+            <h3 className="font-technical">Calculateur de Puissance & Vitesse Critique</h3>
+            <p>Cet outil estime vos zones d'entraînement réelles à partir de vos chronos récents. Pas d'estimation au doigt mouillé. Des données qui partent de vous, pour construire un entraînement qui a du sens.</p>
+            <Link href="/outils" className="btn btn-primary btn-large" style={{ marginTop: '1.5rem' }}>Calculer mes zones gratuitement</Link>
           </div>
         </div>
       </div>

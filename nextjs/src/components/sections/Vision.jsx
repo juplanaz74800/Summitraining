@@ -13,9 +13,9 @@ export default function Vision() {
           className="vision-left"
         >
           <h2 className="vision-heading">
-            <span className="highlight">PRÊT(E) POUR PLONGER DANS</span><br />
-            <span className="highlight">L'UNIVERS COMPLET DU</span><br />
-            <span className="highlight indent">TRAIL RUNNING ?</span>
+            <span className="highlight">UN COACHING QUI</span><br />
+            <span className="highlight">PART DE VOUS.</span><br />
+            <span className="highlight indent">PAS D'UN TEMPLATE.</span>
           </h2>
         </motion.div>
         
@@ -29,7 +29,7 @@ export default function Vision() {
           className="vision-right"
         >
           <p>
-            Je vous offre une vision holistique de l'entraînement pour vous aider à atteindre vos objectifs, quels que soient votre niveau et votre expérience.
+            Chaque athlète est unique. Biologie, disponibilités, objectifs, contraintes : tout est pris en compte dès le premier échange. Pas de plan générique. Pas de promesses vagues. Une préparation calibrée à votre réalité, où que vous soyez.
           </p>
         </motion.div>
       </div>

@@ -10,7 +10,7 @@ export default function AboutTeaser() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="section" 
+      className="section bg-alt" 
       id="about" 
       style={{ padding: 'var(--space-xl) 0' }}
     >
@@ -29,10 +29,10 @@ export default function AboutTeaser() {
           <h2 className="section-title">Le <span className="text-accent">Coach</span></h2>
           <h3>Julien Planaz</h3>
           <p className="subtitle text-accent" style={{ fontWeight: 600, fontSize: '1.1rem', marginTop: '-0.5rem', marginBottom: '1.5rem' }}>
-            Coach Sportif Endurance | Expertise Scientifique & Terrain
+            Coach Sportif | Expert en Physiologie de l'Effort | Annecy & International
           </p>
-          <p>Originaire des Alpes, j'allie mon expertise du terrain à un double cursus universitaire en STAPS (Font-Romeu) et en Nutrition pour vous offrir un accompagnement d'exception.</p>
-          <p>Mon approche ? Une vision globale où la gestion de la verticalité, du métabolisme et de la nutrition compte autant que la simple allure.</p>
+          <p>La montagne m'a appris à lire l'effort. Font-Romeu et la Licence STAPS m'ont appris à le mesurer. Depuis, je traduis la science en plans que vous pouvez réellement suivre, et que vous comprenez.</p>
+          <p>Ma vision : un partenariat actif. Je ne vous donne pas un plan de 10 semaines et j'attends le résultat. Je suis là chaque semaine, à chaque doute, à chaque imprévu.</p>
           <div style={{ marginTop: '2rem' }}>
             <Link href="/a-propos" className="btn btn-primary" style={{ textDecoration: 'none' }}>
               Découvrir mon parcours complet

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700;800;900&amp;family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "secondary-container": "#e2e2e2",
+                "on-background": "#1f1b13",
+                "surface-container-highest": "#eae2d3",
+                "background": "#fff8f0",
+                "inverse-surface": "#343027",
+                "primary-fixed": "#dae1ff",
+                "on-surface": "#1f1b13",
+                "surface-dim": "#e1d9cb",
+                "on-secondary-fixed": "#1b1b1b",
+                "surface-container-lowest": "#ffffff",
+                "error-container": "#ffdad6",
+                "tertiary-fixed": "#ece1d3",
+                "on-primary-fixed": "#001849",
+                "on-surface-variant": "#424655",
+                "surface-container-high": "#f0e7d9",
+                "primary": "#0053d0",
+                "on-tertiary-fixed-variant": "#4d463c",
+                "secondary-fixed": "#e2e2e2",
+                "primary-container": "#2b6cf2",
+                "surface-variant": "#eae2d3",
+                "primary-fixed-dim": "#b3c5ff",
+                "on-primary": "#ffffff",
+                "surface": "#fff8f0",
+                "tertiary-fixed-dim": "#d0c5b8",
+                "secondary-fixed-dim": "#c6c6c6",
+                "tertiary": "#625b50",
+                "inverse-primary": "#b3c5ff",
+                "surface-container": "#f5edde",
+                "surface-tint": "#0055d5",
+                "surface-container-low": "#fbf3e4",
+                "tertiary-container": "#7c7368",
+                "surface-bright": "#fff8f0",
+                "on-tertiary": "#ffffff",
+                "on-error-container": "#93000a",
+                "on-error": "#ffffff",
+                "secondary": "#5e5e5e",
+                "outline-variant": "#c3c6d7",
+                "on-primary-fixed-variant": "#003fa3",
+                "on-secondary-fixed-variant": "#474747",
+                "inverse-on-surface": "#f8f0e1",
+                "error": "#ba1a1a",
+                "on-tertiary-fixed": "#201b12",
+                "on-tertiary-container": "#fffbff",
+                "on-secondary-container": "#646464",
+                "on-secondary": "#ffffff",
+                "outline": "#737686",
+                "on-primary-container": "#fffcff"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "fontFamily": {
+                "headline": ["Lexend"],
+                "body": ["Inter"],
+                "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-primary-gradient {
+            background: linear-gradient(135deg, #0053d0 0%, #2b6cf2 100%);
+        }
+        .hero-mask {
+            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="bg-[#fff8f0]/80 dark:bg-[#1f1b13]/80 backdrop-blur-md sticky top-0 z-50 shadow-[0px_20px_40px_rgba(31,27,19,0.06)]">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto font-lexend text-on-surface dark:text-on-surface-variant">
+<div class="text-2xl font-black tracking-tighter text-[#0053d0] dark:text-[#2b6cf2]">Summitraining</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#625b50] dark:text-[#ece1d3] hover:text-[#2b6cf2] transition-colors duration-300" href="#">Training</a>
+<a class="text-[#625b50] dark:text-[#ece1d3] hover:text-[#2b6cf2] transition-colors duration-300" href="#">Coaching</a>
+<a class="text-[#0053d0] dark:text-[#2b6cf2] font-bold border-b-2 border-[#0053d0] hover:text-[#2b6cf2] transition-colors duration-300" href="#">Pricing</a>
+<a class="text-[#625b50] dark:text-[#ece1d3] hover:text-[#2b6cf2] transition-colors duration-300" href="#">About</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary-gradient text-white px-6 py-2.5 rounded-full font-label text-sm font-bold tracking-wider uppercase scale-95 active:scale-90 transition-transform">Get Started</button>
+</div>
+</div>
+</nav>
+<main class="min-h-screen">
+<!-- Hero Section -->
+<section class="relative pt-24 pb-16 px-6 overflow-hidden">
+<div class="max-w-7xl mx-auto text-center relative z-10">
+<span class="font-label text-primary font-bold tracking-[0.2em] uppercase mb-4 block">Engineered Performance</span>
+<h1 class="font-headline text-5xl md:text-7xl font-black text-on-background tracking-tighter mb-6 leading-tight">The Pricing Lab</h1>
+<p class="font-headline text-xl md:text-2xl text-tertiary max-w-2xl mx-auto">Performance Engineered Coaching for those who refuse the plateau.</p>
+</div>
+<!-- Abstract Kinetic Background Element -->
+<div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px]"></div>
+</section>
+<!-- Pricing Controls Section -->
+<section class="px-6 pb-24">
+<div class="max-w-7xl mx-auto">
+<!-- Selectors (Switches) -->
+<div class="flex flex-col items-center gap-8 mb-16">
+<!-- Switch 1: Method -->
+<div class="bg-surface-container-low p-1.5 rounded-full flex items-center shadow-inner">
+<button class="px-8 py-3 rounded-full bg-primary-gradient text-on-primary font-label font-bold text-sm transition-all">À Distance</button>
+<button class="px-8 py-3 rounded-full text-tertiary font-label font-bold text-sm hover:text-primary transition-all">Présentiel</button>
+</div>
+<!-- Switch 2: Scale (Conditional logic simulated visually) -->
+<div class="flex items-center gap-4 opacity-40 grayscale cursor-not-allowed">
+<span class="font-label text-xs font-bold text-tertiary uppercase tracking-widest">In-Person Scale:</span>
+<div class="bg-surface-container p-1 rounded-full flex items-center">
+<button class="px-6 py-2 rounded-full text-tertiary font-label font-bold text-xs">Solo</button>
+<button class="px-6 py-2 rounded-full text-tertiary font-label font-bold text-xs">Mini-Groupe</button>
+</div>
+</div>
+</div>
+<!-- Bento Grid Pricing Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+<!-- Main Focus Card: Remote Coaching -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-8 md:p-12 shadow-[0px_20px_40px_rgba(31,27,19,0.06)] flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8">
+<span class="material-symbols-outlined text-primary/20 text-8xl scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-500" data-icon="insights"></span>
+</div>
+<div class="relative z-10">
+<h3 class="font-headline text-3xl font-bold text-on-background mb-2">Accompagnement à distance</h3>
+<p class="text-tertiary mb-8 max-w-md">Precision remote tracking with deep data integration for elite athletes and performance enthusiasts.</p>
+<div class="space-y-4 mb-12">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle"></span>
+<div>
+<p class="font-bold text-on-background">Analyse de données biométriques</p>
+<p class="text-sm text-tertiary">Real-time tracking and weekly data deep-dives.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle"></span>
+<div>
+<p class="font-bold text-on-background">Programmation via TrainingPeaks</p>
+<p class="text-sm text-tertiary">Dynamic adjustment based on physiological load.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle"></span>
+<div>
+<p class="font-bold text-on-background">Consultation visio illimitée</p>
+<p class="text-sm text-tertiary">Direct line to your performance engineer.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 relative z-10 pt-8 border-t border-outline-variant/10">
+<div>
+<span class="font-label text-4xl font-bold text-on-background tracking-tighter">€189</span>
+<span class="text-tertiary font-label">/month</span>
+<p class="text-[10px] uppercase tracking-widest text-primary font-bold mt-2">Billed Quarterly</p>
+</div>
+<button class="bg-primary-gradient text-on-primary px-10 py-4 rounded-full font-label font-bold tracking-widest uppercase hover:shadow-lg transition-all group-hover:scale-[1.02] active:scale-95">Enroll in Distance Lab</button>
+</div>
+</div>
+<!-- Secondary Feature Card: In-Person -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="flex-1 bg-on-background rounded-xl p-8 text-surface flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -bottom-10 -right-10 opacity-10 group-hover:scale-110 transition-transform duration-700">
+<img class="w-64 h-64 object-cover rounded-full" data-alt="professional athletic trainer observing form in a modern high-performance gym setting with dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfoKWllJ8umRUfoyP-uFR95mbwYjnuvUoidUkKxim9I59l4hG4UKsQMAuLfFixZRlwW4uVUb_q3AsJSqNkveDNicpl2BzpsTh5LtwefKtqLB3eSyE2uvBkyuC2spiLUd-bS46MBJPrU_XNLT6FKoltGONfyCXCddvq0wOfW9WjJujMfXzjNqA1qUueaPY2w7pknPAZp4cQAaTnv6dqKqhSnToZd8ldIU6INJZpoXxCtBlgCBCZdM646Ic6TTkGc4vTfhKnmcS3mgHI"/>
+</div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-headline text-2xl font-bold">Présentiel</h3>
+<span class="bg-primary text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Mastery Only</span>
+</div>
+<p class="text-surface-variant/80 mb-6">Physical technical mastery through direct biomechanical feedback and hands-on coaching.</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="done"></span>
+                                        Biomechanical Analysis
+                                    </li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="done"></span>
+                                        Tactical Environment Setup
+                                    </li>
+</ul>
+</div>
+<div class="relative z-10 pt-6 border-t border-surface-variant/10">
+<div class="flex items-baseline gap-2 mb-4">
+<span class="font-label text-3xl font-bold italic text-surface">€85</span>
+<span class="text-surface-variant/60 text-xs">/session</span>
+</div>
+<button class="w-full bg-surface text-on-background py-3 rounded-full font-label font-bold text-sm tracking-widest uppercase hover:bg-primary-container hover:text-on-primary transition-all">Book Session</button>
+</div>
+</div>
+<!-- Mini Stats/Injected Card -->
+<div class="bg-primary-gradient rounded-xl p-8 text-on-primary">
+<h4 class="font-label font-bold uppercase tracking-widest text-xs mb-4 opacity-80">Lab Capacity</h4>
+<div class="flex items-end justify-between">
+<div>
+<p class="font-headline text-4xl font-black italic">94%</p>
+<p class="text-xs opacity-80">Current Athlete Load</p>
+</div>
+<div class="text-right">
+<span class="material-symbols-outlined text-4xl" data-icon="query_stats"></span>
+</div>
+</div>
+<div class="mt-6 h-1 w-full bg-white/20 rounded-full overflow-hidden">
+<div class="h-full bg-white w-[94%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Comparison Section -->
+<section class="py-24 bg-surface-container-low px-6">
+<div class="max-w-5xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline text-4xl font-bold tracking-tight mb-4">Inside the Ecosystem</h2>
+<p class="text-tertiary">Comparing the technical components of each coaching path.</p>
+</div>
+<div class="space-y-4">
+<!-- Tech Row 1 -->
+<div class="grid grid-cols-1 md:grid-cols-3 p-6 bg-surface-container rounded-xl items-center">
+<div class="font-label font-bold text-on-background">Dynamic Programming</div>
+<div class="flex items-center gap-2 text-sm text-tertiary md:justify-center py-2 md:py-0">
+<span class="material-symbols-outlined text-primary" data-icon="check" data-weight="fill"></span>
+                            Remote
+                        </div>
+<div class="flex items-center gap-2 text-sm text-tertiary md:justify-end">
+<span class="material-symbols-outlined text-primary" data-icon="check" data-weight="fill"></span>
+                            In-Person
+                        </div>
+</div>
+<!-- Tech Row 2 -->
+<div class="grid grid-cols-1 md:grid-cols-3 p-6 bg-surface-container-high rounded-xl items-center">
+<div class="font-label font-bold text-on-background">Biomechanical Feedback</div>
+<div class="flex items-center gap-2 text-sm text-tertiary md:justify-center py-2 md:py-0">
+<span class="material-symbols-outlined text-tertiary/30" data-icon="close"></span>
+                            Remote
+                        </div>
+<div class="flex items-center gap-2 text-sm text-tertiary md:justify-end">
+<span class="material-symbols-outlined text-primary" data-icon="check" data-weight="fill"></span>
+                            In-Person
+                        </div>
+</div>
+<!-- Tech Row 3 -->
+<div class="grid grid-cols-1 md:grid-cols-3 p-6 bg-surface-container rounded-xl items-center">
+<div class="font-label font-bold text-on-background">Sensor Integration</div>
+<div class="flex items-center gap-2 text-sm text-tertiary md:justify-center py-2 md:py-0">
+<span class="material-symbols-outlined text-primary" data-icon="check" data-weight="fill"></span>
+                            Remote
+                        </div>
+<div class="flex items-center gap-2 text-sm text-tertiary md:justify-end">
+<span class="material-symbols-outlined text-tertiary/30" data-icon="close"></span>
+                            In-Person
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Anchor (Full Width CTA) -->
+<section class="h-[600px] relative flex items-center justify-center text-center px-6">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="dramatic wide shot of a lone runner on a sharp mountain ridge during sunset with cold blue and warm orange tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuItCHYVymD5OzHGxdsyGaJTpeRfavORzM6dh605B-z7GAKElli3E640_8sFhc4-wmfczVcmGBrKLo0Pu9O1Yl0uMgLTThsS1YWR_-Bvs0-kkirv9hp2XbcExc7H2Ga_w_z2ubPWZRQFmQIO-2-Aw_mYRpqGkFBPiyqrprK6ke3khlwv6zUlslwEwB9-neEy2VgC0kCUesLxHYaJC1QxII9CzsGgTQB4fwdJJ1W2qp1qprY3fyuErh131b87KOBI0JASLfKAeuvlJ4"/>
+<div class="absolute inset-0 bg-on-background/60 backdrop-blur-[2px]"></div>
+</div>
+<div class="relative z-10 max-w-3xl">
+<h2 class="font-headline text-5xl md:text-7xl font-black text-surface tracking-tighter mb-8 leading-none">Ready to ascend?</h2>
+<p class="font-body text-xl text-surface-variant/90 mb-12">Space is limited to maintain 1:1 precision standards.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-primary-gradient text-on-primary px-12 py-5 rounded-full font-label font-bold tracking-[0.2em] uppercase shadow-2xl hover:scale-105 active:scale-95 transition-transform">Start Application</button>
+<button class="bg-surface/10 backdrop-blur-md text-surface border border-surface/20 px-12 py-5 rounded-full font-label font-bold tracking-[0.2em] uppercase hover:bg-surface/20 transition-all">Schedule Call</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#ece1d3] dark:bg-[#1f1b13] full-width py-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto font-inter text-sm tracking-wide text-[#625b50] dark:text-[#ece1d3]">
+<div class="mb-8 md:mb-0 text-center md:text-left">
+<div class="font-lexend font-bold text-[#1f1b13] dark:text-[#fff8f0] text-xl mb-2">Summitraining</div>
+<p class="opacity-80">© 2024 Summitraining. The Kinetic Peak Performance.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 md:gap-12">
+<a class="text-[#625b50] hover:text-[#0053d0] dark:hover:text-[#2b6cf2] transition-all opacity-80 hover:opacity-100" href="#">Terms</a>
+<a class="text-[#625b50] hover:text-[#0053d0] dark:hover:text-[#2b6cf2] transition-all opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a class="text-[#625b50] hover:text-[#0053d0] dark:hover:text-[#2b6cf2] transition-all opacity-80 hover:opacity-100" href="#">Contact</a>
+<a class="text-[#625b50] hover:text-[#0053d0] dark:hover:text-[#2b6cf2] transition-all opacity-80 hover:opacity-100" href="#">Press</a>
+</div>
+</div>
+</footer>
+</body></html>

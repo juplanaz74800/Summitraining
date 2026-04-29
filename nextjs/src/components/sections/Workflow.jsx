@@ -2,16 +2,17 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { CheckCircle2 } from 'lucide-react';
 
 export default function Workflow() {
   const steps = [
-    { number: 1, title: 'Analyse & Échange initial', text: 'un premier contact téléphonique pour comprendre votre passé sportif, vos contraintes et vos ambitions.' },
-    { number: 2, title: "Choix de l'accompagnement", text: "sélection de la formule la plus adaptée à votre niveau d'engagement." },
-    { number: 3, title: 'Ouverture de votre espace Nolio', text: 'création de votre compte professionnel gratuit pour centraliser toutes vos données de performance.' },
-    { number: 4, title: 'Profilage physiologique', text: <>réalisation de <Link href="/outils" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>tests terrain (VAM, Puissance Critique)</Link> pour déterminer scientifiquement vos zones d'entraînement réelles.</> },
-    { number: 5, title: 'Programmation sur-mesure', text: 'début de votre préparation 100% individualisée, ajustée chaque semaine selon votre fatigue (VFC/RPE).' },
-    { number: 6, title: 'Partenariat & Ajustement', text: 'communication continue avec votre coach pour comprendre le "pourquoi" de chaque séance.' },
-    { number: 7, title: 'Masterclass Permanente', text: "accès exclusif d'une banque de données pointue (séances croisées natation, tutoriels vidéos, stratégies nutritionnelles de course)." },
+    { number: 1, title: 'Appel découverte', text: "Un échange pour comprendre votre projet, votre niveau, vos objectifs. Et pour savoir si on est faits pour travailler ensemble." },
+    { number: 2, title: "Choix de la formule", text: "Vous choisissez le niveau d'accompagnement qui correspond à vos besoins. On part de là, pas d'un catalogue." },
+    { number: 3, title: 'Votre espace Nolio', text: "Création de votre espace centralisé. Vos données, vos séances, votre progression : tout au même endroit." },
+    { number: 4, title: 'Profilage physiologique', text: <><Link href="/outils" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>Tests terrain (VMA, Puissance Critique)</Link> pour partir de données réelles. Pas d'estimations, pas de moyennes génériques.</> },
+    { number: 5, title: 'Votre premier plan', text: 'Construit autour de vous. Ajusté dès la semaine suivante selon votre fatigue réelle (VFC/RPE).' },
+    { number: 6, title: 'Communication continue', text: "Pas de questions sans réponse. Pas d'imprévus sans adaptation. Vous comprenez le pourquoi de chaque séance." },
+    { number: 7, title: 'Ressources exclusives', text: "Séances croisées, tutoriels vidéo, stratégies nutritionnelles de course : tout ce qu'il faut pour progresser entre les séances." },
   ];
 
   return (
@@ -20,12 +21,12 @@ export default function Workflow() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="section bg-alt" 
+      className="section" 
       id="workflow"
     >
       <div className="container about-wrapper">
         <div className="about-content">
-          <h2 className="section-title">Comment ça <span className="text-accent">fonctionne ?</span></h2>
+          <h2 className="section-title">De votre premier échange à <span className="text-accent">votre prochaine course</span></h2>
           <div className="workflow-steps" style={{ marginTop: '2rem' }}>
             {steps.map((step, idx) => (
               <div key={idx} style={{ display: 'flex', gap: '1rem', marginBottom: idx !== steps.length - 1 ? '1.5rem' : 0 }}>
@@ -39,12 +40,12 @@ export default function Workflow() {
             ))}
           </div>
 
-          <div className="requirements-box" style={{ marginTop: '3rem', background: 'rgba(0, 136, 255, 0.05)', borderLeft: '4px solid var(--color-accent)', padding: '1.5rem', borderRadius: '0 8px 8px 0' }}>
-            <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.5rem', fontSize: '1.1rem' }}>Outils obligatoires pour commencer un suivi</h4>
-            <ul style={{ listStyleType: 'none', paddingLeft: 0, marginBottom: 0, color: 'var(--color-text-main)' }}>
-              <li><i className="icon-check">✓</i> Montre et/ou compteur connecté</li>
-              <li><i className="icon-check">✓</i> Ceinture cardiaque</li>
-              <li><i className="icon-check">✓</i> Capteur de puissance sur le vélo (pour les cyclistes)</li>
+          <div className="requirements-box" style={{ marginTop: '3rem', background: 'var(--color-surface-container)', borderLeft: '4px solid var(--color-primary)', padding: '1.5rem', borderRadius: '0 8px 8px 0' }}>
+            <h4 style={{ color: 'var(--color-primary)', marginBottom: '0.5rem', fontSize: '1.1rem' }} className="font-technical">3 outils indispensables pour démarrer</h4>
+            <ul style={{ listStyleType: 'none', paddingLeft: 0, marginBottom: 0, color: 'var(--color-text-main)', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> Montre GPS connectée et/ou compteur</li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> Ceinture cardiaque</li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> Capteur de puissance (Stryd ou vélo) pour un suivi optimal</li>
             </ul>
           </div>
         </div>

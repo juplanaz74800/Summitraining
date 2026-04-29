@@ -17,7 +17,7 @@ export default function Footer() {
           <Image src="/img/logo.png" alt="Summitraining Logo" width={130} height={42} style={{ height: '42px', width: 'auto', margin: '0 auto' }} />
         </div>
         <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem' }}>
-          Coaching Endurance &amp; Trail par Julien Planaz — Bassin Annécien &amp; Suisse Romande
+          Coaching Endurance &amp; Trail par Julien Planaz | Bassin Annécien &amp; Suisse Romande
         </p>
         <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
           <Link href="/mentions-legales" style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', transition: 'color 0.2s' }} className="footer-link">
@@ -27,7 +27,7 @@ export default function Footer() {
             CGV
           </Link>
         </div>
-        <p style={{ color: 'rgba(156, 163, 175, 0.4)', fontSize: '0.8rem' }}>
+        <p style={{ color: 'var(--color-text-muted)', opacity: 0.5, fontSize: '0.8rem' }} className="font-technical">
           © {year} SUMMITRAINING
         </p>
       </div>

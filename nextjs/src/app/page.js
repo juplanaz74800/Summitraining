@@ -23,7 +23,7 @@ export default function Home() {
       <Workflow />
       <Values />
       <CalculatorTeaser />
-      <Offers />
+      <Offers variant="teaser" />
       <Contact />
       
       {/* Schema Markup JSON-LD for Home */}

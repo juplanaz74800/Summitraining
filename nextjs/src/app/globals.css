@@ -4,7 +4,7 @@
    CSS Variables & Design System
    ========================================================================== */
 :root {
-    /* --- DAY MODE (Summit Peak Performance) --- */
+    /* --- DAY MODE (Summit Clarity) --- */
     --color-bg: #fff8f0;
     --color-surface: #fff8f0;
     --color-surface-container: #f5edde;
@@ -13,18 +13,20 @@
     
     --color-primary: #0053d0;
     --color-primary-container: #2b6cf2;
-    --color-accent: #0088FF;
+    --color-accent: #2b6cf2;
     
     --color-text-main: #1f1b13;
     --color-text-muted: #625b50;
     --color-outline: #737686;
+    --color-outline-variant: rgba(195, 198, 215, 0.15); /* Ghost Border Rule */
 
-    /* Typography */
+    /* Typography Strategy: Editorial Engine */
     --font-heading: var(--font-lexend), 'Lexend', sans-serif;
     --font-body: var(--font-inter), 'Inter', sans-serif;
     --font-technical: var(--font-space-grotesk), 'Space Grotesk', monospace;
 
-    /* Spacing & Utilities */
+    /* Spacing Scale (Editorial) */
+    --space-xs: 0.25rem;
     --space-sm: 0.5rem;
     --space-md: 1rem;
     --space-lg: 2rem;
@@ -33,24 +35,26 @@
 
     --transition-fast: 0.2s ease;
     --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --border-radius: 0.5rem;
+    --border-radius-sm: 2px;
+    --border-radius: 8px;
+    --border-radius-lg: 12px;
 }
 
 [class~="dark"] {
-    /* --- NIGHT MODE (Adaptive Dark) --- */
-    --color-bg: #0B1120;
-    --color-surface: #0B1120;
-    --color-surface-container: #111827;
-    --color-surface-container-high: #1E293B;
-    --color-surface-container-low: #0F172A;
+    /* --- NIGHT MODE (Alpine Shadows) --- */
+    --color-bg: #080e1d;
+    --color-surface: #080e1d;
+    --color-surface-container: #12192b;
+    --color-surface-container-high: #171f33;
+    --color-surface-container-low: #0c1324;
 
     --color-primary: #0088FF;
-    --color-primary-container: #006d77;
+    --color-primary-container: #5fa1ff;
     --color-accent: #0088FF;
 
-    --color-text-main: #F3F4F6;
-    --color-text-muted: #9CA3AF;
-    --color-outline: #ffffff10;
+    --color-text-main: #e0e5fb;
+    --color-text-muted: #a5aabf;
+    --color-outline: rgba(66, 72, 89, 0.15); /* Ghost Border Rule */
 }
 
 /* ==========================================================================
@@ -144,24 +148,19 @@ img {
 .btn-primary {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-container) 100%);
     color: #ffffff;
-    box-shadow: 0 4px 15px rgba(0, 83, 208, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 83, 208, 0.1);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 83, 208, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 83, 208, 0.2);
     filter: brightness(1.1);
 }
 
 .btn-secondary {
     background-color: var(--color-surface-container-high);
     color: var(--color-text-main);
-}
-
-.btn-secondary:hover {
-    background-color: var(--color-surface-container);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-outline-variant); /* Ghost Border */
 }
 
 
@@ -197,9 +196,9 @@ img {
     width: 100%;
     padding: var(--space-md) 0;
     z-index: 1000;
-    background: rgba(11, 17, 32, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(8, 14, 29, 0.6); /* Transparent for glass */
+    backdrop-filter: blur(24px); /* Stitch Spec */
+    border-bottom: 1px solid var(--color-outline-variant); 
     transition: all var(--transition-fast);
 }
 
@@ -215,7 +214,7 @@ img {
 }
 
 .site-header img {
-    height: 45px;
+    height: 32px;
     width: auto;
     display: block;
     transition: filter 0.3s ease;
@@ -472,6 +471,25 @@ html:not(.dark) .site-header img {
     }
 }
 
+/* ============================================================
+   Responsive Utility Classes
+   ============================================================ */
+.hidden-mobile {
+    display: flex;
+}
+.show-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hidden-mobile {
+        display: none !important;
+    }
+    .show-mobile {
+        display: flex !important;
+    }
+}
+
 /* ==========================================================================
    Sections & Layout
    ========================================================================== */
@@ -516,14 +534,15 @@ html:not(.dark) .site-header img {
 
 .card {
     background: var(--color-surface-container-low);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-lg);
     padding: var(--space-lg);
     transition: transform var(--transition-fast), background-color var(--transition-fast);
+    border: 1px solid var(--color-outline-variant); /* Ghost Border */
 }
 
 .card:hover {
     transform: translateY(-5px);
-    background-color: var(--color-surface-container);
+    background-color: var(--color-surface-container-high);
 }
 
 .card-icon {
@@ -749,7 +768,7 @@ html:not(.dark) .site-header img {
    ========================================================================== */
 .values-section {
     padding: var(--space-xxl) 0;
-    background-color: var(--color-bg-dark);
+    background-color: var(--color-surface-container-low);
     position: relative;
     overflow: hidden;
 }
@@ -795,7 +814,7 @@ html:not(.dark) .site-header img {
 .v-word:nth-child(even) {
     /* Applies to PASSION and DÉPASSEMENT DE SOI */
     color: transparent;
-    -webkit-text-stroke: 1px var(--color-accent);
+    -webkit-text-stroke: 1px var(--color-primary);
     /* Outline effect for visual variety */
     text-shadow: none;
 }
@@ -898,10 +917,34 @@ html:not(.dark) .site-header img {
     margin: 0 auto;
 }
 
+.pricing-grid-bento {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--space-md);
+    align-items: stretch;
+}
+
+.pricing-grid-bento .main-card {
+    grid-column: span 12;
+}
+
+.pricing-grid-bento .side-cards {
+    grid-column: span 12;
+}
+
+@media (min-width: 1024px) {
+    .pricing-grid-bento .main-card {
+        grid-column: span 7;
+    }
+    .pricing-grid-bento .side-cards {
+        grid-column: span 5;
+    }
+}
+
 .offer-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
+    background: var(--color-surface-container-low);
+    border: 1px solid var(--color-outline-variant); /* Ghost Border */
+    border-radius: var(--border-radius-lg);
     padding: var(--space-xl);
     position: relative;
     overflow: hidden;
@@ -910,23 +953,25 @@ html:not(.dark) .site-header img {
 }
 
 .offer-card.highlight {
-    border-color: var(--color-accent);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: var(--color-primary);
+    background: var(--color-surface-container-high);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .offer-header {
     text-align: center;
     margin-bottom: var(--space-lg);
     padding-bottom: var(--space-lg);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--color-outline-variant);
 }
 
 .offer-price {
-    font-size: 1.5rem;
-    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-family: var(--font-technical);
     font-weight: 800;
-    color: var(--color-accent);
+    color: var(--color-primary);
     margin-top: var(--space-sm);
+    letter-spacing: -0.02em;
 }
 
 .offer-features {
@@ -1048,10 +1093,10 @@ html:not(.dark) .site-header img {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--color-surface-container-high);
     padding: var(--space-xl);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-outline-variant);
 }
 
 .form-group {
@@ -1061,19 +1106,21 @@ html:not(.dark) .site-header img {
 }
 
 .form-group label {
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 0.85rem;
+    font-weight: 600;
     color: var(--color-text-main);
+    font-family: var(--font-technical);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
     padding: 1rem;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(11, 17, 32, 0.5);
-    /* Match bg-dark */
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-outline-variant);
+    background: var(--color-surface-container-low);
     color: var(--color-text-main);
     font-family: var(--font-body);
     font-size: 1rem;
@@ -1095,10 +1142,9 @@ html:not(.dark) .site-header img {
    Footer
    ========================================================================== */
 .site-footer {
-    background-color: #050810;
-    /* Even darker than bg-dark */
+    background-color: var(--color-surface-container-low);
     padding: var(--space-lg) 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid var(--color-outline-variant);
     text-align: center;
 }
 
@@ -1421,4 +1467,27 @@ html:not(.dark) .site-header img {
 .table-container {
     overflow-x: auto;
     margin-bottom: 3rem;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+    padding: var(--space-xl) 0;
+    background-color: var(--color-surface-container-low);
+    border-top: 1px solid var(--color-outline-variant);
+    position: relative;
+    z-index: 10;
+}
+
+.footer-link {
+    font-family: var(--font-technical);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.8rem !important;
+}
+
+.footer-link:hover {
+    color: var(--color-accent) !important;
 }

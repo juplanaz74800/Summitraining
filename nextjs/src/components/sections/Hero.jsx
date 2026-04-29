@@ -5,26 +5,26 @@ export default function Hero() {
   return (
     <section className="hero" id="home">
       <div className="container hero-content">
-        <h1 className="hero-title">
-          <span className="sr-only">Coach Sportif Trail et Course à pied Annecy</span>
+        <h1 className="hero-title" style={{ color: 'white' }}>
+          <span className="sr-only">Coach Sportif Trail et Course à pied Annecy et à distance</span>
           <span className="hero-animation-container text-accent">
             <span className="animated-words">
-              <span>Engagement.</span>
-              <span>Régularité.</span>
-              <span>Adaptation.</span>
-              <span>Optimisation.</span>
-              <span aria-hidden="true">Engagement.</span>
+              <span>Précision.</span>
+              <span>Structure.</span>
+              <span>Progression.</span>
+              <span>Résultats.</span>
+              <span aria-hidden="true">Précision.</span>
             </span>
           </span>
           <br />
-          Pour atteindre vos sommets.
+          Votre préparation, construite sur des données réelles.
         </h1>
-        <p className="hero-subtitle">
-          Un entraînement scientifique, 100% personnalisé et collaboratif pour le trail et la course à pied.
+        <p className="hero-subtitle" style={{ color: 'rgba(255,255,255,0.8)' }}>
+          Un coaching 100% individualisé en trail et course sur route. Basé sur votre physiologie. Ajusté chaque semaine. Aucun template.
         </p>
         <div className="hero-cta">
-          <Link href="/#contact" className="btn btn-primary btn-large">Réserver un échange gratuit</Link>
-          <Link href="/#methodology" className="btn btn-secondary btn-large">Découvrir l'approche</Link>
+          <Link href="/#contact" className="btn btn-primary btn-large">Réserver un appel gratuit</Link>
+          <Link href="/#methodology" className="btn btn-secondary btn-large">Découvrir la méthode</Link>
         </div>
       </div>
       <div className="hero-background">
