@@ -9,11 +9,11 @@ export default function Hero() {
           <span className="sr-only">Coach Sportif Trail et Course à pied Annecy et à distance</span>
           <span className="hero-animation-container text-accent">
             <span className="animated-words">
-              <span>Précision.</span>
-              <span>Structure.</span>
-              <span>Progression.</span>
-              <span>Résultats.</span>
-              <span aria-hidden="true">Précision.</span>
+              <span>Précision</span>
+              <span>Structure</span>
+              <span>Progression</span>
+              <span>Résultats</span>
+              <span aria-hidden="true">Précision</span>
             </span>
           </span>
           <br />

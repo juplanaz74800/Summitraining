@@ -6,26 +6,27 @@ import {
   Beaker, 
   Mountain, 
   ShieldCheck, 
-  Globe 
+  Globe,
+  Scale
 } from 'lucide-react';
 
 const pillars = [
   {
     icon: <User size={32} />,
     title: "Vous, pas votre profil Strava",
-    text: "Un coaching qui part de qui vous êtes vraiment. Votre vie, vos contraintes, vos forces. L'écoute active et l'empathie ne sont pas des options : c'est la base de tout.",
+    text: "Un coaching qui part de qui vous êtes vraiment, votre vie, vos contraintes, vos forces, l'écoute active et l'empathie ne sont pas des options : c'est la base de tout.",
     image: "/img/philosophy/human.png"
   },
   {
     icon: <Settings2 size={32} />,
     title: "Ajusté chaque semaine. Sans exception.",
-    text: "Votre plan évolue avec vous. Fatigue, imprévus, pic de forme : rien n'est figé. Un suivi réactif qui s'adapte à votre réalité, pas l'inverse.",
+    text: "Votre plan évolue avec vous, fatigue, imprévus, pic de forme : rien n'est figé, un suivi réactif qui s'adapte à votre réalité, pas l'inverse.",
     image: "/img/philosophy/tailored.png"
   },
   {
-    icon: <Beaker size={32} />,
-    title: "Vous comprenez pourquoi. Toujours.",
-    text: "Chaque séance a une raison d'être. Je vous explique la logique derrière chaque intervalle, chaque bloc de récupération. Vous progressez mieux quand vous comprenez ce que vous faites.",
+    icon: <Globe size={32} />,
+    title: "Vous comprendrez toujours pourquoi",
+    text: "Chaque séance a une raison d'être, je vous explique la logique derrière chaque intervalle, chaque bloc de récupération, vous progressez mieux quand vous comprenez ce que vous faites.",
     image: "/img/philosophy/science.png"
   },
   {
@@ -37,13 +38,13 @@ const pillars = [
   {
     icon: <ShieldCheck size={32} />,
     title: "Un binôme. Pas un prestataire.",
-    text: "Pas de questions sans réponse. Pas d'imprévus sans adaptation. Notre relation repose sur la confiance et la transparence : les deux seules choses qui font vraiment progresser.",
+    text: "Pas de questions sans réponse, pas d'imprévus sans adaptation, notre relation repose sur la confiance et la transparence : les deux seules choses qui font vraiment progresser.",
     image: "/img/philosophy/partnership.png"
   },
   {
-    icon: <Globe size={32} />,
+    icon: <Scale size={32} />,
     title: "L'entraînement est la moitié du travail.",
-    text: "Nutrition, sommeil, récupération, préparation physique : tout est intégré. Parce que la performance se construit aussi en dehors des séances.",
+    text: "Nutrition, sommeil, récupération, préparation physique : tout est intégré, parce que la performance se construit aussi en dehors des séances.",
     image: "/img/philosophy/holistic.png"
   }
 ];
@@ -86,7 +87,7 @@ export default function Methodology() {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                cursor: 'pointer',
+                cursor: 'default',
                 border: '1px solid rgba(255,255,255,0.05)'
               }}
             >

@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Calculateur de Puissance et Vitesse Critique Trail',
-  description: 'Estimez vos zones d\'entraînement, votre VAM et votre puissance critique grâce à notre calculateur gratuit spécial Trail et course à pied.',
+  title: 'Calculateur de Performance Endurance (VMA, Puissance Critique)',
+  description: 'Estimez vos zones d\'entraînement, votre VAM et votre puissance critique grâce à notre calculateur gratuit. Adapté au Trail, à la Route et au Triathlon.',
 };
 
 export default function Outils() {
@@ -12,7 +12,10 @@ export default function Outils() {
         <div className="container">
           <div className="section-header">
             <h1 className="section-title">Outils & <span className="text-accent">Ressources</span></h1>
-            <p className="section-subtitle">Calculateur gratuit de Puissance et Vitesse Critique Trail</p>
+            <p className="section-subtitle">Calculateur de performance : déterminez vos zones d'entraînement</p>
+            <div style={{ marginTop: '2rem' }}>
+              <Link href="#calculator" className="btn btn-primary">Accéder au calculateur</Link>
+            </div>
           </div>
 
           <div className="calculator-teaser" style={{ marginBottom: 'var(--space-xl)' }}>
@@ -42,7 +45,7 @@ export default function Outils() {
             </div>
           </div>
 
-          <div style={{ width: '100%', borderRadius: '12px', overflow: 'hidden', background: 'rgba(0,0,0,0.2)', marginTop: '2rem', border: '1px solid rgba(255, 255, 255, 0.1)', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)' }}>
+          <div id="calculator" style={{ width: '100%', borderRadius: '12px', overflow: 'hidden', background: 'rgba(0,0,0,0.2)', marginTop: '2rem', border: '1px solid rgba(255, 255, 255, 0.1)', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)', scrollMarginTop: '100px' }}>
             <iframe src="https://summitraining-calculator.vercel.app" width="100%" height="1000px" frameBorder="0" style={{ display: 'block', width: '100%', minHeight: '1000px' }} title="Summitraining Calculator Pro"></iframe>
           </div>
 
@@ -63,7 +66,7 @@ export default function Outils() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
-            "name": "Calculateur d'Allures Trail",
+            "name": "Calculateur de Performance Endurance",
             "applicationCategory": "HealthApplication",
             "operatingSystem": "All",
             "offers": {
