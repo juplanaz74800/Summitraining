@@ -35,7 +35,7 @@ export default function Route() {
           </div>
 
           <div className="container about-wrapper" style={{ marginTop: '3rem' }}>
-            <div className="about-image" style={{ order: 0 }}>
+            <div className="about-image" style={{ order: 0, alignSelf: 'start', position: 'sticky', top: '100px' }}>
               <Image
                 src="/img/route-coaching.png"
                 alt="Coureur en pleine préparation marathon sur route de montagne en Haute-Savoie, coaché par Julien Planaz"
@@ -51,15 +51,40 @@ export default function Route() {
 
               <p>Grâce à mon expertise en Biochimie et Physiologie de l'effort, je modélise votre <strong>Puissance Critique</strong> et votre <strong>Endurance Index</strong> pour déterminer exactement les allures qui vous feront progresser, sans vous blesser. Vous pouvez en apprendre davantage sur la <Link href="/blog/vma-vs-vitesse-critique" style={{ color: 'var(--color-accent)', fontWeight: 500, textDecoration: 'underline' }}>différence entre VMA et Vitesse Critique</Link> dans notre guide dédié.</p>
 
-              <h3 style={{ marginTop: '2rem', marginBottom: '1rem' }}>La méthode spécifique Route :</h3>
-              <ul style={{ listStyleType: 'none', paddingLeft: 0, color: 'var(--color-text-main)' }}>
-                <li style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> <strong>Ciblage de l'allure spécifique :</strong> Travail au seuil et développement de l'économie de course pour optimiser chaque foulée.</li>
-                <li style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> <strong>Périodisation millimétrée :</strong> Blocs d'entraînement et phase d'affûtage pour arriver au pic de forme le jour J.</li>
-                <li style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> <strong>Prévention des blessures :</strong> Intégration de renforcement (PPG) indispensable pour encaisser les chocs répétés de la route.</li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> <strong>Gestion de la charge & récupération :</strong> Suivi de la <Link href="/blog/echelle-de-borg" style={{ color: 'var(--color-accent)', fontWeight: 500, textDecoration: 'underline' }}>perception de l'effort (RPE)</Link> et de la VFC pour piloter votre progression semaine après semaine.</li>
-              </ul>
+              <h3 style={{ marginTop: '3rem', marginBottom: '2rem', fontSize: '1.5rem', fontWeight: 800 }}>La méthode spécifique <span className="text-accent">Route</span></h3>
+              <div style={{ 
+                display: 'grid', 
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+                gap: '1.5rem',
+                marginTop: '1.5rem'
+              }}>
+                {[
+                  { title: 'Ciblage de l\'allure spécifique', desc: 'Travail au seuil et développement de l\'économie de course pour optimiser chaque foulée.' },
+                  { title: 'Périodisation millimétrée', desc: 'Blocs d\'entraînement et phase d\'affûtage pour arriver au pic de forme le jour J.' },
+                  { title: 'Prévention des blessures', desc: 'Intégration de renforcement (PPG) indispensable pour encaisser les chocs de la route.' },
+                  { title: 'Gestion de la charge', desc: 'Suivi de la perception de l\'effort (RPE) et de la VFC pour piloter votre progression.' }
+                ].map((pillar, idx) => (
+                  <div key={idx} style={{
+                    background: 'var(--color-surface-container-low)',
+                    padding: '1.5rem',
+                    borderRadius: '12px',
+                    border: '1px solid var(--color-outline-variant)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.75rem'
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                      <CheckCircle2 size={20} className="text-accent" />
+                      <strong style={{ fontSize: '1.05rem', color: 'var(--color-text-main)' }}>{pillar.title}</strong>
+                    </div>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: 1.5, margin: 0 }}>{pillar.desc}</p>
+                  </div>
+                ))}
+              </div>
 
-              <Link href="/#contact" className="btn btn-primary btn-large mt-4">Battre mon record personnel</Link>
+              <div style={{ marginTop: '3rem' }}>
+                <Link href="/#contact" className="btn btn-primary btn-large">Battre mon record personnel</Link>
+              </div>
             </div>
           </div>
         </div>

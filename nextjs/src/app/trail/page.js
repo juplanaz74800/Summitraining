@@ -40,18 +40,43 @@ export default function Trail() {
               <p>En trail, courir vite en montée ne suffit pas. La casse musculaire en descente, la gestion métabolique sur 10h d'effort, le pacing au dénivelé : ce sont des compétences qui s'apprennent. Et qui s'entraînent.</p>
               <p>Mon expertise s'est forgée à Font-Romeu, au cœur de l'altitude. Licence STAPS Entraînement & Altitude, spécialisation en physiologie de l'exercice sous <strong>Grégory Doucende</strong>. Depuis, je calibre votre <strong><Link href="/outils" style={{ color: 'var(--color-accent)', fontWeight: 500, textDecoration: 'underline' }}>profil physiologique complet</Link></strong> — <Link href="/blog/vma-vs-vitesse-critique" style={{ color: 'var(--color-accent)', fontWeight: 500, textDecoration: 'underline' }}>VMA vs Vitesse Critique</Link>, puissance réelle, VFC — pour qu'il devienne votre boussole de performance en conditions réelles.</p>
 
-              <h3 style={{ marginTop: '2rem', marginBottom: '1rem' }}>Les piliers du suivi Trail :</h3>
-              <ul style={{ listStyleType: 'none', paddingLeft: 0, color: 'var(--color-text-main)' }}>
-                <li style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> <strong>Apprentissage technique :</strong> Maîtrise de la foulée en dénivelé, biomécanique et aisance dans les descentes techniques.</li>
-                <li style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> <strong>Stratégie de course & Pacing :</strong> Régulation de l'allure via la VAM et la puissance pour lisser votre effort sur ultra-trail.</li>
-                <li style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> <strong>Alimentation & Hydratation :</strong> Planification nutritionnelle sur-mesure pour éviter les défaillances métaboliques en ultra-endurance.</li>
-                <li style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> <strong>Renforcement musculaire :</strong> Programmation spécifique de force, PPG et prévention des blessures musculaires et articulaires.</li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> <strong>Gestion de l'effort & Modélisation :</strong> Analyse de la charge d'entraînement et de la fatigue (VFC) pour progresser sans surentraînement.</li>
-              </ul>
+              <h3 style={{ marginTop: '3rem', marginBottom: '2rem', fontSize: '1.5rem', fontWeight: 800 }}>Les piliers du suivi <span className="text-accent">Trail</span></h3>
+              <div style={{ 
+                display: 'grid', 
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+                gap: '1.5rem',
+                marginTop: '1.5rem'
+              }}>
+                {[
+                  { title: 'Apprentissage technique', desc: 'Maîtrise de la foulée en dénivelé, biomécanique et aisance dans les descentes techniques.' },
+                  { title: 'Stratégie de course & Pacing', desc: 'Régulation de l\'allure via la VAM et la puissance pour lisser votre effort sur ultra-trail.' },
+                  { title: 'Alimentation & Hydratation', desc: 'Planification nutritionnelle sur-mesure pour éviter les défaillances métaboliques.' },
+                  { title: 'Renforcement musculaire', desc: 'Programmation spécifique de force, PPG et prévention des blessures musculaires.' },
+                  { title: 'Gestion de l\'effort', desc: 'Analyse de la charge et de la fatigue (VFC) pour progresser sans surentraînement.' }
+                ].map((pillar, idx) => (
+                  <div key={idx} style={{
+                    background: 'var(--color-surface-container-low)',
+                    padding: '1.5rem',
+                    borderRadius: '12px',
+                    border: '1px solid var(--color-outline-variant)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.75rem'
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                      <CheckCircle2 size={20} className="text-accent" />
+                      <strong style={{ fontSize: '1.05rem', color: 'var(--color-text-main)' }}>{pillar.title}</strong>
+                    </div>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: 1.5, margin: 0 }}>{pillar.desc}</p>
+                  </div>
+                ))}
+              </div>
 
-              <Link href="/#contact" className="btn btn-primary btn-large mt-4">Préparer mon prochain trail</Link>
+              <div style={{ marginTop: '3rem' }}>
+                <Link href="/#contact" className="btn btn-primary btn-large">Préparer mon prochain trail</Link>
+              </div>
             </div>
-            <div className="about-image">
+            <div className="about-image" style={{ alignSelf: 'start', position: 'sticky', top: '100px' }}>
               <Image
                 src="/img/thib.jpeg"
                 alt="Athlète en entraînement trail sur sentier de montagne en Haute-Savoie, coaché par Julien Planaz"
