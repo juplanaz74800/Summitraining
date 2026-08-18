@@ -6,8 +6,11 @@ import CTASection from '@/components/sections/CTASection';
 import { GraduationCap, Mountain, Activity, ShieldCheck, BarChart3 } from 'lucide-react';
 
 export const metadata = {
-  title: 'À Propos de Julien Planaz',
-  description: 'Découvrez le parcours de Julien Planaz, coach expert en trail et running sur Annecy. Diplômé STAPS et nutrition, passionné par la physiologie de l\'effort.',
+  title: 'Julien Planaz — Coach Trail & Running Annecy | STAPS, Physiologie de l\'Effort',
+  description: 'Découvrez le parcours de Julien Planaz, coach certifié expert en trail et running basé à Annecy (Haute-Savoie). Diplômé STAPS, Biochimie et Nutrition, passionné par la physiologie de l\'effort depuis 10 ans.',
+  alternates: {
+    canonical: 'https://www.summitraining.fr/a-propos',
+  },
 };
 
 export default function About() {

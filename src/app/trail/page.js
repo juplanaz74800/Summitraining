@@ -4,12 +4,16 @@ import CTASection from '@/components/sections/CTASection';
 import { CheckCircle2 } from 'lucide-react';
 
 export const metadata = {
-  title: 'Coach Trail & Ultra-Trail en Haute-Savoie | Préparation Scientifique | Summitraining',
-  description: 'Préparez vos objectifs trail et ultra-trail avec un coaching 100% individualisé basé sur votre physiologie réelle (VMA, Puissance Critique, VFC). Expert en endurance basé à Annecy & Haute-Savoie. Réservez un appel découverte gratuit.',
+  title: 'Coach Trail & Ultra-Trail Annecy — Haute-Savoie | Préparation Scientifique | Summitraining',
+  description: 'Préparez vos objectifs trail et ultra-trail avec un coaching 100% individualisé basé sur votre physiologie réelle (VMA, Puissance Critique, VFC). Coach certifié basé à Annecy & Haute-Savoie. Réservez un appel découverte gratuit.',
+  keywords: ['coach trail Annecy', 'préparation ultra trail Haute-Savoie', 'coaching trail montagne', 'préparation UTMB', 'coach ultra trail Savoie', 'entraîneur trail Annecy'],
+  alternates: {
+    canonical: 'https://www.summitraining.fr/trail',
+  },
   openGraph: {
-    title: 'Coach Trail & Ultra-Trail en Haute-Savoie | Summitraining',
-    description: 'Coaching trail 100% individualisé basé sur votre physiologie réelle. Expert en endurance basé à Annecy & Haute-Savoie.',
-    url: 'https://summitraining.fr/trail',
+    title: 'Coach Trail & Ultra-Trail Annecy — Haute-Savoie | Summitraining',
+    description: 'Coaching trail 100% individualisé basé sur votre physiologie réelle. Coach certifié basé à Annecy & Haute-Savoie.',
+    url: 'https://www.summitraining.fr/trail',
     images: [
       {
         url: '/img/thib.jpeg',

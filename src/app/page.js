@@ -9,8 +9,11 @@ import Offers from '@/components/sections/Offers';
 import Contact from '@/components/sections/Contact';
 
 export const metadata = {
-  title: 'Coach Sportif Trail & Running Annecy - Suisse Romande',
-  description: 'Coaching expert et 100% personnalisé à distance en course à pied et trail par Julien Planaz. Intervient sur Annecy, le bassin Annécien et la Suisse romande.',
+  title: 'Coach Trail & Running Annecy — Haute-Savoie | Julien Planaz',
+  description: 'Coach sportif trail et course à pied basé à Annecy (Haute-Savoie). Julien Planaz propose un suivi 100% personnalisé pour tous niveaux : préparation trail, ultra-trail, marathon, semi-marathon. Appel découverte gratuit.',
+  alternates: {
+    canonical: 'https://www.summitraining.fr',
+  },
 };
 
 export default function Home() {

@@ -4,6 +4,19 @@ export const metadata = {
   title: 'Maxi-Race d\'Annecy 2026 : préparer et courir les 100 km intelligemment | Summitraining',
   description: "Comment préparer et gérer la Maxi-Race d'Annecy 2026 en 100 km ? Stratégie de course, plan de marche, nutrition et gestion du dénivelé expliqués par un coach trail à Annecy.",
   keywords: ['Maxi-Race Annecy 2026', 'préparer Maxi-Race', 'stratégie ultra-trail 100 km', 'nutrition Maxi-Race', 'plan de marche Maxi-Race', 'coaching trail Annecy', 'Maxi-Race dénivelé Semnoz'],
+  alternates: {
+    canonical: 'https://www.summitraining.fr/blog/maxi-race',
+  },
+  openGraph: {
+    title: 'Maxi-Race d\'Annecy 2026 : préparer et courir les 100 km intelligemment',
+    description: "Stratégie de course, plan de marche, nutrition et gestion du dénivelé pour la Maxi-Race d'Annecy. Par Julien Planaz, coach trail à Annecy.",
+    url: 'https://www.summitraining.fr/blog/maxi-race',
+    type: 'article',
+    publishedTime: '2026-03-07T00:00:00.000Z',
+    authors: ['Julien Planaz'],
+    tags: ['Maxi-Race Annecy', 'ultra-trail', 'trail Annecy', 'stratégie course', 'coaching trail'],
+    images: [{ url: 'https://images.unsplash.com/photo-1549740425-5e9ed4d8cd34?q=80&w=1200&auto=format&fit=crop', width: 1200, height: 630, alt: "Coureur de trail dans les montagnes de Haute-Savoie" }],
+  },
 };
 
 export default function MaxiRace() {

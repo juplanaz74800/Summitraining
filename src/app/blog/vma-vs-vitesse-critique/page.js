@@ -6,6 +6,18 @@ export const metadata = {
   title: 'Vitesse Critique (VC) vs VMA : quelle allure pour s\'entraîner vraiment efficacement ? | Summitraining',
   description: "Vitesse Critique ou VMA : laquelle utilise-t-on vraiment pour progresser en course à pied et en trail ? Explication claire, méthode de calcul terrain, et séances concrètes par Julien Planaz.",
   keywords: ['vitesse critique course à pied', 'VMA vs vitesse critique', 'comment calculer vitesse critique', 'zones entraînement running', 'vitesse critique trail', 'D prime course à pied', 'allures entraînement running'],
+  alternates: {
+    canonical: 'https://www.summitraining.fr/blog/vma-vs-vitesse-critique',
+  },
+  openGraph: {
+    title: 'Vitesse Critique vs VMA : quelle allure pour s\'entraîner efficacement ?',
+    description: "Vitesse Critique ou VMA : laquelle utilise-t-on vraiment pour progresser en course à pied et en trail ? Méthode de calcul terrain et séances concrètes.",
+    url: 'https://www.summitraining.fr/blog/vma-vs-vitesse-critique',
+    type: 'article',
+    publishedTime: '2026-04-18T00:00:00.000Z',
+    authors: ['Julien Planaz'],
+    tags: ['VMA', 'vitesse critique', 'trail', 'running', 'zones entraînement', 'physiologie'],
+  },
 };
 
 export default function VmaVsVc() {

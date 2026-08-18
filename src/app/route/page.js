@@ -4,12 +4,16 @@ import CTASection from '@/components/sections/CTASection';
 import { CheckCircle2 } from 'lucide-react';
 
 export const metadata = {
-  title: 'Coach Course sur Route Annecy — Marathon, Semi-Marathon, 10km | Summitraining',
-  description: 'Atteignez votre record personnel sur 10km, Semi-Marathon ou Marathon grâce à un coaching individualisé basé sur votre Vitesse Critique et Puissance Critique. Expert en endurance à Annecy & Haute-Savoie. Premier appel découverte gratuit.',
+  title: 'Coach Running Annecy — Marathon, Semi-Marathon, 10km | Summitraining',
+  description: 'Atteignez votre record personnel sur 10km, Semi-Marathon ou Marathon grâce à un coaching individualisé basé sur votre Vitesse Critique et Puissance Critique. Coach certifié basé à Annecy & Haute-Savoie. Premier appel découverte gratuit.',
+  keywords: ['coach running Annecy', 'préparation marathon Annecy', 'coaching course à pied Haute-Savoie', 'coach semi-marathon Annecy', 'entraîneur running Savoie'],
+  alternates: {
+    canonical: 'https://www.summitraining.fr/route',
+  },
   openGraph: {
-    title: 'Coach Course sur Route Annecy | Marathon, Semi-Marathon, 10km | Summitraining',
-    description: 'Coaching route 100% individualisé basé sur la Vitesse Critique et la Puissance Critique. Expert en endurance basé à Annecy & Haute-Savoie.',
-    url: 'https://summitraining.fr/route',
+    title: 'Coach Running Annecy | Marathon, Semi-Marathon, 10km | Summitraining',
+    description: 'Coaching route 100% individualisé basé sur la Vitesse Critique et la Puissance Critique. Coach certifié basé à Annecy & Haute-Savoie.',
+    url: 'https://www.summitraining.fr/route',
     images: [
       {
         url: '/img/route-coaching.png',

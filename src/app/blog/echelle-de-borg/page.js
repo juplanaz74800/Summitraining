@@ -6,6 +6,19 @@ export const metadata = {
   title: 'Échelle de Borg (RPE) : Comment mesurer votre effort pour mieux vous entraîner | Summitraining',
   description: "L'échelle de Borg (RPE) est le meilleur outil pour piloter votre effort à l'entraînement. Découvrez comment l'utiliser concrètement en trail et en course à pied pour progresser sans vous blesser.",
   keywords: ['échelle de Borg', 'RPE course à pied', 'perception effort entraînement', 'RPE trail', 'RPE vs fréquence cardiaque', 'zones entraînement RPE', 'Borg CR-10'],
+  alternates: {
+    canonical: 'https://www.summitraining.fr/blog/echelle-de-borg',
+  },
+  openGraph: {
+    title: 'Échelle de Borg (RPE) : Comment mesurer votre effort | Summitraining',
+    description: "L'échelle de Borg (RPE) est le meilleur outil pour piloter votre effort à l'entraînement en trail et en course à pied.",
+    url: 'https://www.summitraining.fr/blog/echelle-de-borg',
+    type: 'article',
+    publishedTime: '2026-04-11T00:00:00.000Z',
+    authors: ['Julien Planaz'],
+    tags: ['RPE', 'trail', 'course à pied', 'entraînement', 'physiologie'],
+    images: [{ url: '/img/blog/borg_hero_holographic_7_1776028139870.png', width: 800, height: 450, alt: "Coureur de fond avec interface RPE holographique" }],
+  },
 };
 
 export default function EchelleDeBorg() {

@@ -1,8 +1,11 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Calculateur de Performance Endurance (VMA, Puissance Critique)',
-  description: 'Estimez vos zones d\'entraînement, votre VAM et votre puissance critique grâce à notre calculateur gratuit. Adapté au Trail, à la Route et au Triathlon.',
+  title: 'Calculateur VMA & Puissance Critique — Zones d\'Entraînement Trail & Running',
+  description: 'Estimez gratuitement vos zones d\'entraînement, votre VAM et votre Puissance Critique. Outil conçu par Julien Planaz, coach trail et running basé à Annecy. Adapté au Trail, à la Route et au Triathlon.',
+  alternates: {
+    canonical: 'https://www.summitraining.fr/outils',
+  },
 };
 
 export default function Outils() {

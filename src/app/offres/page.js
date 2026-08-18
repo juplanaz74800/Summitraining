@@ -2,8 +2,17 @@ import Offers from '@/components/sections/Offers';
 import Contact from '@/components/sections/Contact';
 
 export const metadata = {
-  title: 'Tarifs et Offres de Coaching Trail & Running | Summitraining',
-  description: 'Découvrez nos formules de coaching haute performance : suivi à distance personnalisé, sessions en présentiel à Annecy et Genève, et expertise biomécanique.',
+  title: 'Tarifs Coaching Trail & Running Annecy | Formules Personnalisées | Summitraining',
+  description: 'Découvrez les formules de coaching trail et running de Julien Planaz à Annecy : suivi à distance 100% personnalisé, sessions en présentiel Haute-Savoie, expertise physiologique. Appel découverte gratuit.',
+  keywords: ['tarif coach trail Annecy', 'prix coaching running Haute-Savoie', 'formule coaching endurance', 'coach trail personnalisé prix'],
+  alternates: {
+    canonical: 'https://www.summitraining.fr/offres',
+  },
+  openGraph: {
+    title: 'Tarifs Coaching Trail & Running Annecy | Summitraining',
+    description: 'Formules de coaching trail et running 100% personnalisées par Julien Planaz, coach certifié basé à Annecy.',
+    url: 'https://www.summitraining.fr/offres',
+  },
 };
 
 const FAQ = [
