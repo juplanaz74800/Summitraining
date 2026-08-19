@@ -1,6 +1,7 @@
 import ContactForm from '@/components/sections/ContactForm';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import { Envelope, Clock, MapPin, Phone, Target, ChartLineUp, Mountains, Lightning } from '@phosphor-icons/react/dist/ssr';
+import { Envelope, Clock, MapPin, Phone, Target, ChartLineUp, Mountains, Lightning, InstagramLogo, LinkedinLogo, FacebookLogo } from '@phosphor-icons/react/dist/ssr';
+import { StravaLogo } from '@/components/icons/StravaLogo';
 
 export const metadata = {
   title: 'Contact — Coaching Trail & Running Annecy | Summitraining',
@@ -110,6 +111,24 @@ export default function ContactPage() {
                   >
                     contact@summitraining.fr
                   </a>
+                </div>
+
+                <div style={{ marginTop: '0.5rem', paddingTop: '1.5rem', borderTop: '1px solid var(--color-outline-variant)' }}>
+                  <h3 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: '1rem', color: 'var(--color-text-main)' }}>Suivez mon quotidien</h3>
+                  <div style={{ display: 'flex', gap: '1.25rem', alignItems: 'center' }}>
+                    <a href="https://www.instagram.com/julien_planaz/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-text-main)', transition: 'color 0.2s' }} aria-label="Instagram">
+                      <InstagramLogo weight="thin" size={28} />
+                    </a>
+                    <a href="https://www.strava.com/athletes/4270306" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-text-main)', transition: 'color 0.2s' }} aria-label="Strava">
+                      <StravaLogo weight="thin" size={28} />
+                    </a>
+                    <a href="https://www.linkedin.com/in/julien-planaz-53407b112/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-text-main)', transition: 'color 0.2s' }} aria-label="LinkedIn">
+                      <LinkedinLogo weight="thin" size={28} />
+                    </a>
+                    <a href="https://www.facebook.com/Julienplanazcoachsportif" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-text-main)', transition: 'color 0.2s' }} aria-label="Facebook">
+                      <FacebookLogo weight="thin" size={28} />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
