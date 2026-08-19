@@ -66,7 +66,7 @@ export default function ContactForm({ compact = false }) {
         <CheckCircle weight="thin" size={56} style={{ color: '#22c55e' }} />
         <div>
           <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>
-            Message envoyé ! 🎉
+            Message envoyé !
           </h3>
           <p style={{ color: 'var(--color-text-muted)', maxWidth: '400px', lineHeight: 1.6 }}>
             Merci pour votre message. Je vous réponds sous 24h pour fixer notre premier échange.

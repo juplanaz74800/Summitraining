@@ -1,6 +1,6 @@
 import ContactForm from '@/components/sections/ContactForm';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import { Envelope, Clock, MapPin, Phone } from '@phosphor-icons/react/dist/ssr';
+import { Envelope, Clock, MapPin, Phone, Target, ChartLineUp, Mountains, Lightning } from '@phosphor-icons/react/dist/ssr';
 
 export const metadata = {
   title: 'Contact — Coaching Trail & Running Annecy | Summitraining',
@@ -57,13 +57,13 @@ export default function ContactPage() {
                   Pour qui est ce coaching ?
                 </h2>
                 {[
-                  { icon: '🎯', title: 'Vous avez un objectif précis', desc: 'Trail, ultra, marathon — une course en tête et l\'envie d\'y arriver préparé.' },
-                  { icon: '📊', title: 'Vous stagez malgré vos efforts', desc: 'Vous vous entraînez déjà mais n\'avancez plus. On analyse vos données et on reconstruit mieux.' },
-                  { icon: '🏔️', title: 'Vous débutez en trail', desc: 'Vous voulez partir sur de bonnes bases, sans vous blesser dès la première saison.' },
-                  { icon: '⚡', title: 'Vous voulez aller plus vite', desc: 'Record personnel sur 10k, semi ou marathon — chaque seconde compte.' },
+                  { icon: <Target weight="thin" size={24} className="text-accent" />, title: 'Vous avez un objectif précis', desc: 'Trail, ultra, marathon — une course en tête et l\'envie d\'y arriver préparé.' },
+                  { icon: <ChartLineUp weight="thin" size={24} className="text-accent" />, title: 'Vous stagez malgré vos efforts', desc: 'Vous vous entraînez déjà mais n\'avancez plus. On analyse vos données et on reconstruit mieux.' },
+                  { icon: <Mountains weight="thin" size={24} className="text-accent" />, title: 'Vous débutez en trail', desc: 'Vous voulez partir sur de bonnes bases, sans vous blesser dès la première saison.' },
+                  { icon: <Lightning weight="thin" size={24} className="text-accent" />, title: 'Vous voulez aller plus vite', desc: 'Record personnel sur 10k, semi ou marathon — chaque seconde compte.' },
                 ].map((item, i) => (
                   <div key={i} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                    <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>{item.icon}</span>
+                    <span style={{ flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '32px', height: '32px', background: 'var(--color-surface-container-high)', borderRadius: '8px' }}>{item.icon}</span>
                     <div>
                       <strong style={{ fontSize: '0.95rem', color: 'var(--color-text-main)' }}>{item.title}</strong>
                       <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', marginTop: '0.25rem', lineHeight: 1.5 }}>{item.desc}</p>

@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Check, X, ArrowRight, Lightning, Stack, MapTrifold, User, Users, UserPlus } from '@phosphor-icons/react/dist/ssr';
+import { Check, X, ArrowRight, Lightning, Stack, MapTrifold, User, Users, UserPlus, Phone, MapPin } from '@phosphor-icons/react/dist/ssr';
 
 // ─────────────────────────────────────────────
 // DATA — Formules Distance
@@ -420,7 +420,7 @@ export default function Offers({ variant = 'full' }) {
             fontWeight: 600,
           }}
         >
-          <span style={{ fontSize: '1.1rem' }}>📞</span>
+          <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Phone weight="thin" size={24} /></span>
           <span style={{ color: 'var(--color-text-main)' }}>
             Premier appel découverte <strong style={{ color: 'var(--color-accent)' }}>100% gratuit</strong> et sans engagement
           </span>
@@ -867,7 +867,7 @@ export default function Offers({ variant = 'full' }) {
             flexWrap: 'wrap',
             textAlign: 'center',
           }}>
-            <span style={{ fontSize: '1.1rem' }}>📍</span>
+            <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><MapPin weight="thin" size={24} className="text-accent" /></span>
             <span>
               <strong style={{ color: 'var(--color-text-main)' }}>Annecy & bassin annécien</strong>
               {' '}— Cran-Gevrier, Seynod, Meythet, Pringy, Saint-Jorioz, Duingt, Talloires, Menthon-Saint-Bernard, Veyrier-du-Lac

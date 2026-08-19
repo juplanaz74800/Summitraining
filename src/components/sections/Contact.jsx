@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Envelope, Clock, Phone } from '@phosphor-icons/react/dist/ssr';
+import { Envelope, Clock, Phone, Target, ChartLineUp, Mountains } from '@phosphor-icons/react/dist/ssr';
 import ContactForm from './ContactForm';
 
 export default function Contact() {
@@ -39,12 +39,12 @@ export default function Contact() {
                 Pourquoi me contacter ?
               </h3>
               {[
-                { icon: '🎯', title: 'Un objectif précis', desc: 'Trail, ultra, marathon — tu as une course en tête et tu veux y arriver préparé.' },
-                { icon: '📊', title: 'Progresser intelligemment', desc: 'Tu t\'entraînes déjà mais stagne. On analyse tes données et on construit mieux.' },
-                { icon: '🏔️', title: 'Découvrir la montagne', desc: 'Tu veux te lancer dans le trail et partir sur de bonnes bases dès le début.' },
+                { icon: <Target weight="thin" size={24} className="text-accent" />, title: 'Un objectif précis', desc: 'Trail, ultra, marathon — tu as une course en tête et tu veux y arriver préparé.' },
+                { icon: <ChartLineUp weight="thin" size={24} className="text-accent" />, title: 'Progresser intelligemment', desc: 'Tu t\'entraînes déjà mais stagne. On analyse tes données et on construit mieux.' },
+                { icon: <Mountains weight="thin" size={24} className="text-accent" />, title: 'Découvrir la montagne', desc: 'Tu veux te lancer dans le trail et partir sur de bonnes bases dès le début.' },
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>{item.icon}</span>
+                  <span style={{ flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '32px', height: '32px', background: 'var(--color-surface-container-high)', borderRadius: '8px' }}>{item.icon}</span>
                   <div>
                     <strong style={{ fontSize: '0.95rem', color: 'var(--color-text-main)' }}>{item.title}</strong>
                     <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', marginTop: '0.25rem', lineHeight: 1.5 }}>{item.desc}</p>
