@@ -139,8 +139,8 @@ export default function Header() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '40px',
-              height: '40px',
+              width: '44px',
+              height: '44px',
               borderRadius: '8px',
               transition: 'background 0.2s ease',
             }}
