@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { CheckCircle, AlertCircle, Loader2, Send } from 'lucide-react';
 
 // ⚙️ CONFIGURATION — Remplace par ton ID Formspree après création du compte sur formspree.io
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/REMPLACE_PAR_TON_ID';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwlewgel';
 
 export default function ContactForm({ compact = false }) {
   const [formData, setFormData] = useState({
