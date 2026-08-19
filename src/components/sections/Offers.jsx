@@ -1,102 +1,227 @@
 'use client';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Radio, Mountain, Flame, Zap, User, Users, UserPlus, Map, Activity, Layers } from 'lucide-react';
+import {
+  Check, X, ArrowRight, Zap, Layers, Map,
+  User, Users, UserPlus
+} from 'lucide-react';
 
-export default function Offers({ variant = 'full' }) {
-  const [presentialType, setPresentialType] = useState('solo');
+// ─────────────────────────────────────────────
+// DATA — Formules Distance
+// ─────────────────────────────────────────────
 
-  const coachingOffers = [
-    {
-      id: 'online-plus',
-      title: 'Online +',
-      subtitle: 'Suivi Premium à distance',
-      hook: 'La science des données au service de votre progression. Analyse quotidienne et ajustements.',
-      price: '130€',
-      unit: '/mois',
-      icon: <Zap size={24} />,
-      accent: 'var(--color-primary)',
-      features: ['Analyse quotidienne (VFC, charge)', 'Planification adaptative 7j/7', 'Contact illimité (WhatsApp)', 'Audit physiologique initial'],
-      priority: 1
-    },
-    {
-      id: 'hybride',
-      title: 'Hybride',
-      subtitle: "L'Expérience Sommet",
-      hook: 'Le mix parfait : Expertise terrain (1 séance/mois) et programmation digitale pilotée par vos données.',
-      price: '180€',
-      unit: '/mois',
-      icon: <Layers size={24} />,
-      accent: 'var(--color-accent)',
-      features: ['Suivi Online + inclus', '1 Séance terrain mensuelle', 'Correction technique vidéo', 'Optimisation matériel'],
-      priority: 2
-    },
-    {
-      id: 'solo-terrain',
-      title: '1-to-1',
-      subtitle: 'Séance Technique Individuelle',
-      hook: 'Maîtrisez le geste juste. Séance terrain personnalisée pour l\'autonomie et la performance.',
-      price: '70€',
-      unit: '/séance',
-      icon: <User size={24} />,
-      features: ['Analyse biomécanique', 'Travail spécifique (côtes, descente)', 'Feedback immédiat'],
-      priority: 3
-    },
-    {
-      id: 'duo',
-      title: 'Duo',
-      subtitle: 'Coaching Présentiel Duo',
-      hook: 'Progressez à deux. Correction technique et motivation partagée à tarif réduit.',
-      price: '45€',
-      unit: '/pers',
-      icon: <UserPlus size={24} />,
-      features: ['Objectif commun ou proche', 'Correction double', 'Motivation boostée'],
-      priority: 3
-    },
-    {
-      id: 'small-group',
-      title: 'Small Group',
-      subtitle: 'Entraînement Collectif',
-      hook: 'L’émulation du groupe, l’expertise du coach. Préparez vos objectifs ensemble.',
-      price: '25€',
-      unit: '/pers',
-      icon: <Users size={24} />,
-      features: ['Dynamique de peloton', 'Séances intensité clés', 'Annecy & Genève'],
-      priority: 3
-    },
-    {
-      id: 'online-solo',
-      title: 'Online Solo',
-      subtitle: 'Plans d\'Entraînement',
-      hook: 'Votre feuille de route vers le sommet. Programmes structurés pour objectifs spécifiques.',
-      price: '45€',
-      unit: '/plan',
-      icon: <Map size={24} />,
-      features: ['Plan structuré 8-12 semaines', 'Fiches techniques incluses', 'Autonomie totale'],
-      priority: 4
-    }
-  ];
+const distancePlans = [
+  {
+    id: 'starter',
+    icon: <Map size={22} />,
+    badge: null,
+    name: 'Plan Starter',
+    tagline: 'Plan sur mesure, autonomie totale',
+    description: 'Idéal si tu sais te gérer seul et as besoin d\'une feuille de route précise basée sur ta physiologie réelle.',
+    price: '150',
+    unit: 'paiement unique',
+    cta: 'Commander mon plan',
+    highlight: false,
+    features: [
+      { label: 'Évaluation du profil', included: true },
+      { label: 'Zones d\'entraînements (VMA, VC)', included: true },
+      { label: 'Planification sur Intervals.icu', included: true },
+      { label: 'Échanges plateforme sous 24h', included: false },
+      { label: 'Ajustement du plan', included: false },
+      { label: 'Analyse post-entraînement', included: false },
+      { label: 'Communication WhatsApp (8h-19h)', included: false },
+      { label: 'Point en visio mensuel', included: false },
+      { label: 'Optimisation nutrition', included: false },
+      { label: 'Optimisation pacing de course', included: false },
+      { label: 'Suivi HRV quotidien', included: false },
+    ],
+  },
+  {
+    id: 'intermediaire',
+    icon: <Layers size={22} />,
+    badge: 'Populaire',
+    name: 'Suivi Intermédiaire',
+    tagline: 'Un plan + un regard expert chaque semaine',
+    description: 'La formule idéale pour progresser avec un filet de sécurité : ton plan évolue avec toi, tes questions trouvent une réponse.',
+    price: '99',
+    unit: '/mois',
+    cta: 'Démarrer le suivi',
+    highlight: true,
+    features: [
+      { label: 'Évaluation du profil', included: true },
+      { label: 'Zones d\'entraînements (VMA, VC)', included: true },
+      { label: 'Planification sur Intervals.icu', included: true },
+      { label: 'Échanges plateforme sous 24h', included: true },
+      { label: 'Ajustement du plan', included: true },
+      { label: 'Analyse post-entraînement', included: true },
+      { label: 'Communication WhatsApp (8h-19h)', included: false },
+      { label: 'Point en visio mensuel', included: false },
+      { label: 'Optimisation nutrition', included: false },
+      { label: 'Optimisation pacing de course', included: false },
+      { label: 'Suivi HRV quotidien', included: false },
+    ],
+  },
+  {
+    id: 'all-inclusive',
+    icon: <Zap size={22} />,
+    badge: 'Prise en charge complète',
+    name: 'All Inclusive',
+    tagline: 'Délègue tout. Concentre-toi sur courir.',
+    description: 'Analyse quotidienne, visio mensuelle, nutrition, données Stryd/GPS — tu n\'as qu\'à suivre le plan. Je m\'occupe du reste.',
+    price: '140',
+    unit: '/mois',
+    cta: 'Réserver ma place',
+    highlight: false,
+    features: [
+      { label: 'Évaluation du profil', included: true },
+      { label: 'Zones d\'entraînements (VMA, VC)', included: true },
+      { label: 'Planification sur Intervals.icu', included: true },
+      { label: 'Échanges plateforme sous 24h', included: true },
+      { label: 'Ajustement du plan', included: true },
+      { label: 'Analyse post-entraînement', included: true },
+      { label: 'Communication WhatsApp (8h-19h)', included: true },
+      { label: 'Point en visio mensuel', included: true },
+      { label: 'Optimisation nutrition', included: true },
+      { label: 'Optimisation pacing de course', included: true },
+      { label: 'Suivi HRV quotidien', included: true },
+    ],
+  },
+];
 
-  const presentialOptions = {
-    solo: coachingOffers.find(o => o.id === 'solo-terrain'),
-    group: coachingOffers.find(o => o.id === 'small-group')
+// ─────────────────────────────────────────────
+// SUB-COMPONENTS
+// ─────────────────────────────────────────────
+
+function PricingCard({ plan, index }) {
+  const cardStyle = {
+    position: 'relative',
+    borderRadius: '16px',
+    padding: '2rem',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1.5rem',
+    border: plan.highlight
+      ? '2px solid var(--color-accent)'
+      : '1px solid var(--color-outline-variant)',
+    background: plan.highlight
+      ? 'var(--color-surface-container-high)'
+      : 'var(--color-surface-container)',
+    boxShadow: plan.highlight
+      ? '0 8px 32px rgba(0,136,255,0.12)'
+      : 'none',
+    flex: 1,
   };
 
-  const comparisonData = [
-    { feature: 'Programmation Dynamique', remote: true, inPerson: true },
-    { feature: 'Feedback Biomécanique', remote: false, inPerson: true },
-    { feature: 'Intégration Capteurs/Data', remote: true, inPerson: true },
-    { feature: 'Audit Stratégique Initial', remote: true, inPerson: true },
-    { feature: "Gestion de l'adversité (Peloton)", remote: false, inPerson: true },
-  ];
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      style={cardStyle}
+    >
+      {/* Badge */}
+      {plan.badge && (
+        <div style={{
+          position: 'absolute',
+          top: '-14px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          background: plan.highlight ? 'var(--color-accent)' : 'var(--color-surface-container-highest)',
+          color: plan.highlight ? 'white' : 'var(--color-text-main)',
+          padding: '4px 16px',
+          borderRadius: '50px',
+          fontSize: '0.7rem',
+          fontWeight: 800,
+          textTransform: 'uppercase',
+          letterSpacing: '0.08em',
+          whiteSpace: 'nowrap',
+          border: plan.highlight ? 'none' : '1px solid var(--color-outline-variant)',
+        }}>
+          {plan.badge}
+        </div>
+      )}
 
-  const isTeaser = variant === 'teaser';
+      {/* Header */}
+      <div>
+        <div style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '44px',
+          height: '44px',
+          borderRadius: '10px',
+          background: plan.highlight ? 'var(--color-accent)' : 'var(--color-surface-container-high)',
+          color: plan.highlight ? 'white' : 'var(--color-accent)',
+          marginBottom: '1rem',
+        }}>
+          {plan.icon}
+        </div>
+        <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '0.25rem' }}>
+          {plan.name}
+        </h3>
+        <p style={{ fontSize: '0.8rem', color: 'var(--color-accent)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+          {plan.tagline}
+        </p>
+      </div>
 
-  // ─────────────────────────────────────────────
-  // TEASER VARIANT — Nouvelle structure éditoriale
-  // ─────────────────────────────────────────────
-  if (isTeaser) {
+      {/* Prix */}
+      <div style={{ paddingBottom: '1.5rem', borderBottom: '1px solid var(--color-outline-variant)' }}>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
+          <span style={{ fontSize: '3rem', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--color-text-main)' }}>
+            {plan.price}€
+          </span>
+          <span style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', fontWeight: 500 }}>
+            {plan.unit}
+          </span>
+        </div>
+        <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', marginTop: '0.5rem', lineHeight: 1.5 }}>
+          {plan.description}
+        </p>
+      </div>
+
+      {/* Features */}
+      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem', flexGrow: 1 }}>
+        {plan.features.map((feature, i) => (
+          <li key={i} style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.75rem',
+            fontSize: '0.875rem',
+            color: feature.included ? 'var(--color-text-main)' : 'var(--color-text-muted)',
+            opacity: feature.included ? 1 : 0.5,
+          }}>
+            {feature.included ? (
+              <Check size={16} style={{ color: 'var(--color-accent)', flexShrink: 0 }} />
+            ) : (
+              <X size={16} style={{ color: 'var(--color-outline)', flexShrink: 0 }} />
+            )}
+            {feature.label}
+          </li>
+        ))}
+      </ul>
+
+      {/* CTA */}
+      <Link
+        href="/contact"
+        className={plan.highlight ? 'btn btn-primary' : 'btn btn-secondary'}
+        style={{ textAlign: 'center', marginTop: 'auto' }}
+      >
+        {plan.cta}
+      </Link>
+    </motion.div>
+  );
+}
+
+// ─────────────────────────────────────────────
+// MAIN COMPONENT
+// ─────────────────────────────────────────────
+
+export default function Offers({ variant = 'full' }) {
+
+  // ── TEASER — Homepage (inchangé structurellement) ──
+  if (variant === 'teaser') {
     return (
       <motion.section
         initial={{ opacity: 0 }}
@@ -109,7 +234,7 @@ export default function Offers({ variant = 'full' }) {
       >
         <div className="container">
 
-          {/* ── PARTIE 1 : Ce qui freine l'athlète ── */}
+          {/* ── Édito ── */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -125,7 +250,6 @@ export default function Offers({ variant = 'full' }) {
               borderBottom: '1px solid var(--color-outline-variant)'
             }}
           >
-            {/* Label + Titre */}
             <div>
               <span style={{
                 display: 'inline-block',
@@ -146,8 +270,8 @@ export default function Offers({ variant = 'full' }) {
                 lineHeight: 1.1,
                 marginBottom: '1.5rem'
               }}>
-                S'entraîner dur ne suffit pas.{' '}
-                <span style={{ color: 'var(--color-primary)', fontStyle: 'italic' }}>S'entraîner juste, si.</span>
+                S&apos;entraîner dur ne suffit pas.{' '}
+                <span style={{ color: 'var(--color-primary)', fontStyle: 'italic' }}>S&apos;entraîner juste, si.</span>
               </h2>
               <p style={{
                 fontSize: '1.1rem',
@@ -158,200 +282,89 @@ export default function Offers({ variant = 'full' }) {
                 borderLeft: '3px solid var(--color-primary)',
                 paddingLeft: '1.25rem'
               }}>
-                La volonté ne manque jamais. C'est la structure qui fait défaut.
+                La volonté ne manque jamais. C&apos;est la structure qui fait défaut.
               </p>
               <Link href="/offres" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
                 Voir les formules <ArrowRight size={18} />
               </Link>
             </div>
-
-            {/* Texte éditorial */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               {[
-                "Beaucoup d'athlètes s'entraînent trop fort sur les séances faciles et pas assez sur les séances clés. Résultat : fatigue chronique, stagnation et blessures à répétition. Pas par manque de motivation. Par manque de direction.",
+                "Beaucoup d'athlètes s'entraînent trop fort sur les séances faciles et pas assez sur les séances clés. Résultat : fatigue chronique, stagnation et blessures à répétition.",
                 "On accumule des kilomètres sans savoir pourquoi. On suit des plans génériques qui ne tiennent pas compte de votre biologie, votre emploi du temps ou vos objectifs réels.",
                 "Ce n'est pas une question de talent. C'est une question d'architecture. Un plan calibré sur vos vraies données change tout.",
-                "C'est exactement ce que Summitraining propose : une structure cohérente, une vision experte, et un suivi qui s'adapte à vous : pas l'inverse."
               ].map((text, i) => (
                 <p key={i} style={{ color: 'var(--color-text-muted)', lineHeight: 1.75, fontSize: '0.95rem' }}>
                   {text}
                 </p>
               ))}
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0.75rem',
-                marginTop: '0.5rem',
-                padding: '1.5rem',
-                background: 'var(--color-surface-container)',
-                borderRadius: 'var(--border-radius-lg)',
-                border: '1px solid var(--color-outline-variant)'
-              }}>
-                <p style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--color-text-main)' }}>
-                  <ArrowRight size={16} className="text-accent" /> Vous voulez progresser ? On construit la structure pour que ça arrive.
-                </p>
-                <p style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--color-text-main)' }}>
-                  Vous manquez de temps ? On l'optimise. Chaque séance compte.
-                </p>
-              </div>
             </div>
           </motion.div>
 
-          {/* ── PARTIE 2 : Les 3 services ── */}
+          {/* ── Aperçu 3 formules ── */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            style={{ marginBottom: 'var(--space-xl)', paddingBottom: 'var(--space-xl)', borderBottom: '1px solid var(--color-outline-variant)' }}
           >
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-              <span style={{
-                display: 'inline-block',
-                color: 'var(--color-primary)',
-                fontWeight: 700,
-                letterSpacing: '0.2em',
-                textTransform: 'uppercase',
-                fontSize: '0.75rem',
-                marginBottom: '1rem',
-                fontFamily: 'var(--font-technical)'
-              }}>Les services</span>
               <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 900, letterSpacing: '-0.03em' }}>
-                Trois façons de travailler. Une seule exigence.
+                3 formules à distance. 1 seul niveau d&apos;exigence.
               </h2>
+              <p style={{ color: 'var(--color-text-muted)', marginTop: '1rem' }}>Du plan autonome au suivi intégral — selon ton profil et ton objectif.</p>
             </div>
 
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '1.5rem'
-            }}>
-              {[
-                coachingOffers.find(o => o.id === 'online-plus'),
-                coachingOffers.find(o => o.id === 'solo-terrain'),
-                coachingOffers.find(o => o.id === 'hybride')
-              ].map((service, i) => (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
+              {distancePlans.map((plan, i) => (
                 <motion.div
-                  key={i}
+                  key={plan.id}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.1 * i }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
                   style={{
-                    background: i === 0 ? 'var(--color-primary)' : 'var(--color-surface-container-low)',
-                    color: i === 0 ? 'white' : 'var(--color-text-main)',
-                    borderRadius: 'var(--border-radius-lg)',
+                    background: plan.highlight ? 'var(--color-accent)' : 'var(--color-surface-container)',
+                    borderRadius: '16px',
                     padding: '2rem',
-                    border: '1px solid var(--color-outline-variant)',
+                    border: plan.highlight ? 'none' : '1px solid var(--color-outline-variant)',
                     display: 'flex',
                     flexDirection: 'column',
                     gap: '1rem',
-                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                   }}
-                  whileHover={{ y: -4, boxShadow: '0 12px 30px rgba(0,0,0,0.15)' }}
                 >
-                  <div style={{ color: i === 0 ? 'white' : 'var(--color-primary)' }}>{service.icon}</div>
-                  <span style={{
-                    fontSize: '0.7rem',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '1.5px',
-                    color: i === 0 ? 'rgba(255,255,255,0.6)' : 'var(--color-primary)',
-                    fontFamily: 'var(--font-technical)'
-                  }}>{service.subtitle}</span>
-                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: i === 0 ? 'white' : 'var(--color-text-main)' }}>
-                    {service.title}
-                  </h3>
-                  <p style={{ fontSize: '0.9rem', color: i === 0 ? 'rgba(255,255,255,0.7)' : 'var(--color-text-muted)', lineHeight: 1.6, flexGrow: 1 }}>
-                    {service.hook}
+                  <div style={{ color: plan.highlight ? 'white' : 'var(--color-accent)' }}>{plan.icon}</div>
+                  <div>
+                    <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: plan.highlight ? 'white' : 'var(--color-text-main)' }}>{plan.name}</h3>
+                    <p style={{ fontSize: '1.5rem', fontWeight: 900, color: plan.highlight ? 'white' : 'var(--color-text-main)', marginTop: '0.25rem' }}>
+                      {plan.price}€ <span style={{ fontSize: '0.8rem', fontWeight: 400, opacity: 0.7 }}>{plan.unit}</span>
+                    </p>
+                  </div>
+                  <p style={{ fontSize: '0.85rem', color: plan.highlight ? 'rgba(255,255,255,0.8)' : 'var(--color-text-muted)', lineHeight: 1.5, flexGrow: 1 }}>
+                    {plan.description}
                   </p>
-                  <Link href="/offres" style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    fontSize: '0.8rem',
-                    fontWeight: 700,
-                    color: i === 0 ? 'white' : 'var(--color-primary)',
-                    textDecoration: 'none',
-                    marginTop: 'auto'
-                  }}>
-                    Voir les détails <span>→</span>
+                  <Link
+                    href="/offres"
+                    style={{
+                      fontSize: '0.8rem',
+                      fontWeight: 700,
+                      color: plan.highlight ? 'white' : 'var(--color-accent)',
+                      textDecoration: 'none',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.4rem',
+                    }}
+                  >
+                    Voir les détails <ArrowRight size={14} />
                   </Link>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
 
-          {/* ── PARTIE 3 : L'approche scientifique ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '3rem',
-              alignItems: 'center',
-              background: 'var(--color-surface-container)',
-              borderRadius: 'var(--border-radius-lg)',
-              padding: '3rem',
-              border: '1px solid var(--color-outline-variant)'
-            }}>
-              <div>
-                <span style={{
-                  display: 'inline-block',
-                  color: 'var(--color-primary)',
-                  fontWeight: 700,
-                  letterSpacing: '0.2em',
-                  textTransform: 'uppercase',
-                  fontSize: '0.75rem',
-                  marginBottom: '1.5rem',
-                  fontFamily: 'var(--font-technical)'
-                }}>La méthode</span>
-                <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 900, letterSpacing: '-0.03em', marginBottom: '1.5rem', lineHeight: 1.1 }}>
-                  Votre <span style={{ color: 'var(--color-primary)', fontStyle: 'italic' }}>profil réel</span>, pas une estimation
-                </h2>
-                <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.75, marginBottom: '2rem' }}>
-                  Chaque athlète a une biologie unique. On identifie votre VMA, votre Puissance Critique et vos zones réelles via des tests terrain calibrés. Pas de moyennes génériques. Votre plan part de vous.
-                </p>
-                <Link href="/offres" className="btn btn-primary">
-                  Voir l'offre complète
-                </Link>
-              </div>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                {[
-                  { step: '01', label: 'Appel découverte', desc: "On comprend votre projet, vos objectifs, vos contraintes. Gratuit, sans engagement." },
-                  { step: '02', label: 'Tests terrain', desc: "VMA, Puissance Critique : vos vraies zones, pas des estimations." },
-                  { step: '03', label: 'Plan ajusté chaque semaine', desc: "Fatigue, imprévus, progression : rien n'est figé. On s'adapte." },
-                ].map((item) => (
-                  <div key={item.step} style={{
-                    display: 'flex',
-                    gap: '1.5rem',
-                    alignItems: 'flex-start',
-                    padding: '1.25rem',
-                    background: 'var(--color-surface-container-low)',
-                    borderRadius: 'var(--border-radius)',
-                    border: '1px solid var(--color-outline-variant)'
-                  }}>
-                    <span style={{
-                      fontFamily: 'var(--font-technical)',
-                      fontSize: '0.7rem',
-                      fontWeight: 800,
-                      color: 'var(--color-primary)',
-                      opacity: 0.6,
-                      minWidth: '28px',
-                      paddingTop: '2px'
-                    }}>{item.step}</span>
-                    <div>
-                      <strong style={{ display: 'block', fontSize: '0.95rem', marginBottom: '0.3rem' }}>{item.label}</strong>
-                      <span style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>{item.desc}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+              <Link href="/offres" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                Comparer toutes les formules <ArrowRight size={18} />
+              </Link>
             </div>
           </motion.div>
 
@@ -360,303 +373,513 @@ export default function Offers({ variant = 'full' }) {
     );
   }
 
-  // ─────────────────────────────────────────────
-  // FULL VARIANT — Page dédiée /offres
-  // ─────────────────────────────────────────────
+  // ── FULL — Page /offres ──
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 1 }}
-      className="section"
-      id="offers"
-      style={{ overflow: 'hidden' }}
-    >
+    <section className="section" id="offers" style={{ paddingTop: '100px' }}>
       <div className="container">
-        <div className="section-header" style={{ marginBottom: 'var(--space-xl)' }}>
-          <span className="font-technical text-accent" style={{ fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1rem', display: 'block', fontSize: '0.85rem' }}>
-            Accompagnement & Performance
-          </span>
-          <h2 className="section-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 900, letterSpacing: '-0.04em' }}>
-            Summit <span className="text-accent" style={{ fontStyle: 'italic' }}>Lab</span>
-          </h2>
-          <p className="section-subtitle" style={{ fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto' }}>
-            De l'autonomie à la haute performance, trouvez votre structure.
-          </p>
-        </div>
 
-        {/* Bento Grid Pricing */}
-        <div className="pricing-grid-bento">
-
-          {/* 1. MAIN CARD: ONLINE + (Large) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bento-card-large"
-            style={{
-              background: 'var(--color-surface-container-low)',
-              borderRadius: 'var(--border-radius-lg)',
-              padding: 'var(--space-xl)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              border: '2px solid var(--color-primary)',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-          >
-            <div style={{ position: 'relative', zIndex: 2 }}>
-              <div style={{ display: 'inline-block', background: 'rgba(0, 83, 208, 0.1)', color: 'var(--color-primary)', padding: '4px 12px', borderRadius: '50px', fontSize: '0.7rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '1.5rem' }}>
-                Suivi Premium & Expertise Scientifique
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
-                <div style={{ color: 'var(--color-primary)' }}><Zap size={32} /></div>
-                <h3 style={{ fontSize: '2.5rem', fontWeight: 900 }}>{coachingOffers[0].title}</h3>
-              </div>
-              <p style={{ color: 'var(--color-primary)', fontSize: '1.1rem', fontWeight: 700, marginBottom: '1rem' }}>
-                {coachingOffers[0].subtitle}
-              </p>
-              <p style={{ color: 'var(--color-text-muted)', marginBottom: '2.5rem', maxWidth: '480px', fontSize: '1rem', fontStyle: 'italic', lineHeight: 1.6 }}>
-                "{coachingOffers[0].hook}"
-              </p>
-
-              <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
-                {coachingOffers[0].features.map((feature, i) => (
-                  <li key={i} style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', fontSize: '0.9rem' }}>
-                    <span style={{ color: 'var(--color-primary)', fontWeight: 'bold' }}>✓</span>
-                    <span style={{ color: 'var(--color-text-main)' }}>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--color-outline-variant)', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-              <div>
-                <span style={{ fontSize: '3.5rem', fontWeight: 800, color: 'var(--color-text-main)', letterSpacing: '-0.05em', fontFamily: 'var(--font-technical)' }}>130€</span>
-                <span style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>/mois</span>
-              </div>
-              <Link href="/#contact" className="btn btn-primary" style={{ padding: '1.25rem 3.5rem' }}>
-                Postuler au Lab
-              </Link>
-            </div>
-          </motion.div>
-
-          {/* 2. HYBRIDE (Medium) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="bento-card-medium"
-            style={{
-              background: 'var(--color-surface-container-high)',
-              borderRadius: 'var(--border-radius-lg)',
-              padding: '2rem',
-              border: '1px solid var(--color-outline-variant)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between'
-            }}
-          >
-            <div>
-              <div style={{ color: 'var(--color-accent)', marginBottom: '1rem' }}><Layers size={28} /></div>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '0.25rem' }}>{coachingOffers[1].title}</h3>
-              <p style={{ color: 'var(--color-accent)', fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', marginBottom: '1rem' }}>{coachingOffers[1].subtitle}</p>
-              <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>{coachingOffers[1].hook}</p>
-            </div>
-            <div style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ fontSize: '1.5rem', fontWeight: 800 }}>{coachingOffers[1].price}<span style={{ fontSize: '0.8rem', opacity: 0.6 }}>{coachingOffers[1].unit}</span></span>
-              <Link href="/#contact" style={{ color: 'var(--color-accent)', fontWeight: 700, fontSize: '0.8rem' }}>Détails →</Link>
-            </div>
-          </motion.div>
-
-          {/* 3. LAB CAPACITY (Status) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bento-card-medium"
-            style={{
-              background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-container) 100%)',
-              color: 'white',
-              borderRadius: 'var(--border-radius-lg)',
-              padding: '2rem',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              boxShadow: '0 20px 40px rgba(0, 83, 208, 0.2)'
-            }}
-          >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-              <h4 style={{ fontSize: '0.7rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>Disponibilité Lab</h4>
-              <span style={{ background: 'rgba(255,255,255,0.2)', padding: '2px 8px', borderRadius: '50px', fontSize: '0.6rem', fontWeight: 800 }}>LIMITÉ</span>
-            </div>
-            <div>
-              <p style={{ fontSize: '2.5rem', fontWeight: 900, fontStyle: 'italic', lineHeight: 1 }}>80%</p>
-              <p style={{ fontSize: '0.8rem', opacity: 0.9, marginTop: '0.4rem', fontWeight: 700 }}>Plus que 3 places</p>
-            </div>
-            <div style={{ marginTop: '1rem', height: '6px', width: '100%', background: 'rgba(255,255,255,0.2)', borderRadius: '50px', overflow: 'hidden' }}>
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: '80%' }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.5, ease: 'easeOut' }}
-                style={{ height: '100%', background: 'white', borderRadius: '50px' }}
-              />
-            </div>
-          </motion.div>
-
-          {/* 4. 1-to-1 (Small) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="bento-card-small"
-            style={{
-              background: 'var(--color-surface-container-low)',
-              borderRadius: 'var(--border-radius-lg)',
-              padding: '1.5rem',
-              border: '1px solid var(--color-outline-variant)',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1rem'
-            }}
-          >
-            <div style={{ color: 'var(--color-primary)' }}><User size={24} /></div>
-            <h4 style={{ fontWeight: 800 }}>{coachingOffers[2].title}</h4>
-            <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>{coachingOffers[2].hook}</p>
-            <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ fontWeight: 800 }}>{coachingOffers[2].price}<span style={{ fontSize: '0.7rem', opacity: 0.6 }}>{coachingOffers[2].unit}</span></span>
-              <Link href="/#contact" className="text-accent" style={{ fontSize: '0.75rem', fontWeight: 700 }}>Réserver</Link>
-            </div>
-          </motion.div>
-
-          {/* 5. DUO (Small) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="bento-card-small"
-            style={{
-              background: 'var(--color-surface-container-low)',
-              borderRadius: 'var(--border-radius-lg)',
-              padding: '1.5rem',
-              border: '1px solid var(--color-outline-variant)',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1rem'
-            }}
-          >
-            <div style={{ color: 'var(--color-primary)' }}><UserPlus size={24} /></div>
-            <h4 style={{ fontWeight: 800 }}>{coachingOffers[3].title}</h4>
-            <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>{coachingOffers[3].hook}</p>
-            <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ fontWeight: 800 }}>{coachingOffers[3].price}<span style={{ fontSize: '0.7rem', opacity: 0.6 }}>{coachingOffers[3].unit}</span></span>
-              <Link href="/#contact" className="text-accent" style={{ fontSize: '0.75rem', fontWeight: 700 }}>Réserver</Link>
-            </div>
-          </motion.div>
-
-          {/* 6. SMALL GROUP (Small) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="bento-card-small"
-            style={{
-              background: 'var(--color-surface-container-low)',
-              borderRadius: 'var(--border-radius-lg)',
-              padding: '1.5rem',
-              border: '1px solid var(--color-outline-variant)',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1rem'
-            }}
-          >
-            <div style={{ color: 'var(--color-primary)' }}><Users size={24} /></div>
-            <h4 style={{ fontWeight: 800 }}>{coachingOffers[4].title}</h4>
-            <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>{coachingOffers[4].hook}</p>
-            <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ fontWeight: 800 }}>{coachingOffers[4].price}<span style={{ fontSize: '0.7rem', opacity: 0.6 }}>{coachingOffers[4].unit}</span></span>
-              <Link href="/#contact" className="text-accent" style={{ fontSize: '0.75rem', fontWeight: 700 }}>S'inscrire</Link>
-            </div>
-          </motion.div>
-
-          {/* 7. ONLINE SOLO (Horizontal/Wide) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="bento-card-wide"
-            style={{
-              background: 'var(--color-surface-container)',
-              borderRadius: 'var(--border-radius-lg)',
-              padding: '2rem 3rem',
-              border: '1px solid var(--color-outline-variant)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '2rem',
-              flexWrap: 'wrap'
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-              <div style={{ color: 'var(--color-primary)' }}><Map size={32} /></div>
-              <div>
-                <h3 style={{ fontSize: '1.5rem', marginBottom: '0.25rem' }}>{coachingOffers[5].title}</h3>
-                <p style={{ fontSize: '0.95rem', color: 'var(--color-text-muted)' }}>{coachingOffers[5].hook}</p>
-              </div>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-              <div style={{ textAlign: 'right' }}>
-                <span style={{ fontSize: '1.5rem', fontWeight: 800 }}>{coachingOffers[5].price}</span>
-                <span style={{ fontSize: '0.8rem', opacity: 0.6 }}> / plan</span>
-              </div>
-              <Link href="/#contact" className="btn btn-secondary">Explorer les plans</Link>
-            </div>
-          </motion.div>
-
-        </div>
-
-
-        {/* CTA */}
+        {/* ── En-tête ── */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 1 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="section-header"
+        >
+          <span className="font-technical text-accent" style={{
+            fontWeight: 700,
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            marginBottom: '1rem',
+            display: 'block',
+            fontSize: '0.8rem'
+          }}>
+            Coaching à distance
+          </span>
+          <h1 className="section-title">
+            Choisissez votre <span className="text-accent">formule</span>
+          </h1>
+          <p className="section-subtitle" style={{ maxWidth: '600px', margin: '0 auto' }}>
+            3 niveaux d&apos;accompagnement, calibrés sur votre physiologie réelle. Toutes les formules démarrent par un bilan complet de l&apos;athlète.
+          </p>
+        </motion.div>
+
+        {/* ── Bandeau "Premier appel gratuit" ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           style={{
-            marginTop: 'var(--space-xl)',
-            padding: '4rem 2rem',
-            borderRadius: 'var(--border-radius-lg)',
-            background: 'var(--color-surface-container-high)',
-            color: 'var(--color-text-main)',
-            textAlign: 'center',
-            position: 'relative',
-            overflow: 'hidden'
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '0.75rem',
+            padding: '0.875rem 1.5rem',
+            background: 'rgba(0,136,255,0.07)',
+            border: '1px solid rgba(0,136,255,0.2)',
+            borderRadius: '50px',
+            maxWidth: '480px',
+            margin: '0 auto 4rem',
+            fontSize: '0.9rem',
+            fontWeight: 600,
           }}
         >
-          <div style={{ position: 'relative', zIndex: 2 }}>
-            <h3 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 900, marginBottom: '1.5rem', letterSpacing: '-0.02em', color: 'white' }}>L'aventure commence ici.</h3>
-            <p style={{ fontSize: '1.1rem', opacity: 0.8, marginBottom: '2.5rem', maxWidth: '600px', margin: '0 auto 2.5rem' }}>
-              Le nombre de places est limité pour garantir la qualité du suivi et la réactivité du binôme.
-            </p>
-            <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link href="/#contact" className="btn btn-primary" style={{ padding: '1.25rem 3rem' }}>Réserver un appel découverte</Link>
-              <Link href="/#contact" className="btn" style={{ border: '1px solid rgba(255,255,255,0.2)', color: 'white', padding: '1.25rem 3rem' }}>Poser une question</Link>
-            </div>
+          <span style={{ fontSize: '1.1rem' }}>📞</span>
+          <span style={{ color: 'var(--color-text-main)' }}>
+            Premier appel découverte <strong style={{ color: 'var(--color-accent)' }}>100% gratuit</strong> et sans engagement
+          </span>
+        </motion.div>
+
+        {/* ── 3 Cartes formules ── */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '1.5rem',
+          alignItems: 'stretch',
+          marginBottom: '5rem',
+        }}>
+          {distancePlans.map((plan, i) => (
+            <PricingCard key={plan.id} plan={plan} index={i} />
+          ))}
+        </div>
+
+        {/* ── Tableau de comparaison ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          style={{ marginBottom: '5rem' }}
+        >
+          <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '2.5rem', fontSize: '1.8rem' }}>
+            Comparer les <span className="text-accent">formules</span>
+          </h2>
+
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{
+              width: '100%',
+              borderCollapse: 'collapse',
+              minWidth: '600px',
+            }}>
+              <thead>
+                <tr style={{ borderBottom: '2px solid var(--color-outline-variant)' }}>
+                  <th style={{ textAlign: 'left', padding: '1rem 1.25rem', fontSize: '0.85rem', color: 'var(--color-text-muted)', fontWeight: 600, width: '40%' }}>
+                    Ce qui est inclus
+                  </th>
+                  {distancePlans.map(plan => (
+                    <th key={plan.id} style={{
+                      textAlign: 'center',
+                      padding: '1rem 1.25rem',
+                      fontSize: '0.9rem',
+                      fontWeight: 800,
+                      color: plan.highlight ? 'var(--color-accent)' : 'var(--color-text-main)',
+                    }}>
+                      {plan.name}
+                      <div style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--color-text-muted)', marginTop: '0.2rem' }}>
+                        {plan.price}€ {plan.unit}
+                      </div>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {distancePlans[0].features.map((feature, rowIdx) => (
+                  <tr
+                    key={rowIdx}
+                    style={{
+                      borderBottom: '1px solid var(--color-outline-variant)',
+                      background: rowIdx % 2 === 0 ? 'transparent' : 'var(--color-surface-container)',
+                    }}
+                  >
+                    <td style={{ padding: '0.875rem 1.25rem', fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>
+                      {feature.label}
+                    </td>
+                    {distancePlans.map(plan => (
+                      <td key={plan.id} style={{ textAlign: 'center', padding: '0.875rem 1.25rem' }}>
+                        {plan.features[rowIdx].included ? (
+                          <Check size={18} style={{ color: 'var(--color-accent)', display: 'inline-block' }} />
+                        ) : (
+                          <X size={16} style={{ color: 'var(--color-outline-variant)', display: 'inline-block', opacity: 0.4 }} />
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+                {/* Ligne prix */}
+                <tr style={{ borderTop: '2px solid var(--color-outline-variant)', background: 'var(--color-surface-container-high)' }}>
+                  <td style={{ padding: '1.25rem', fontWeight: 700, fontSize: '0.9rem' }}>Tarif</td>
+                  {distancePlans.map(plan => (
+                    <td key={plan.id} style={{ textAlign: 'center', padding: '1.25rem' }}>
+                      <span style={{ fontSize: '1.4rem', fontWeight: 900, color: plan.highlight ? 'var(--color-accent)' : 'var(--color-text-main)' }}>
+                        {plan.price}€
+                      </span>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', display: 'block' }}>{plan.unit}</span>
+                    </td>
+                  ))}
+                </tr>
+                {/* Ligne CTA */}
+                <tr>
+                  <td style={{ padding: '1.25rem' }} />
+                  {distancePlans.map(plan => (
+                    <td key={plan.id} style={{ textAlign: 'center', padding: '1rem 1.25rem' }}>
+                      <Link
+                        href="/contact"
+                        className={plan.highlight ? 'btn btn-primary' : 'btn btn-secondary'}
+                        style={{ fontSize: '0.8rem', padding: '0.6rem 1.25rem' }}
+                      >
+                        {plan.cta}
+                      </Link>
+                    </td>
+                  ))}
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div style={{ position: 'absolute', top: '-50%', right: '-10%', width: '500px', height: '500px', background: 'var(--color-primary)', opacity: 0.1, filter: 'blur(100px)', borderRadius: '50%' }} />
+        </motion.div>
+
+        {/* ── Bloc "Comment ça se passe" ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          style={{
+            background: 'var(--color-surface-container)',
+            borderRadius: '20px',
+            padding: '3rem',
+            border: '1px solid var(--color-outline-variant)',
+            marginBottom: '5rem',
+          }}
+        >
+          <h2 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '2.5rem', textAlign: 'center' }}>
+            Comment ça se passe ?
+          </h2>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '1.5rem',
+          }}>
+            {[
+              { step: '01', title: 'Appel découverte', desc: '30 min gratuits pour comprendre votre projet, votre niveau, vos contraintes.' },
+              { step: '02', title: 'Bilan athlète', desc: 'Définition de vos zones réelles (VMA, Vitesse Critique) via des tests terrain calibrés.' },
+              { step: '03', title: 'Plan sur mesure', desc: 'Votre programme est construit sur vos données. Pas un template, une architecture.' },
+              { step: '04', title: 'Suivi & ajustements', desc: 'Fatigue, blessure, imprévu — le plan s\'adapte à vous, pas l\'inverse.' },
+            ].map((item) => (
+              <div key={item.step} style={{
+                padding: '1.5rem',
+                background: 'var(--color-surface-container-low)',
+                borderRadius: '12px',
+                border: '1px solid var(--color-outline-variant)',
+              }}>
+                <span style={{
+                  fontFamily: 'var(--font-technical)',
+                  fontSize: '0.7rem',
+                  fontWeight: 800,
+                  color: 'var(--color-accent)',
+                  opacity: 0.7,
+                  display: 'block',
+                  marginBottom: '0.75rem',
+                }}>
+                  {item.step}
+                </span>
+                <strong style={{ display: 'block', fontSize: '1rem', marginBottom: '0.5rem' }}>{item.title}</strong>
+                <span style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>{item.desc}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* ── BLOC PRÉSENTIEL ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          style={{ marginTop: '2rem' }}
+        >
+          {/* En-tête section présentiel */}
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <span style={{
+              display: 'inline-block',
+              background: 'rgba(0,136,255,0.07)',
+              border: '1px solid rgba(0,136,255,0.2)',
+              borderRadius: '50px',
+              padding: '4px 16px',
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              textTransform: 'uppercase',
+              letterSpacing: '0.1em',
+              color: 'var(--color-accent)',
+              marginBottom: '1.25rem',
+            }}>
+              Coaching en présentiel
+            </span>
+            <h2 className="section-title" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)', marginBottom: '1rem' }}>
+              Sur le <span className="text-accent">terrain</span>, autour d&apos;Annecy
+            </h2>
+            <p style={{ color: 'var(--color-text-muted)', maxWidth: '560px', margin: '0 auto', lineHeight: 1.7 }}>
+              Séances techniques en extérieur — sentiers, piste, route — dans le bassin annécien.
+              Idéal pour travailler la biomécanique, la descente ou l&apos;intensité encadrée.
+            </p>
+          </div>
+
+          {/* Grille 4 cartes */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap: '1.25rem',
+            marginBottom: '2.5rem',
+          }}>
+
+            {/* Carte Solo */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0 }}
+              style={{
+                borderRadius: '16px',
+                padding: '2rem',
+                background: 'var(--color-surface-container)',
+                border: '2px solid var(--color-accent)',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.25rem',
+                position: 'relative',
+              }}
+            >
+              <div style={{
+                position: 'absolute', top: '-13px', left: '1.5rem',
+                background: 'var(--color-accent)', color: 'white',
+                padding: '2px 14px', borderRadius: '50px',
+                fontSize: '0.65rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em',
+              }}>
+                Recommandé
+              </div>
+              <div style={{
+                width: '44px', height: '44px', borderRadius: '10px',
+                background: 'var(--color-accent)', color: 'white',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}>
+                <User size={22} />
+              </div>
+              <div>
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '0.25rem' }}>Séance Solo</h3>
+                <p style={{ fontSize: '0.8rem', color: 'var(--color-accent)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  1-to-1 · Coaching individuel
+                </p>
+              </div>
+              <div style={{ borderTop: '1px solid var(--color-outline-variant)', paddingTop: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem', marginBottom: '0.75rem' }}>
+                  <span style={{ fontSize: '2.5rem', fontWeight: 900, letterSpacing: '-0.04em' }}>70€</span>
+                  <span style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>/séance</span>
+                </div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                  {[
+                    'Séance ~1h30 en extérieur',
+                    'Biomécanique & technique',
+                    'Travail côtes, descente, allures',
+                    'Feedback immédiat détaillé',
+                    'Bilan de séance écrit',
+                  ].map((f, i) => (
+                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>
+                      <Check size={14} style={{ color: 'var(--color-accent)', flexShrink: 0 }} /> {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <Link href="/contact" className="btn btn-primary" style={{ textAlign: 'center', marginTop: 'auto' }}>
+                Réserver ma séance
+              </Link>
+            </motion.div>
+
+            {/* Carte Duo */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              style={{
+                borderRadius: '16px',
+                padding: '2rem',
+                background: 'var(--color-surface-container)',
+                border: '1px solid var(--color-outline-variant)',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.25rem',
+              }}
+            >
+              <div style={{
+                width: '44px', height: '44px', borderRadius: '10px',
+                background: 'var(--color-surface-container-high)', color: 'var(--color-accent)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}>
+                <UserPlus size={22} />
+              </div>
+              <div>
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '0.25rem' }}>Séance Duo</h3>
+                <p style={{ fontSize: '0.8rem', color: 'var(--color-accent)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  2 athlètes · Objectif commun
+                </p>
+              </div>
+              <div style={{ borderTop: '1px solid var(--color-outline-variant)', paddingTop: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem', marginBottom: '0.75rem' }}>
+                  <span style={{ fontSize: '2.5rem', fontWeight: 900, letterSpacing: '-0.04em' }}>45€</span>
+                  <span style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>/pers · /séance</span>
+                </div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                  {[
+                    'Niveaux proches ou objectif commun',
+                    'Correction technique pour les deux',
+                    'Émulation et motivation',
+                    'Feedback individuel inclus',
+                    'Tarif réduit vs séance solo',
+                  ].map((f, i) => (
+                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>
+                      <Check size={14} style={{ color: 'var(--color-accent)', flexShrink: 0 }} /> {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <Link href="/contact" className="btn btn-secondary" style={{ textAlign: 'center', marginTop: 'auto' }}>
+                Réserver à deux
+              </Link>
+            </motion.div>
+
+            {/* Carte Small Group */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              style={{
+                borderRadius: '16px',
+                padding: '2rem',
+                background: 'var(--color-surface-container)',
+                border: '1px solid var(--color-outline-variant)',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.25rem',
+              }}
+            >
+              <div style={{
+                width: '44px', height: '44px', borderRadius: '10px',
+                background: 'var(--color-surface-container-high)', color: 'var(--color-accent)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}>
+                <Users size={22} />
+              </div>
+              <div>
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '0.25rem' }}>Small Group</h3>
+                <p style={{ fontSize: '0.8rem', color: 'var(--color-accent)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  9-12 personnes · Entraînement collectif
+                </p>
+              </div>
+              <div style={{ borderTop: '1px solid var(--color-outline-variant)', paddingTop: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem', marginBottom: '0.75rem' }}>
+                  <span style={{ fontSize: '2.5rem', fontWeight: 900, letterSpacing: '-0.04em' }}>30€</span>
+                  <span style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>/pers · /séance</span>
+                </div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                  {[
+                    '9 à 12 athlètes max',
+                    'Séances intensité clés (fractionné, seuil)',
+                    'Dynamique de groupe & émulation',
+                    'Bassin annécien & alentours',
+                    'Idéal pour progresser en commun',
+                  ].map((f, i) => (
+                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>
+                      <Check size={14} style={{ color: 'var(--color-accent)', flexShrink: 0 }} /> {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <Link href="/contact" className="btn btn-secondary" style={{ textAlign: 'center', marginTop: 'auto' }}>
+                Rejoindre un groupe
+              </Link>
+            </motion.div>
+
+            {/* Carte Stage */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              style={{
+                borderRadius: '16px',
+                padding: '2rem',
+                background: 'linear-gradient(135deg, var(--color-surface-container-high) 0%, var(--color-surface-container) 100%)',
+                border: '1px solid var(--color-outline-variant)',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.25rem',
+              }}
+            >
+              <div style={{
+                width: '44px', height: '44px', borderRadius: '10px',
+                background: 'var(--color-surface-container-highest)', color: 'var(--color-accent)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}>
+                <Map size={22} />
+              </div>
+              <div>
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '0.25rem' }}>Stage Trail</h3>
+                <p style={{ fontSize: '0.8rem', color: 'var(--color-accent)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  Format immersif · Sur mesure
+                </p>
+              </div>
+              <div style={{ borderTop: '1px solid var(--color-outline-variant)', paddingTop: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                  <span style={{ fontSize: '1.8rem', fontWeight: 900, letterSpacing: '-0.02em' }}>Sur devis</span>
+                </div>
+                <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', marginBottom: '1rem', lineHeight: 1.5, fontStyle: 'italic' }}>
+                  Durée et format définis selon votre groupe et vos objectifs.
+                </p>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                  {[
+                    'Demi-journée, journée ou week-end',
+                    'Terrains emblématiques Haute-Savoie',
+                    'Technique, endurance ou préparation course',
+                    'Association / club : tarif groupe',
+                    'Programme 100% sur mesure',
+                  ].map((f, i) => (
+                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>
+                      <Check size={14} style={{ color: 'var(--color-accent)', flexShrink: 0 }} /> {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <Link href="/contact" className="btn btn-secondary" style={{ textAlign: 'center', marginTop: 'auto' }}>
+                Demander un devis
+              </Link>
+            </motion.div>
+
+          </div>
+
+          {/* Bandeau localisation */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '0.75rem',
+            padding: '1rem 2rem',
+            background: 'var(--color-surface-container)',
+            border: '1px solid var(--color-outline-variant)',
+            borderRadius: '12px',
+            fontSize: '0.875rem',
+            color: 'var(--color-text-muted)',
+            flexWrap: 'wrap',
+            textAlign: 'center',
+          }}>
+            <span style={{ fontSize: '1.1rem' }}>📍</span>
+            <span>
+              <strong style={{ color: 'var(--color-text-main)' }}>Annecy & bassin annécien</strong>
+              {' '}— Cran-Gevrier, Seynod, Meythet, Pringy, Saint-Jorioz, Duingt, Talloires, Menthon-Saint-Bernard, Veyrier-du-Lac
+            </span>
+          </div>
+
         </motion.div>
 
       </div>
-    </motion.section>
+    </section>
   );
 }
