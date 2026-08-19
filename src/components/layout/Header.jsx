@@ -120,7 +120,7 @@ export default function Header() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
           <ThemeToggle />
 
-          <Link href="/#contact" className="btn btn-primary hidden-mobile" style={{ padding: '0.4rem 1.2rem', fontSize: '0.75rem' }}>
+          <Link href="/contact" className="btn btn-primary hidden-mobile" style={{ padding: '0.4rem 1.2rem', fontSize: '0.75rem' }}>
             Contact
           </Link>
 
@@ -250,7 +250,7 @@ export default function Header() {
                   style={{ paddingTop: '1.5rem' }}
                 >
                   <Link
-                    href="/#contact"
+                    href="/contact"
                     className="btn btn-primary"
                     style={{ width: '100%', textAlign: 'center', padding: '1rem' }}
                   >

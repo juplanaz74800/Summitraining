@@ -1,60 +1,93 @@
 'use client';
 import { motion } from 'framer-motion';
+import { Mail, Clock, Phone } from 'lucide-react';
+import ContactForm from './ContactForm';
 
 export default function Contact() {
   return (
-    <motion.section 
+    <motion.section
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="section" 
+      className="section"
       id="contact"
     >
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">L'aventure commence par <span className="text-accent">un échange.</span></h2>
-          <p className="section-subtitle">Parlez-moi de votre projet. Je vous réponds rapidement et on définit ensemble si on peut avancer.</p>
+          <h2 className="section-title">
+            L&apos;aventure commence par <span className="text-accent">un échange.</span>
+          </h2>
+          <p className="section-subtitle">
+            Parlez-moi de votre projet. Je vous réponds rapidement et on définit ensemble si on peut avancer.
+          </p>
         </div>
+
         <div className="contact-wrapper">
-          <form className="contact-form" action="https://formspree.io/f/mqaevepy" method="POST">
-            <div className="form-group">
-              <label htmlFor="name">Nom / Prénom</label>
-              <input type="text" id="name" name="name" required placeholder="Votre nom complet" />
+          {/* Infos de contact à gauche */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <div style={{
+              background: 'var(--color-surface-container)',
+              borderRadius: '16px',
+              padding: '2rem',
+              border: '1px solid var(--color-outline-variant)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1.5rem',
+            }}>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '0.25rem' }}>
+                Pourquoi me contacter ?
+              </h3>
+              {[
+                { icon: '🎯', title: 'Un objectif précis', desc: 'Trail, ultra, marathon — tu as une course en tête et tu veux y arriver préparé.' },
+                { icon: '📊', title: 'Progresser intelligemment', desc: 'Tu t\'entraînes déjà mais stagne. On analyse tes données et on construit mieux.' },
+                { icon: '🏔️', title: 'Découvrir la montagne', desc: 'Tu veux te lancer dans le trail et partir sur de bonnes bases dès le début.' },
+              ].map((item, i) => (
+                <div key={i} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>{item.icon}</span>
+                  <div>
+                    <strong style={{ fontSize: '0.95rem', color: 'var(--color-text-main)' }}>{item.title}</strong>
+                    <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', marginTop: '0.25rem', lineHeight: 1.5 }}>{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input type="email" id="email" name="email" required placeholder="votre@email.com" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="sport">Discipline principale</label>
-              <select id="sport" name="sport" required defaultValue="">
-                <option value="" disabled>Choisissez votre sport</option>
-                <option value="trail">Trail Running / Ultra-Trail</option>
-                <option value="running">Course sur route (10k, Semi, Marathon)</option>
-                <option value="other">Autre / Multisport</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label>Années de pratique</label>
-              <div className="radio-group" style={{ display: 'flex', gap: '1.5rem', marginTop: '0.5rem', flexWrap: 'wrap' }}>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500, fontSize: '0.95rem', cursor: 'pointer' }}>
-                  <input type="radio" name="experience" value="<2" required /> Moins de 2 ans
-                </label>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500, fontSize: '0.95rem', cursor: 'pointer' }}>
-                  <input type="radio" name="experience" value="2-5" required /> 2 à 5 ans
-                </label>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500, fontSize: '0.95rem', cursor: 'pointer' }}>
-                  <input type="radio" name="experience" value="5+" required /> 5 ans et plus
-                </label>
+
+            <div style={{
+              background: 'var(--color-surface-container-low)',
+              borderRadius: '12px',
+              padding: '1.5rem',
+              border: '1px solid var(--color-outline-variant)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1rem',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <Clock size={18} className="text-accent" />
+                <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
+                  Réponse sous <strong style={{ color: 'var(--color-text-main)' }}>24h</strong>
+                </span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <Phone size={18} className="text-accent" />
+                <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
+                  Premier appel de <strong style={{ color: 'var(--color-text-main)' }}>30 min gratuit</strong>
+                </span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <Mail size={18} className="text-accent" />
+                <a
+                  href="mailto:contact@summitraining.fr"
+                  style={{ fontSize: '0.9rem', color: 'var(--color-accent)', textDecoration: 'none' }}
+                >
+                  contact@summitraining.fr
+                </a>
               </div>
             </div>
-            <div className="form-group">
-              <label htmlFor="message">Votre projet</label>
-              <textarea id="message" name="message" rows="5" required placeholder="Mon prochain objectif est... Voici où j'en suis..."></textarea>
-            </div>
-            <button type="submit" className="btn btn-primary btn-large" style={{ width: '100%' }}>Envoyer ma candidature</button>
-          </form>
+          </div>
+
+          {/* Formulaire à droite */}
+          <ContactForm />
         </div>
       </div>
     </motion.section>
