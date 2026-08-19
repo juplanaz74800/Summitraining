@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function CTASection({ title, subtitle, primaryButtonText, secondaryButtonText }) {
+export default function CTASection({ title, subtitle, primaryButtonText, secondaryButtonText, primaryButtonLink = "/#contact", secondaryButtonLink = "/blog" }) {
   return (
     <section className="section" style={{ paddingTop: '2rem', paddingBottom: '6rem' }}>
       <div className="container">
@@ -49,10 +49,10 @@ export default function CTASection({ title, subtitle, primaryButtonText, seconda
               flexWrap: 'wrap', 
               justifyContent: 'center' 
             }}>
-              <Link href="/#contact" className="btn btn-primary" style={{ padding: '1rem 2.5rem' }}>
+              <Link href={primaryButtonLink} className="btn btn-primary" style={{ padding: '1rem 2.5rem' }}>
                 {primaryButtonText || "Réserver un échange gratuit"}
               </Link>
-              <Link href="/blog" className="btn btn-secondary" style={{ padding: '1rem 2.5rem' }}>
+              <Link href={secondaryButtonLink} className="btn btn-secondary" style={{ padding: '1rem 2.5rem' }}>
                 {secondaryButtonText || "Lire les derniers conseils"}
               </Link>
             </div>

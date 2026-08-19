@@ -1,4 +1,6 @@
-import Link from 'next/link';
+const fs = require('fs');
+
+const content = `import Link from 'next/link';
 import Image from 'next/image';
 import CTASection from '@/components/sections/CTASection';
 import { CheckCircle } from '@phosphor-icons/react/dist/ssr';
@@ -57,7 +59,7 @@ export default function Trail() {
                   { title: 'Stratégie de course & Pacing', desc: "Régulation de l'allure via la VAM et la puissance pour tenir la distance sans s'effondrer en fin de course." },
                   { title: 'Alimentation & Hydratation', desc: "Plan nutritionnel adapté à votre profil, pensé pour éviter les défaillances métaboliques en course." },
                   { title: 'Renforcement musculaire', desc: "Travail de force ciblé, PPG et prévention des blessures liées à l'impact répété." },
-                  { title: "Gestion de l'effort", desc: "Suivi de la charge et de la fatigue via la VFC, pour progresser sans tomber dans le surentraînement." }
+                  { title: 'Gestion de l\'effort', desc: "Suivi de la charge et de la fatigue via la VFC, pour progresser sans tomber dans le surentraînement." }
                 ].map((pillar, idx) => (
                   <div key={idx} style={{
                     background: 'var(--color-surface-container-low)',
@@ -245,3 +247,6 @@ export default function Trail() {
     </>
   );
 }
+`;
+
+fs.writeFileSync('src/app/trail/page.js', content, 'utf8');
