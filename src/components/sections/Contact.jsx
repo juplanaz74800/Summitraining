@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Mail, Clock, Phone } from 'lucide-react';
+import { Envelope, Clock, Phone } from '@phosphor-icons/react/dist/ssr';
 import ContactForm from './ContactForm';
 
 export default function Contact() {
@@ -63,19 +63,19 @@ export default function Contact() {
               gap: '1rem',
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <Clock size={18} className="text-accent" />
+                <Clock weight="thin" size={18} className="text-accent" />
                 <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
                   Réponse sous <strong style={{ color: 'var(--color-text-main)' }}>24h</strong>
                 </span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <Phone size={18} className="text-accent" />
+                <Phone weight="thin" size={18} className="text-accent" />
                 <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
                   Premier appel de <strong style={{ color: 'var(--color-text-main)' }}>30 min gratuit</strong>
                 </span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <Mail size={18} className="text-accent" />
+                <Envelope weight="thin" size={18} className="text-accent" />
                 <a
                   href="mailto:contact@summitraining.fr"
                   style={{ fontSize: '0.9rem', color: 'var(--color-accent)', textDecoration: 'none' }}

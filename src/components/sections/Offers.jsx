@@ -2,10 +2,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import {
-  Check, X, ArrowRight, Zap, Layers, Map,
-  User, Users, UserPlus
-} from 'lucide-react';
+import { Check, X, ArrowRight, Lightning, Stack, MapTrifold, User, Users, UserPlus } from '@phosphor-icons/react/dist/ssr';
 
 // ─────────────────────────────────────────────
 // DATA — Formules Distance
@@ -14,7 +11,7 @@ import {
 const distancePlans = [
   {
     id: 'starter',
-    icon: <Map size={22} />,
+    icon: <MapTrifold weight="thin" size={22} />,
     badge: null,
     name: 'Plan Starter',
     tagline: 'Plan sur mesure, autonomie totale',
@@ -39,7 +36,7 @@ const distancePlans = [
   },
   {
     id: 'intermediaire',
-    icon: <Layers size={22} />,
+    icon: <Stack weight="thin" size={22} />,
     badge: 'Populaire',
     name: 'Suivi Intermédiaire',
     tagline: 'Un plan + un regard expert chaque semaine',
@@ -64,7 +61,7 @@ const distancePlans = [
   },
   {
     id: 'all-inclusive',
-    icon: <Zap size={22} />,
+    icon: <Lightning weight="thin" size={22} />,
     badge: 'Prise en charge complète',
     name: 'All Inclusive',
     tagline: 'Délègue tout. Concentre-toi sur courir.',
@@ -193,9 +190,9 @@ function PricingCard({ plan, index }) {
             opacity: feature.included ? 1 : 0.5,
           }}>
             {feature.included ? (
-              <Check size={16} style={{ color: 'var(--color-accent)', flexShrink: 0 }} />
+              <Check weight="thin" size={16} style={{ color: 'var(--color-accent)', flexShrink: 0 }} />
             ) : (
-              <X size={16} style={{ color: 'var(--color-outline)', flexShrink: 0 }} />
+              <X weight="thin" size={16} style={{ color: 'var(--color-outline)', flexShrink: 0 }} />
             )}
             {feature.label}
           </li>
@@ -285,7 +282,7 @@ export default function Offers({ variant = 'full' }) {
                 La volonté ne manque jamais. C&apos;est la structure qui fait défaut.
               </p>
               <Link href="/offres" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                Voir les formules <ArrowRight size={18} />
+                Voir les formules <ArrowRight weight="thin" size={18} />
               </Link>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
@@ -355,7 +352,7 @@ export default function Offers({ variant = 'full' }) {
                       gap: '0.4rem',
                     }}
                   >
-                    Voir les détails <ArrowRight size={14} />
+                    Voir les détails <ArrowRight weight="thin" size={14} />
                   </Link>
                 </motion.div>
               ))}
@@ -363,7 +360,7 @@ export default function Offers({ variant = 'full' }) {
 
             <div style={{ textAlign: 'center', marginTop: '3rem' }}>
               <Link href="/offres" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                Comparer toutes les formules <ArrowRight size={18} />
+                Comparer toutes les formules <ArrowRight weight="thin" size={18} />
               </Link>
             </div>
           </motion.div>
@@ -496,9 +493,9 @@ export default function Offers({ variant = 'full' }) {
                     {distancePlans.map(plan => (
                       <td key={plan.id} style={{ textAlign: 'center', padding: '0.875rem 1.25rem' }}>
                         {plan.features[rowIdx].included ? (
-                          <Check size={18} style={{ color: 'var(--color-accent)', display: 'inline-block' }} />
+                          <Check weight="thin" size={18} style={{ color: 'var(--color-accent)', display: 'inline-block' }} />
                         ) : (
-                          <X size={16} style={{ color: 'var(--color-outline-variant)', display: 'inline-block', opacity: 0.4 }} />
+                          <X weight="thin" size={16} style={{ color: 'var(--color-outline-variant)', display: 'inline-block', opacity: 0.4 }} />
                         )}
                       </td>
                     ))}
@@ -660,7 +657,7 @@ export default function Offers({ variant = 'full' }) {
                 background: 'var(--color-accent)', color: 'white',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>
-                <User size={22} />
+                <User weight="thin" size={22} />
               </div>
               <div>
                 <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '0.25rem' }}>Séance Solo</h3>
@@ -682,7 +679,7 @@ export default function Offers({ variant = 'full' }) {
                     'Bilan de séance écrit',
                   ].map((f, i) => (
                     <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>
-                      <Check size={14} style={{ color: 'var(--color-accent)', flexShrink: 0 }} /> {f}
+                      <Check weight="thin" size={14} style={{ color: 'var(--color-accent)', flexShrink: 0 }} /> {f}
                     </li>
                   ))}
                 </ul>
@@ -713,7 +710,7 @@ export default function Offers({ variant = 'full' }) {
                 background: 'var(--color-surface-container-high)', color: 'var(--color-accent)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>
-                <UserPlus size={22} />
+                <UserPlus weight="thin" size={22} />
               </div>
               <div>
                 <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '0.25rem' }}>Séance Duo</h3>
@@ -735,7 +732,7 @@ export default function Offers({ variant = 'full' }) {
                     'Tarif réduit vs séance solo',
                   ].map((f, i) => (
                     <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>
-                      <Check size={14} style={{ color: 'var(--color-accent)', flexShrink: 0 }} /> {f}
+                      <Check weight="thin" size={14} style={{ color: 'var(--color-accent)', flexShrink: 0 }} /> {f}
                     </li>
                   ))}
                 </ul>
@@ -766,7 +763,7 @@ export default function Offers({ variant = 'full' }) {
                 background: 'var(--color-surface-container-high)', color: 'var(--color-accent)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>
-                <Users size={22} />
+                <Users weight="thin" size={22} />
               </div>
               <div>
                 <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '0.25rem' }}>Small Group</h3>
@@ -788,7 +785,7 @@ export default function Offers({ variant = 'full' }) {
                     'Idéal pour progresser en commun',
                   ].map((f, i) => (
                     <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>
-                      <Check size={14} style={{ color: 'var(--color-accent)', flexShrink: 0 }} /> {f}
+                      <Check weight="thin" size={14} style={{ color: 'var(--color-accent)', flexShrink: 0 }} /> {f}
                     </li>
                   ))}
                 </ul>
@@ -819,7 +816,7 @@ export default function Offers({ variant = 'full' }) {
                 background: 'var(--color-surface-container-highest)', color: 'var(--color-accent)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>
-                <Map size={22} />
+                <MapTrifold weight="thin" size={22} />
               </div>
               <div>
                 <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '0.25rem' }}>Stage Trail</h3>
@@ -843,7 +840,7 @@ export default function Offers({ variant = 'full' }) {
                     'Programme 100% sur mesure',
                   ].map((f, i) => (
                     <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>
-                      <Check size={14} style={{ color: 'var(--color-accent)', flexShrink: 0 }} /> {f}
+                      <Check weight="thin" size={14} style={{ color: 'var(--color-accent)', flexShrink: 0 }} /> {f}
                     </li>
                   ))}
                 </ul>

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Testimonials from '@/components/sections/Testimonials';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import CTASection from '@/components/sections/CTASection';
-import { GraduationCap, Mountain, Activity, ShieldCheck, BarChart3 } from 'lucide-react';
+import { Student, Mountains, Heartbeat, ShieldCheck, ChartBar } from '@phosphor-icons/react/dist/ssr';
 
 export const metadata = {
   title: 'Julien Planaz — Coach Trail & Running Annecy | STAPS, Physiologie de l\'Effort',
@@ -45,7 +45,7 @@ export default function About() {
           </div>
           <div className="methodology-grid">
             <div className="card">
-              <div className="card-icon"><GraduationCap size={44} className="text-accent" strokeWidth={1.5} /></div>
+              <div className="card-icon"><Student weight="thin" size={44} className="text-accent" strokeWidth={1.5} /></div>
               <h3>Formation Académique</h3>
               <ul style={{ listStyle: 'none', padding: 0 }}>
                 <li style={{ marginBottom: '1rem' }}><strong>Licence STAPS</strong> (Entraînement & Altitude) - Faculté de Sport de Font-Romeu. Formation d'élite au contact des structures du CREPS et des enseignements de Grégory Doucende en physiologie de l'exercice.</li>
@@ -55,15 +55,15 @@ export default function About() {
             </div>
             
             <div className="card">
-              <div className="card-icon"><Mountain size={44} className="text-accent" strokeWidth={1.5} /></div>
+              <div className="card-icon"><Mountains weight="thin" size={44} className="text-accent" strokeWidth={1.5} /></div>
               <h3>Expérience Coaching & Terrain</h3>
               <p>Plus de 10 ans de pratique passionnée en trail et ultra-trail. Mon expérience me permet de traduire les données scientifiques en conseils exploitables sur les sentiers.</p>
               <div style={{ marginTop: '1.5rem', padding: '1.5rem', borderLeft: '3px solid var(--color-accent)', background: 'var(--color-surface-container-high)', borderRadius: '0 8px 8px 0' }}>
                  <p><strong>Expertise spécifique :</strong></p>
                  <ul style={{ listStyle: 'none', marginTop: '0.5rem', color: 'var(--color-text-main)' }}>
-                      <li><Activity size={16} className="text-accent" style={{ display: 'inline', marginRight: '8px' }} /> Accompagnement d'athlètes de haut niveau en Trail.</li>
-                      <li><ShieldCheck size={16} className="text-accent" style={{ display: 'inline', marginRight: '8px' }} /> Préparation physique spécifique Spartan Race (Elite).</li>
-                      <li><BarChart3 size={16} className="text-accent" style={{ display: 'inline', marginRight: '8px' }} /> Analyse et modélisation de la charge d'entraînement.</li>
+                      <li><Heartbeat weight="thin" size={16} className="text-accent" style={{ display: 'inline', marginRight: '8px' }} /> Accompagnement d'athlètes de haut niveau en Trail.</li>
+                      <li><ShieldCheck weight="thin" size={16} className="text-accent" style={{ display: 'inline', marginRight: '8px' }} /> Préparation physique spécifique Spartan Race (Elite).</li>
+                      <li><ChartBar weight="thin" size={16} className="text-accent" style={{ display: 'inline', marginRight: '8px' }} /> Analyse et modélisation de la charge d'entraînement.</li>
                  </ul>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import ContactForm from '@/components/sections/ContactForm';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import { Mail, Clock, MapPin, Phone } from 'lucide-react';
+import { Envelope, Clock, MapPin, Phone } from '@phosphor-icons/react/dist/ssr';
 
 export const metadata = {
   title: 'Contact — Coaching Trail & Running Annecy | Summitraining',
@@ -85,25 +85,25 @@ export default function ContactPage() {
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.25rem' }}>Infos pratiques</h3>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <Clock size={18} className="text-accent" style={{ flexShrink: 0 }} />
+                  <Clock weight="thin" size={18} className="text-accent" style={{ flexShrink: 0 }} />
                   <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
                     Réponse sous <strong style={{ color: 'var(--color-text-main)' }}>24h</strong> en semaine
                   </span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <Phone size={18} className="text-accent" style={{ flexShrink: 0 }} />
+                  <Phone weight="thin" size={18} className="text-accent" style={{ flexShrink: 0 }} />
                   <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
                     Premier appel de <strong style={{ color: 'var(--color-text-main)' }}>30 min offert</strong>
                   </span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <MapPin size={18} className="text-accent" style={{ flexShrink: 0 }} />
+                  <MapPin weight="thin" size={18} className="text-accent" style={{ flexShrink: 0 }} />
                   <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
                     Basé à <strong style={{ color: 'var(--color-text-main)' }}>Annecy</strong>, coaching à distance disponible partout
                   </span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <Mail size={18} className="text-accent" style={{ flexShrink: 0 }} />
+                  <Envelope weight="thin" size={18} className="text-accent" style={{ flexShrink: 0 }} />
                   <a
                     href="mailto:contact@summitraining.fr"
                     style={{ fontSize: '0.9rem', color: 'var(--color-accent)', textDecoration: 'none' }}

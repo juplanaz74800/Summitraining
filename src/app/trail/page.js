@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import CTASection from '@/components/sections/CTASection';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle } from '@phosphor-icons/react/dist/ssr';
 
 export const metadata = {
   title: 'Coach Trail & Ultra-Trail Annecy — Haute-Savoie | Préparation Scientifique | Summitraining',
@@ -68,7 +68,7 @@ export default function Trail() {
                     gap: '0.75rem'
                   }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                      <CheckCircle2 size={20} className="text-accent" />
+                      <CheckCircle weight="thin" size={20} className="text-accent" />
                       <strong style={{ fontSize: '1.05rem', color: 'var(--color-text-main)' }}>{pillar.title}</strong>
                     </div>
                     <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: 1.5, margin: 0 }}>{pillar.desc}</p>

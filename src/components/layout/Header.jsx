@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import ThemeToggle from './ThemeToggle';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from '@phosphor-icons/react/dist/ssr';
 
 const navLinks = [
   { href: '/#methodology', label: 'Méthode' },
@@ -237,7 +237,7 @@ export default function Header() {
                         }}
                       >
                         <span>{label}</span>
-                        <ArrowRight size={16} style={{ opacity: 0.3 }} />
+                        <ArrowRight weight="thin" size={16} style={{ opacity: 0.3 }} />
                       </Link>
                     </motion.div>
                   );

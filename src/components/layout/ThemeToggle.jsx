@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-import { Sun, Moon } from 'lucide-react';
+import { Sun, Moon } from '@phosphor-icons/react/dist/ssr';
 import { motion } from 'framer-motion';
 
 export default function ThemeToggle() {
@@ -52,7 +52,7 @@ export default function ThemeToggle() {
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         style={{ position: 'absolute' }}
       >
-        <Moon size={20} />
+        <Moon weight="thin" size={20} />
       </motion.div>
       <motion.div
         initial={false}
@@ -62,7 +62,7 @@ export default function ThemeToggle() {
         }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       >
-        <Sun size={20} />
+        <Sun weight="thin" size={20} />
       </motion.div>
     </motion.button>
   );

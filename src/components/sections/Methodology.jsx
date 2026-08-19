@@ -1,48 +1,40 @@
 'use client';
 import { motion } from 'framer-motion';
-import { 
-  User, 
-  Settings2, 
-  Beaker, 
-  Mountain, 
-  ShieldCheck, 
-  Globe,
-  Scale
-} from 'lucide-react';
+import { User, Sliders, Flask, Mountains, ShieldCheck, Globe, Scales } from '@phosphor-icons/react/dist/ssr';
 
 const pillars = [
   {
-    icon: <User size={32} />,
+    icon: <User weight="thin" size={32} />,
     title: "Vous, pas votre profil Strava",
     text: "Un coaching qui part de qui vous êtes vraiment, votre vie, vos contraintes, vos forces, l'écoute active et l'empathie ne sont pas des options : c'est la base de tout.",
     image: "/img/philosophy/human.png"
   },
   {
-    icon: <Settings2 size={32} />,
+    icon: <Sliders weight="thin" size={32} />,
     title: "Ajusté chaque semaine. Sans exception.",
     text: "Votre plan évolue avec vous, fatigue, imprévus, pic de forme : rien n'est figé, un suivi réactif qui s'adapte à votre réalité, pas l'inverse.",
     image: "/img/philosophy/tailored.png"
   },
   {
-    icon: <Globe size={32} />,
+    icon: <Globe weight="thin" size={32} />,
     title: "Vous comprendrez toujours pourquoi",
     text: "Chaque séance a une raison d'être, je vous explique la logique derrière chaque intervalle, chaque bloc de récupération, vous progressez mieux quand vous comprenez ce que vous faites.",
     image: "/img/philosophy/science.png"
   },
   {
-    icon: <Mountain size={32} />,
+    icon: <Mountains weight="thin" size={32} />,
     title: "Le terrain, je le connais.",
     text: "Pacing en dénivelé, gestion de l'effort sur 10h, stratégie de course et choix de matériel : des conseils issus d'années de pratique en conditions réelles.",
     image: "/img/philosophy/terrain.png"
   },
   {
-    icon: <ShieldCheck size={32} />,
+    icon: <ShieldCheck weight="thin" size={32} />,
     title: "Un binôme. Pas un prestataire.",
     text: "Pas de questions sans réponse, pas d'imprévus sans adaptation, notre relation repose sur la confiance et la transparence : les deux seules choses qui font vraiment progresser.",
     image: "/img/philosophy/partnership.png"
   },
   {
-    icon: <Scale size={32} />,
+    icon: <Scales weight="thin" size={32} />,
     title: "L'entraînement est la moitié du travail.",
     text: "Nutrition, sommeil, récupération, préparation physique : tout est intégré, parce que la performance se construit aussi en dehors des séances.",
     image: "/img/philosophy/holistic.png"

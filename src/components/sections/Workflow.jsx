@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle } from '@phosphor-icons/react/dist/ssr';
 
 export default function Workflow() {
   const steps = [
@@ -43,9 +43,9 @@ export default function Workflow() {
           <div className="requirements-box" style={{ marginTop: '3rem', background: 'var(--color-surface-container)', borderLeft: '4px solid var(--color-primary)', padding: '1.5rem', borderRadius: '0 8px 8px 0' }}>
             <h4 style={{ color: 'var(--color-primary)', marginBottom: '0.5rem', fontSize: '1.1rem' }} className="font-technical">3 outils indispensables pour démarrer</h4>
             <ul style={{ listStyleType: 'none', paddingLeft: 0, marginBottom: 0, color: 'var(--color-text-main)', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> Montre GPS connectée et/ou compteur</li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> Ceinture cardiaque</li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle2 size={18} className="text-accent" /> Capteur de puissance (Stryd ou vélo) pour un suivi optimal</li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle weight="thin" size={18} className="text-accent" /> Montre GPS connectée et/ou compteur</li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle weight="thin" size={18} className="text-accent" /> Ceinture cardiaque</li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}><CheckCircle weight="thin" size={18} className="text-accent" /> Capteur de puissance (Stryd ou vélo) pour un suivi optimal</li>
             </ul>
           </div>
         </div>

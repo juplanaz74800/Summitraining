@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, AlertCircle, Loader2, Send } from 'lucide-react';
+import { CheckCircle, WarningCircle, CircleNotch, PaperPlaneRight } from '@phosphor-icons/react/dist/ssr';
 
 // ⚙️ CONFIGURATION — Remplace par ton ID Formspree après création du compte sur formspree.io
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwlewgel';
@@ -63,7 +63,7 @@ export default function ContactForm({ compact = false }) {
           border: '1px solid rgba(43, 108, 242, 0.3)',
         }}
       >
-        <CheckCircle size={56} style={{ color: '#22c55e' }} />
+        <CheckCircle weight="thin" size={56} style={{ color: '#22c55e' }} />
         <div>
           <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>
             Message envoyé ! 🎉
@@ -202,7 +202,7 @@ export default function ContactForm({ compact = false }) {
             marginBottom: '0.5rem',
           }}
         >
-          <AlertCircle size={18} style={{ flexShrink: 0 }} />
+          <WarningCircle weight="thin" size={18} style={{ flexShrink: 0 }} />
           Une erreur s&apos;est produite. Réessayez ou contactez-moi directement par email.
         </motion.div>
       )}
@@ -224,12 +224,12 @@ export default function ContactForm({ compact = false }) {
       >
         {status === 'loading' ? (
           <>
-            <Loader2 size={18} style={{ animation: 'spin 1s linear infinite' }} />
+            <CircleNotch weight="thin" size={18} style={{ animation: 'spin 1s linear infinite' }} />
             Envoi en cours...
           </>
         ) : (
           <>
-            <Send size={18} />
+            <PaperPlaneRight weight="thin" size={18} />
             Envoyer ma candidature
           </>
         )}
