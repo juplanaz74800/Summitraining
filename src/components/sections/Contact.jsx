@@ -40,7 +40,7 @@ export default function Contact() {
               </h3>
               {[
                 { icon: <Target weight="thin" size={24} className="text-accent" />, title: 'Un objectif précis', desc: 'Trail, ultra, marathon — tu as une course en tête et tu veux y arriver préparé.' },
-                { icon: <ChartLineUp weight="thin" size={24} className="text-accent" />, title: 'Progresser intelligemment', desc: 'Tu t\'entraînes déjà mais stagne. On analyse tes données et on construit mieux.' },
+                { icon: <ChartLineUp weight="thin" size={24} className="text-accent" />, title: 'Progresser intelligemment', desc: 'Tu t\'entraînes déjà mais tu stagnes. On analyse tes données et on construit mieux.' },
                 { icon: <Mountains weight="thin" size={24} className="text-accent" />, title: 'Découvrir la montagne', desc: 'Tu veux te lancer dans le trail et partir sur de bonnes bases dès le début.' },
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
