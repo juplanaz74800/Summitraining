@@ -1558,3 +1558,30 @@ html:not(.dark) .site-header img {
 .footer-link:hover {
     color: var(--color-accent) !important;
 }
+
+/* ==========================================================================
+   Testimonials Grid
+   ========================================================================== */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    justify-content: center;
+}
+
+.testimonials-grid > .card {
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
