@@ -7,9 +7,9 @@ import { CheckCircle, WarningCircle, CircleNotch, PaperPlaneRight } from '@phosp
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwlewgel';
 
 // ⚙️ CONFIGURATION — Phase 2 (automatisation CRM) : colle ici l'URL du webhook
-// "Catch Hook" créé dans Zapier ou Make (voir guide de mise en place). Tant que
+// "Custom webhook" créé dans Make.com (voir guide de mise en place). Tant que
 // cette valeur n'est pas remplacée, l'appel est simplement ignoré.
-const AUTOMATION_WEBHOOK_URL = 'REMPLACER_PAR_URL_WEBHOOK_ZAPIER_OU_MAKE';
+const AUTOMATION_WEBHOOK_URL = 'REMPLACER_PAR_URL_WEBHOOK_MAKE';
 
 // Services proposés — labels alignés sur les formules présentées dans Offers.jsx
 const SERVICE_OPTIONS = [
