@@ -28,8 +28,16 @@ export default function Hero() {
         </div>
       </div>
       <div className="hero-background">
-        <video autoPlay loop muted playsInline className="hero-video">
-          <source src="/img/lv_0_20260226105119.mp4" type="video/mp4" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          poster="/img/hero-poster.jpg"
+          className="hero-video"
+        >
+          <source src="/img/hero-video.mp4" type="video/mp4" />
           Votre navigateur ne supporte pas la vidéo.
         </video>
         <div className="hero-overlay"></div>

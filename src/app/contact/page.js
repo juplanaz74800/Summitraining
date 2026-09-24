@@ -97,6 +97,17 @@ export default function ContactPage() {
                     Premier appel de <strong style={{ color: 'var(--color-text-main)' }}>30 min offert</strong>
                   </span>
                 </div>
+
+                <a
+                  href="https://calendar.app.google/r21uu6gZsQzKQjWV8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginTop: '0.25rem' }}
+                >
+                  <Phone weight="thin" size={18} />
+                  Réserver un appel directement
+                </a>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                   <MapPin weight="thin" size={18} className="text-accent" style={{ flexShrink: 0 }} />
                   <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>

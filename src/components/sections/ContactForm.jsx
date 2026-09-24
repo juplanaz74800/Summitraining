@@ -6,12 +6,36 @@ import { CheckCircle, WarningCircle, CircleNotch, PaperPlaneRight } from '@phosp
 // ⚙️ CONFIGURATION — Remplace par ton ID Formspree après création du compte sur formspree.io
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwlewgel';
 
+// Services proposés — labels alignés sur les formules présentées dans Offers.jsx
+const SERVICE_OPTIONS = [
+  { value: 'starter', label: 'Plan Starter (150€, paiement unique)' },
+  { value: 'intermediaire', label: 'Suivi Intermédiaire (99€/mois)' },
+  { value: 'all-inclusive', label: 'All Inclusive (140€/mois)' },
+  { value: 'seance-solo', label: 'Séance présentiel Solo (70€/séance)' },
+  { value: 'seance-duo', label: 'Séance présentiel Duo (45€/pers)' },
+  { value: 'small-group', label: 'Small Group (30€/pers)' },
+  { value: 'stage-trail', label: 'Stage Trail (sur devis)' },
+  { value: 'not-sure', label: 'Je ne sais pas encore' },
+];
+
+const AVAILABILITY_OPTIONS = [
+  { value: 'semaine-matin', label: 'Semaine — matin' },
+  { value: 'semaine-apres-midi', label: 'Semaine — après-midi' },
+  { value: 'semaine-soir', label: 'Semaine — soir' },
+  { value: 'weekend-matin', label: 'Week-end — matin' },
+  { value: 'weekend-apres-midi', label: 'Week-end — après-midi' },
+  { value: 'weekend-soir', label: 'Week-end — soir' },
+];
+
 export default function ContactForm({ compact = false }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     sport: '',
     experience: '',
+    serviceInterest: '',
+    availability: [],
     message: '',
   });
   const [status, setStatus] = useState('idle'); // idle | loading | success | error
@@ -20,23 +44,50 @@ export default function ContactForm({ compact = false }) {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const handleAvailabilityChange = (value) => {
+    setFormData((prev) => ({
+      ...prev,
+      availability: prev.availability.includes(value)
+        ? prev.availability.filter((v) => v !== value)
+        : [...prev.availability, value],
+    }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
 
     try {
+      const availabilityLabels = formData.availability
+        .map((value) => AVAILABILITY_OPTIONS.find((opt) => opt.value === value)?.label)
+        .filter(Boolean);
+      const serviceLabel = SERVICE_OPTIONS.find((opt) => opt.value === formData.serviceInterest)?.label || '';
+
       const response = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          serviceInterest: serviceLabel,
+          availability: availabilityLabels.join(', '),
+        }),
       });
 
       if (response.ok) {
         setStatus('success');
-        setFormData({ name: '', email: '', sport: '', experience: '', message: '' });
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          sport: '',
+          experience: '',
+          serviceInterest: '',
+          availability: [],
+          message: '',
+        });
       } else {
         setStatus('error');
       }
@@ -115,6 +166,21 @@ export default function ContactForm({ compact = false }) {
         />
       </div>
 
+      {/* Téléphone */}
+      <div className="form-group">
+        <label htmlFor="phone">Téléphone</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          required
+          placeholder="06 12 34 56 78"
+          value={formData.phone}
+          onChange={handleChange}
+          disabled={status === 'loading'}
+        />
+      </div>
+
       {/* Discipline */}
       <div className="form-group">
         <label htmlFor="sport">Discipline principale</label>
@@ -161,6 +227,52 @@ export default function ContactForm({ compact = false }) {
                 required
                 checked={formData.experience === value}
                 onChange={handleChange}
+                disabled={status === 'loading'}
+              />
+              {label}
+            </label>
+          ))}
+        </div>
+      </div>
+
+      {/* Service souhaité */}
+      <div className="form-group">
+        <label htmlFor="serviceInterest">Formule qui vous intéresse</label>
+        <select
+          id="serviceInterest"
+          name="serviceInterest"
+          value={formData.serviceInterest}
+          onChange={handleChange}
+          disabled={status === 'loading'}
+        >
+          <option value="">Sélectionnez une formule (optionnel)</option>
+          {SERVICE_OPTIONS.map(({ value, label }) => (
+            <option key={value} value={value}>{label}</option>
+          ))}
+        </select>
+      </div>
+
+      {/* Disponibilités */}
+      <div className="form-group">
+        <label>Vos disponibilités pour un premier échange</label>
+        <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.5rem', flexWrap: 'wrap' }}>
+          {AVAILABILITY_OPTIONS.map(({ value, label }) => (
+            <label
+              key={value}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                fontWeight: 500,
+                fontSize: '0.9rem',
+                cursor: status === 'loading' ? 'not-allowed' : 'pointer',
+                opacity: status === 'loading' ? 0.6 : 1,
+              }}
+            >
+              <input
+                type="checkbox"
+                checked={formData.availability.includes(value)}
+                onChange={() => handleAvailabilityChange(value)}
                 disabled={status === 'loading'}
               />
               {label}
