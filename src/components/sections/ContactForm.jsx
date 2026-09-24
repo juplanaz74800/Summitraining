@@ -9,7 +9,7 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwlewgel';
 // ⚙️ CONFIGURATION — Phase 2 (automatisation CRM) : colle ici l'URL du webhook
 // "Custom webhook" créé dans Make.com (voir guide de mise en place). Tant que
 // cette valeur n'est pas remplacée, l'appel est simplement ignoré.
-const AUTOMATION_WEBHOOK_URL = 'REMPLACER_PAR_URL_WEBHOOK_MAKE';
+const AUTOMATION_WEBHOOK_URL = 'https://hook.eu1.make.com/sbrws7calyyl0boyujov810oxygsifbf';
 
 // Services proposés — labels alignés sur les formules présentées dans Offers.jsx
 const SERVICE_OPTIONS = [
