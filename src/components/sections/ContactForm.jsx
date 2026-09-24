@@ -6,6 +6,11 @@ import { CheckCircle, WarningCircle, CircleNotch, PaperPlaneRight } from '@phosp
 // ⚙️ CONFIGURATION — Remplace par ton ID Formspree après création du compte sur formspree.io
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwlewgel';
 
+// ⚙️ CONFIGURATION — Phase 2 (automatisation CRM) : colle ici l'URL du webhook
+// "Catch Hook" créé dans Zapier ou Make (voir guide de mise en place). Tant que
+// cette valeur n'est pas remplacée, l'appel est simplement ignoré.
+const AUTOMATION_WEBHOOK_URL = 'REMPLACER_PAR_URL_WEBHOOK_ZAPIER_OU_MAKE';
+
 // Services proposés — labels alignés sur les formules présentées dans Offers.jsx
 const SERVICE_OPTIONS = [
   { value: 'starter', label: 'Plan Starter (150€, paiement unique)' },
@@ -63,18 +68,31 @@ export default function ContactForm({ compact = false }) {
         .filter(Boolean);
       const serviceLabel = SERVICE_OPTIONS.find((opt) => opt.value === formData.serviceInterest)?.label || '';
 
+      const enrichedPayload = {
+        ...formData,
+        serviceInterest: serviceLabel,
+        availability: availabilityLabels.join(', '),
+        submittedAt: new Date().toISOString(),
+      };
+
       const response = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
-        body: JSON.stringify({
-          ...formData,
-          serviceInterest: serviceLabel,
-          availability: availabilityLabels.join(', '),
-        }),
+        body: JSON.stringify(enrichedPayload),
       });
+
+      // Automatisation CRM (Phase 2) : envoi en parallèle vers Zapier/Make,
+      // sans jamais bloquer ni faire échouer la soumission du formulaire.
+      if (!AUTOMATION_WEBHOOK_URL.startsWith('REMPLACER_')) {
+        fetch(AUTOMATION_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(enrichedPayload),
+        }).catch(() => {});
+      }
 
       if (response.ok) {
         setStatus('success');
