@@ -3,9 +3,8 @@ import Image from 'next/image';
 import TableOfContents from '@/components/blog/TableOfContents';
 
 export const metadata = {
-  title: 'Échelle de Borg (RPE) : Comment mesurer votre effort pour mieux vous entraîner | Summitraining',
-  description: "L'échelle de Borg (RPE) est le meilleur outil pour piloter votre effort à l'entraînement. Découvrez comment l'utiliser concrètement en trail et en course à pied pour progresser sans vous blesser.",
-  keywords: ['échelle de Borg', 'RPE course à pied', 'perception effort entraînement', 'RPE trail', 'RPE vs fréquence cardiaque', 'zones entraînement RPE', 'Borg CR-10'],
+  title: "Échelle de Borg (RPE) : mesurer son effort",
+  description: "Comment utiliser l'échelle de Borg (RPE) pour piloter votre effort en trail et en course à pied, sans vous blesser. Guide d'un coach.",
   alternates: {
     canonical: 'https://www.summitraining.fr/blog/echelle-de-borg',
   },
@@ -35,6 +34,7 @@ export default function EchelleDeBorg() {
   return (
     <>
       <ArticleLayout
+        slug="echelle-de-borg"
         title="Échelle de Borg (RPE) : Comment mesurer votre effort pour mieux vous entraîner"
         tag="Méthodologie"
         author="Julien Planaz"

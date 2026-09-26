@@ -2,14 +2,21 @@ import BlogList from '@/components/blog/BlogList';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import CTASection from '@/components/sections/CTASection';
 
+import JsonLd from '@/components/seo/JsonLd';
+import { breadcrumbSchema } from '@/lib/schema';
+
 export const metadata = {
-  title: 'Blog Entraînement Endurance & Trail | Conseils d\'experts - SUMMITRAINING',
-  description: 'Découvrez les conseils de Julien Planaz en trail, physiologie de l\'effort, tests VAM, et préparation pour vos courses en Haute-Savoie.',
+  title: "Blog Trail & Entraînement Endurance",
+  description: "Conseils de coach en trail et course à pied : physiologie de l'effort, Vitesse Critique, RPE, préparation de courses en Haute-Savoie.",
+  alternates: {
+    canonical: 'https://www.summitraining.fr/blog',
+  },
 };
 
 export default function Blog() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([{ name: 'Accueil', path: '/' }, { name: 'Blog', path: '/blog' }])} />
       <div style={{ paddingTop: '80px' }}>
         <Breadcrumbs />
       </div>

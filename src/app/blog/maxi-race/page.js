@@ -1,9 +1,8 @@
 import ArticleLayout from '@/components/blog/ArticleLayout';
 
 export const metadata = {
-  title: 'Maxi-Race d\'Annecy 2026 : préparer et courir les 100 km intelligemment | Summitraining',
-  description: "Comment préparer et gérer la Maxi-Race d'Annecy 2026 en 100 km ? Stratégie de course, plan de marche, nutrition et gestion du dénivelé expliqués par un coach trail à Annecy.",
-  keywords: ['Maxi-Race Annecy 2026', 'préparer Maxi-Race', 'stratégie ultra-trail 100 km', 'nutrition Maxi-Race', 'plan de marche Maxi-Race', 'coaching trail Annecy', 'Maxi-Race dénivelé Semnoz'],
+  title: "Maxi-Race Annecy 2026 : préparer les 100 km",
+  description: "Préparer la Maxi-Race d'Annecy 2026 (100 km) : stratégie de course, plan de marche, nutrition et gestion du dénivelé, par un coach trail.",
   alternates: {
     canonical: 'https://www.summitraining.fr/blog/maxi-race',
   },
@@ -23,6 +22,7 @@ export default function MaxiRace() {
   return (
     <>
       <ArticleLayout
+        slug="maxi-race"
         title="Maxi-Race d'Annecy 2026 : comment préparer et courir les 100 km intelligemment"
         tag="Événement Local"
         author="Julien Planaz"
@@ -123,30 +123,6 @@ export default function MaxiRace() {
         <p>Testez votre stratégie nutritionnelle à l'entraînement. Courez vos longues sorties la nuit si l'objectif inclut une nuit sur les sentiers. Et si vous avez un doute sur votre préparation : parlez à quelqu'un qui connaît le terrain.</p>
 
       </ArticleLayout>
-
-      {/* JSON-LD Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Maxi-Race d'Annecy 2026 : comment préparer et courir les 100 km intelligemment",
-            "image": "https://images.unsplash.com/photo-1549740425-5e9ed4d8cd34?q=80&w=1200&auto=format&fit=crop",
-            "author": {
-              "@type": "Person",
-              "name": "Julien Planaz",
-              "jobTitle": "Coach Sportif Trail & Course à pied"
-            },
-            "datePublished": "2026-03-07",
-            "publisher": {
-              "@type": "Organization",
-              "name": "Summitraining"
-            },
-            "description": "Comment préparer et gérer la Maxi-Race d'Annecy 2026 : stratégie de course, plan de marche, nutrition et gestion du dénivelé par un coach trail à Annecy."
-          })
-        }}
-      />
     </>
   );
 }

@@ -3,10 +3,12 @@ import Image from 'next/image';
 import CTASection from '@/components/sections/CTASection';
 import { CheckCircle } from '@phosphor-icons/react/dist/ssr';
 
+import JsonLd from '@/components/seo/JsonLd';
+import { breadcrumbSchema } from '@/lib/schema';
+
 export const metadata = {
-  title: 'Coach Running Annecy — Marathon, Semi-Marathon, 10km | Summitraining',
-  description: 'Atteignez votre record personnel sur 10km, Semi-Marathon ou Marathon grâce à un coaching individualisé basé sur votre Vitesse Critique et Puissance Critique. Coach certifié basé à Annecy & Haute-Savoie. Premier appel découverte gratuit.',
-  keywords: ['coach running Annecy', 'préparation marathon Annecy', 'coaching course à pied Haute-Savoie', 'coach semi-marathon Annecy', 'entraîneur running Savoie'],
+  title: "Coach Running Annecy : Marathon & Semi",
+  description: "Coach running à Annecy : préparez 10 km, semi ou marathon avec un plan basé sur votre Vitesse Critique. Suivi à distance, appel gratuit.",
   alternates: {
     canonical: 'https://www.summitraining.fr/route',
   },
@@ -28,6 +30,7 @@ export const metadata = {
 export default function Route() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([{ name: 'Accueil', path: '/' }, { name: 'Coach running', path: '/route' }])} />
       <div style={{ paddingTop: '80px' }}>
       </div>
 

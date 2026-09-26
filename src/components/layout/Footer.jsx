@@ -46,11 +46,20 @@ export default function Footer() {
               <FacebookLogo weight="thin" size={24} />
             </a>
           </div>
+          <Link href="/coach-trail-haute-savoie" style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', transition: 'color 0.2s' }} className="footer-link">
+            Coach trail Haute-Savoie
+          </Link>
+          <Link href="/blog" style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', transition: 'color 0.2s' }} className="footer-link">
+            Blog
+          </Link>
           <Link href="/mentions-legales" style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', transition: 'color 0.2s' }} className="footer-link">
             Mentions Légales
           </Link>
           <Link href="/cgv" style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', transition: 'color 0.2s' }} className="footer-link">
             CGV
+          </Link>
+          <Link href="/politique-de-confidentialite" style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', transition: 'color 0.2s' }} className="footer-link">
+            Confidentialité
           </Link>
         </div>
         <p style={{ color: 'var(--color-text-muted)', opacity: 0.5, fontSize: '0.8rem' }} className="font-technical">

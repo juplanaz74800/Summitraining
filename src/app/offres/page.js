@@ -1,10 +1,12 @@
 import Offers from '@/components/sections/Offers';
 import CTASection from '@/components/sections/CTASection';
 
+import JsonLd from '@/components/seo/JsonLd';
+import { breadcrumbSchema } from '@/lib/schema';
+
 export const metadata = {
-  title: 'Tarifs Coaching Trail & Running Annecy | Formules Personnalisées | Summitraining',
-  description: 'Découvrez les 3 formules de coaching à distance de Julien Planaz : Plan Starter 150€, Suivi Intermédiaire 99€/mois, All Inclusive 140€/mois. Basé à Annecy, coaching partout en France.',
-  keywords: ['tarif coach trail Annecy', 'prix coaching running', 'formule coaching endurance personnalisé', 'coach trail distance'],
+  title: "Tarifs Coaching Trail & Running",
+  description: "3 formules de coaching à distance : Plan Starter 150 €, Suivi Intermédiaire 99 €/mois, All Inclusive 140 €/mois. Premier appel gratuit.",
   alternates: {
     canonical: 'https://www.summitraining.fr/offres',
   },
@@ -38,6 +40,7 @@ const FAQ = [
 export default function OffresPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([{ name: 'Accueil', path: '/' }, { name: 'Tarifs', path: '/offres' }])} />
       <Offers variant="full" />
 
       {/* FAQ SEO */}

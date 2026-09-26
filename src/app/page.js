@@ -7,10 +7,11 @@ import Values from '@/components/sections/Values';
 import CalculatorTeaser from '@/components/sections/CalculatorTeaser';
 import Offers from '@/components/sections/Offers';
 import Contact from '@/components/sections/Contact';
+import RelatedPosts from '@/components/seo/RelatedPosts';
 
 export const metadata = {
-  title: 'Coach Trail & Running Annecy — Haute-Savoie | Julien Planaz',
-  description: 'Coach sportif trail et course à pied basé à Annecy (Haute-Savoie). Julien Planaz propose un suivi 100% personnalisé pour tous niveaux : préparation trail, ultra-trail, marathon, semi-marathon. Appel découverte gratuit.',
+  title: { absolute: 'Coach Trail Annecy & Haute-Savoie | Summitraining' },
+  description: 'Coach trail et running à Annecy et en Haute-Savoie : coaching 100 % personnalisé à distance ou en présentiel, tous niveaux. Appel découverte gratuit.',
   alternates: {
     canonical: 'https://www.summitraining.fr',
   },
@@ -27,28 +28,8 @@ export default function Home() {
       <Values />
       <CalculatorTeaser />
       <Offers variant="teaser" />
+      <RelatedPosts title="Conseils & articles du coach" />
       <Contact />
-      
-      {/* Schema Markup JSON-LD for Home */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SportsActivityLocation",
-            "name": "SUMMITRAINING - Julien Planaz",
-            "url": "https://www.summitraining.fr/",
-            "image": "https://www.summitraining.fr/img/photo%20coach.jpg",
-            "description": "Coaching expert et 100% personnalisé à distance en course à pied et trail par Julien Planaz.",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Annecy",
-              "addressCountry": "FR"
-            },
-            "priceRange": "Sur Devis"
-          })
-        }}
-      />
     </>
   );
 }

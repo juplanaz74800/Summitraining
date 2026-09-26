@@ -5,9 +5,12 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import CTASection from '@/components/sections/CTASection';
 import { Student, Mountains, Heartbeat, ShieldCheck, ChartBar } from '@phosphor-icons/react/dist/ssr';
 
+import JsonLd from '@/components/seo/JsonLd';
+import { breadcrumbSchema } from '@/lib/schema';
+
 export const metadata = {
-  title: "Julien Planaz — Coach Trail & Running Annecy | STAPS, Physiologie de l'Effort",
-  description: "Coach sportif basé à Annecy, spécialisé en physiologie de l'effort. Interventions en Haute-Savoie et Suisse Romande. Diplômé STAPS (Font-Romeu), Biologie et Nutrition.",
+  title: "Julien Planaz, Coach Trail à Annecy",
+  description: "Julien Planaz, coach trail et running à Annecy, spécialiste de la physiologie de l'effort (STAPS, biologie, nutrition). Haute-Savoie et Suisse romande.",
   alternates: {
     canonical: 'https://www.summitraining.fr/a-propos',
   },
@@ -16,6 +19,7 @@ export const metadata = {
 export default function About() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([{ name: 'Accueil', path: '/' }, { name: 'À propos', path: '/a-propos' }])} />
       <div style={{ paddingTop: '80px' }}>
         <Breadcrumbs />
       </div>

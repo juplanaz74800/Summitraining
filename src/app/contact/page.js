@@ -3,10 +3,12 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { Envelope, Clock, MapPin, Phone, Target, ChartLineUp, Mountains, Lightning, InstagramLogo, LinkedinLogo, FacebookLogo } from '@phosphor-icons/react/dist/ssr';
 import { StravaLogo } from '@/components/icons/StravaLogo';
 
+import JsonLd from '@/components/seo/JsonLd';
+import { breadcrumbSchema } from '@/lib/schema';
+
 export const metadata = {
-  title: 'Contact — Coaching Trail & Running Annecy | Summitraining',
-  description: 'Contactez Julien Planaz, coach trail et running basé à Annecy (Haute-Savoie). Premier échange gratuit de 30 minutes. Réponse sous 24h.',
-  keywords: ['contact coach trail Annecy', 'coaching running Haute-Savoie', 'appel découverte gratuit', 'Julien Planaz contact'],
+  title: "Contact Coach Trail Annecy",
+  description: "Contactez Julien Planaz, coach trail et running à Annecy. Premier échange gratuit de 30 minutes, réponse sous 24 h.",
   alternates: {
     canonical: 'https://www.summitraining.fr/contact',
   },
@@ -20,6 +22,7 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([{ name: 'Accueil', path: '/' }, { name: 'Contact', path: '/contact' }])} />
       <div style={{ paddingTop: '80px' }}>
         <Breadcrumbs />
       </div>

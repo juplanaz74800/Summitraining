@@ -3,9 +3,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import JsonLd from '@/components/seo/JsonLd';
+import { getPost } from '@/lib/pages';
+import { articleSchema, breadcrumbSchema } from '@/lib/schema';
 
 export default function ArticleLayout({ 
   children, 
+  slug,
   title, 
   date, 
   tag, 
@@ -15,9 +19,20 @@ export default function ArticleLayout({
   heroAlt,
   relatedPost // Object with { title, href, image, excerpt }
 }) {
+  const post = getPost(slug);
+
   return (
     <div style={{ paddingTop: '80px' }}>
-      
+      {post && (
+        <>
+          <JsonLd data={articleSchema({ ...post, description: post.excerpt })} />
+          <JsonLd data={breadcrumbSchema([
+            { name: 'Accueil', path: '/' },
+            { name: 'Blog', path: '/blog' },
+            { name: post.shortTitle, path: `/blog/${post.slug}` },
+          ])} />
+        </>
+      )}
       <article className="section" style={{ maxWidth: '900px', margin: '0 auto', paddingBottom: '3rem' }}>
         <div className="container">
           <motion.div 

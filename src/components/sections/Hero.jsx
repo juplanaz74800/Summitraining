@@ -5,20 +5,22 @@ export default function Hero() {
   return (
     <section className="hero" id="home">
       <div className="container hero-content">
-        <h1 className="hero-title" style={{ color: 'white' }}>
-          <span className="sr-only">Coach Sportif Trail et Course à pied Annecy et à distance</span>
-          <span className="hero-animation-container text-accent">
+        <div className="hero-title" style={{ color: 'white' }}>
+          <span className="hero-animation-container text-accent" aria-hidden="true">
             <span className="animated-words">
               <span>Précision</span>
               <span>Structure</span>
               <span>Progression</span>
               <span>Résultats</span>
-              <span aria-hidden="true">Précision</span>
+              <span>Précision</span>
             </span>
           </span>
           <br />
-          Votre préparation, construite sur des données réelles.
-        </h1>
+          <h1 style={{ display: 'inline', font: 'inherit', margin: 0, padding: 0, color: 'inherit', letterSpacing: 'inherit', textTransform: 'inherit' }}>
+            <span className="sr-only">Coach sportif trail et course à pied à Annecy et à distance. </span>
+            Votre préparation, construite sur des données réelles.
+          </h1>
+        </div>
         <p className="hero-subtitle" style={{ color: 'rgba(255,255,255,0.8)' }}>
           Un coaching 100% individualisé en trail et course sur route. Basé sur votre physiologie. Ajusté chaque semaine. Aucun template.
         </p>

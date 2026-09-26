@@ -3,10 +3,12 @@ import Image from 'next/image';
 import CTASection from '@/components/sections/CTASection';
 import { CheckCircle } from '@phosphor-icons/react/dist/ssr';
 
+import JsonLd from '@/components/seo/JsonLd';
+import { breadcrumbSchema } from '@/lib/schema';
+
 export const metadata = {
-  title: 'Coach Trail & Ultra-Trail à Annecy et Haute-Savoie | Préparation Scientifique | Summitraining',
-  description: 'Coach trail à Annecy, Haute-Savoie et Suisse Romande. Préparation 100% individualisée pour débutants et confirmés, basée sur votre physiologie réelle (VMA, Puissance Critique, VFC). Coaching en présentiel ou à distance. Réservez un appel découverte gratuit.',
-  keywords: ['coach trail Annecy', 'préparation ultra trail Haute-Savoie', 'coaching trail montagne', 'préparation UTMB', 'coach ultra trail Savoie', 'entraîneur trail Annecy'],
+  title: "Coach Trail & Ultra-Trail à Annecy",
+  description: "Coach trail à Annecy et en Haute-Savoie : préparation trail et ultra-trail personnalisée, basée sur votre physiologie. Appel découverte gratuit.",
   alternates: {
     canonical: 'https://www.summitraining.fr/trail',
   },
@@ -28,6 +30,7 @@ export const metadata = {
 export default function Trail() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([{ name: 'Accueil', path: '/' }, { name: 'Coach trail', path: '/trail' }])} />
       <div style={{ paddingTop: '80px' }}>
       </div>
 
@@ -43,7 +46,7 @@ export default function Trail() {
               <h2>Une approche scientifique de la montagne</h2>
               <p>Courir vite en montée ne suffit pas. La casse musculaire en descente, la gestion métabolique sur 10h d'effort, le pacing au dénivelé : ce sont des compétences qui s'apprennent, pas des dons.</p>
               <p>Ma formation s'est construite à Font-Romeu, en Licence STAPS Entraînement & Altitude, avec une spécialisation en physiologie de l'exercice sous <strong>Grégory Doucende</strong>. Aujourd'hui, en tant que coach trail basé à Annecy, j'utilise ce cadre pour établir votre <strong><Link href="/outils" style={{ color: 'var(--color-accent)', fontWeight: 500, textDecoration: 'underline' }}>profil physiologique complet</Link></strong> — <Link href="/blog/vma-vs-vitesse-critique" style={{ color: 'var(--color-accent)', fontWeight: 500, textDecoration: 'underline' }}>VMA vs Vitesse Critique</Link>, puissance réelle, VFC — et m'en servir comme repère concret pour construire votre entraînement, pas comme argument marketing.</p>
-              <p>Le coaching se fait en présentiel sur les sentiers de Haute-Savoie et de Suisse Romande, ou à distance si vous préparez votre trail depuis ailleurs.</p>
+              <p>Le coaching se fait en présentiel sur les sentiers de Haute-Savoie et de Suisse Romande, ou à distance si vous préparez votre trail depuis ailleurs. Détail des zones d'intervention : <Link href="/coach-trail-haute-savoie" style={{ color: 'var(--color-accent)', fontWeight: 500, textDecoration: 'underline' }}>coach trail en Haute-Savoie</Link>.</p>
 
               <h3 style={{ marginTop: '3rem', marginBottom: '2rem', fontSize: '1.5rem', fontWeight: 800 }}>Les piliers du suivi <span className="text-accent">Trail</span></h3>
               <div style={{ 
