@@ -37,12 +37,15 @@ export default function PolitiqueConfidentialite() {
       </p>
       <p>Durée de conservation : 3 ans à compter du dernier contact pour les prospects ; durée légale pour les clients.</p>
 
-      <h2 style={h2}>Mesure d&apos;audience</h2>
+      <h2 style={h2}>Cookies et mesure d&apos;audience</h2>
       <p>
-        Le site utilise <strong>Google Analytics 4</strong> pour mesurer la fréquentation (pages vues, provenance, appareil). Ces
-        statistiques sont utilisées pour améliorer le site. Vous pouvez vous opposer à ce suivi en désactivant les cookies dans votre
-        navigateur ou en installant le{' '}
-        <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener noreferrer" target="_blank" style={a}>module de désactivation de Google Analytics</a>.
+        Le site utilise <strong>Google Analytics 4</strong> pour mesurer la fréquentation (pages vues, provenance, appareil) et améliorer le
+        contenu. Ce service dépose des cookies <strong>uniquement si vous les acceptez</strong> via le bandeau affiché lors de votre première
+        visite. Sans votre accord, aucun cookie de mesure n&apos;est déposé et Google Analytics n&apos;est pas chargé.
+      </p>
+      <p>
+        Votre choix est conservé dans votre navigateur (stockage local) et vous pouvez le modifier à tout moment avec le lien « Gérer les
+        cookies » en bas de page. Vous pouvez aussi supprimer les cookies depuis les réglages de votre navigateur.
       </p>
 
       <h2 style={h2}>Hébergement et journaux techniques</h2>

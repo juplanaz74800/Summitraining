@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { InstagramLogo, LinkedinLogo, FacebookLogo } from '@phosphor-icons/react/dist/ssr';
 import { StravaLogo } from '@/components/icons/StravaLogo';
+import { OPEN_EVENT } from '@/components/layout/CookieConsent';
 
 export default function Footer() {
    const [year, setYear] = useState(new Date().getFullYear());
@@ -61,6 +62,14 @@ export default function Footer() {
           <Link href="/politique-de-confidentialite" style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', transition: 'color 0.2s' }} className="footer-link">
             Confidentialité
           </Link>
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new Event(OPEN_EVENT))}
+            className="footer-link"
+            style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontFamily: 'inherit' }}
+          >
+            Gérer les cookies
+          </button>
         </div>
         <p style={{ color: 'var(--color-text-muted)', opacity: 0.5, fontSize: '0.8rem' }} className="font-technical">
           © {year} SUMMITRAINING
