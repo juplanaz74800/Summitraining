@@ -44,6 +44,11 @@ export default function CookieConsent() {
     return () => window.removeEventListener(OPEN_EVENT, reopen);
   }, []);
 
+  // Le CSS masque la barre d'action mobile tant que le bandeau est affiché.
+  useEffect(() => {
+    document.body.dataset.cookieBanner = open ? 'open' : 'closed';
+  }, [open]);
+
   const choose = (value) => {
     writeConsent(value);
     setConsent(value);

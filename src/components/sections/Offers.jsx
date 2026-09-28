@@ -648,7 +648,7 @@ export default function Offers({ variant = 'full' }) {
                 position: 'absolute', top: '-13px', left: '1.5rem',
                 background: 'var(--color-accent)', color: 'white',
                 padding: '2px 14px', borderRadius: '50px',
-                fontSize: '0.65rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em',
+                fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em',
               }}>
                 Recommandé
               </div>

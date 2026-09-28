@@ -1,7 +1,20 @@
 'use client';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Hero() {
+  const [showVideo, setShowVideo] = useState(false);
+
+  // La vidéo (2,4 Mo) n'est chargée que sur grand écran, hors mode économie de données
+  // et sans préférence « réduire les animations » : sur mobile, l'image d'affiche suffit.
+  useEffect(() => {
+    const wide = window.matchMedia('(min-width: 768px)').matches;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const saveData = navigator.connection?.saveData === true;
+    setShowVideo(wide && !reduced && !saveData);
+  }, []);
+
   return (
     <section className="hero" id="home">
       <div className="container hero-content">
@@ -30,18 +43,28 @@ export default function Hero() {
         </div>
       </div>
       <div className="hero-background">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          poster="/img/hero-poster.jpg"
-          className="hero-video"
-        >
-          <source src="/img/hero-video.mp4" type="video/mp4" />
-          Votre navigateur ne supporte pas la vidéo.
-        </video>
+        <Image
+          src="/img/hero-poster.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          quality={70}
+          style={{ objectFit: 'cover', zIndex: 0 }}
+        />
+        {showVideo && (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            poster="/img/hero-poster.jpg"
+            className="hero-video"
+          >
+            <source src="/img/hero-video.mp4" type="video/mp4" />
+          </video>
+        )}
         <div className="hero-overlay"></div>
       </div>
       <Link href="/#methodology" className="scroll-indicator" aria-label="Défiler vers le bas">

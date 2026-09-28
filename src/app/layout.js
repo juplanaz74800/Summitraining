@@ -3,6 +3,7 @@ import './globals.css';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import CookieConsent from '../components/layout/CookieConsent';
+import MobileCTA from '../components/layout/MobileCTA';
 import { Providers } from './providers';
 import JsonLd from '@/components/seo/JsonLd';
 import { globalGraph } from '@/lib/schema';
@@ -59,6 +60,7 @@ export default function RootLayout({ children }) {
           <Footer />
         </Providers>
 
+        <MobileCTA />
         <CookieConsent />
 
         {/* Schéma global : LocalBusiness + Person + WebSite (une seule fois) */}

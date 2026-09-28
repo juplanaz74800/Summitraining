@@ -17,11 +17,11 @@ export const SOCIALS = [
  */
 export const LEGAL = {
   ownerName: 'Julien Planaz',
-  legalForm: '', // ex. « Entrepreneur individuel », « Micro-entreprise », « EURL »
+  legalForm: 'Micro-entreprise', // ex. « Entrepreneur individuel », « Micro-entreprise », « EURL »
   siret: '',
   vatNumber: '', // ou mention « TVA non applicable, art. 293 B du CGI »
-  address: '', // adresse professionnelle (ou siège) obligatoire
-  phone: '',
+  address: '8 rue général pershing 74000 Annecy', // adresse professionnelle (ou siège) obligatoire
+  phone: '0614402714',
   cardPro: '07421ED0122',
   publicationDirector: 'Julien Planaz',
   host: {

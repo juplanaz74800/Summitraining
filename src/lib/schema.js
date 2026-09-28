@@ -1,4 +1,7 @@
-import { SITE_URL, SITE_NAME, CONTACT_EMAIL, SOCIALS } from './site';
+import { SITE_URL, SITE_NAME, CONTACT_EMAIL, SOCIALS, LEGAL } from './site';
+
+// « 06 14 40 27 14 » -> « +33614402714 »
+const toE164 = (phone) => (phone ? phone.replace(/\D/g, '').replace(/^0/, '+33') : undefined);
 
 const PERSON_ID = `${SITE_URL}/#julien-planaz`;
 const BUSINESS_ID = `${SITE_URL}/#localbusiness`;
@@ -28,8 +31,10 @@ export const localBusinessSchema = {
   description:
     'Coaching trail et course à pied 100 % personnalisé par Julien Planaz, coach certifié basé à Annecy. Suivi à distance et en présentiel en Haute-Savoie, Savoie et Suisse romande.',
   email: CONTACT_EMAIL,
+  telephone: toE164(LEGAL.phone),
   address: {
     '@type': 'PostalAddress',
+    postalCode: '74000',
     addressLocality: 'Annecy',
     addressRegion: 'Haute-Savoie',
     addressCountry: 'FR',

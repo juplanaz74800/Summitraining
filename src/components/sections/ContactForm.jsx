@@ -161,6 +161,7 @@ export default function ContactForm({ compact = false }) {
           type="text"
           id="name"
           name="name"
+          autoComplete="name"
           required
           placeholder="Votre nom complet"
           value={formData.name}
@@ -176,6 +177,8 @@ export default function ContactForm({ compact = false }) {
           type="email"
           id="email"
           name="email"
+          autoComplete="email"
+          inputMode="email"
           required
           placeholder="votre@email.com"
           value={formData.email}
@@ -191,6 +194,8 @@ export default function ContactForm({ compact = false }) {
           type="tel"
           id="phone"
           name="phone"
+          autoComplete="tel"
+          inputMode="tel"
           required
           placeholder="06 12 34 56 78"
           value={formData.phone}

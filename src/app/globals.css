@@ -1585,3 +1585,151 @@ html:not(.dark) .site-header img {
     }
 }
 
+/* ==========================================================================
+   Mobile optimisations (SEO / Core Web Vitals / ergonomie tactile)
+   ========================================================================== */
+html {
+    overflow-x: clip;
+}
+
+/* Les animations d'entrée (framer-motion, x: ±50) ne doivent jamais élargir la page. */
+.vision-section,
+.values-section,
+.hero {
+    overflow-x: clip;
+}
+
+/* 100vh inclut la barre d'adresse sur mobile : on utilise la hauteur visible réelle. */
+.hero {
+    min-height: 100vh;
+    min-height: 100svh;
+}
+
+/* Cible tactile confortable pour les cases et boutons radio. */
+input[type="radio"],
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+label:has(> input[type="radio"]),
+label:has(> input[type="checkbox"]) {
+    min-height: 44px;
+    padding-right: 0.75rem;
+}
+
+@media (max-width: 768px) {
+    /* Grille d'images : des colonnes 1fr s'élargissaient au-delà de l'écran (débordement horizontal). */
+    .values-images {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Liens du pied de page : cibles de 44 px minimum et texte lisible. */
+    .footer-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0 0.25rem;
+        font-size: 0.875rem !important;
+    }
+
+    .site-footer a[aria-label] {
+        width: 44px;
+        height: 44px;
+        justify-content: center;
+    }
+
+    /* Liens texte isolés dans les sections (Voir les détails, e-mail…). */
+    #offers a:not(.btn),
+    #contact a[href^="mailto"],
+    .scroll-indicator {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Textes secondaires des formules : jamais sous 14 px. */
+    .pricing-grid-bento p,
+    .pricing-grid-bento a:not(.btn) {
+        font-size: 0.875rem !important;
+    }
+
+    /* Bouton thème et logo : zone tactile 44 px. */
+    #site-header button,
+    #site-header a[href="/"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Fil d'Ariane, liens de cartes d'articles, retour au blog, icônes sociales. */
+    nav[aria-label="Breadcrumb"] a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+    }
+
+    .blog-card a,
+    article a[href="/blog"],
+    main a[aria-label] {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+    }
+
+    main a[aria-label] {
+        justify-content: center;
+        min-width: 44px;
+    }
+
+    #contact a[href^="mailto"],
+    main a[href^="mailto"] {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+    }
+}
+
+/* Barre d'action mobile (appel + formulaire) */
+.mobile-cta {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-cta {
+        display: flex;
+        gap: 0.75rem;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 900;
+        padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
+        background: var(--color-surface-container);
+        border-top: 1px solid var(--color-outline-variant);
+        box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.25);
+        transform: translateY(110%);
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-cta.is-visible {
+        transform: translateY(0);
+    }
+
+    .mobile-cta-btn {
+        flex: 1;
+        padding: 0.75rem 1rem;
+        min-height: 48px;
+        text-align: center;
+    }
+
+    /* Le contenu du pied de page ne doit pas passer sous la barre. */
+    .site-footer {
+        padding-bottom: calc(var(--space-xl) + 72px);
+    }
+}
+
+body[data-cookie-banner="open"] .mobile-cta {
+    display: none;
+}
