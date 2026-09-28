@@ -1,4 +1,5 @@
 import Offers from '@/components/sections/Offers';
+import Workflow from '@/components/sections/Workflow';
 import CTASection from '@/components/sections/CTASection';
 
 import JsonLd from '@/components/seo/JsonLd';
@@ -42,6 +43,7 @@ export default function OffresPage() {
     <>
       <JsonLd data={breadcrumbSchema([{ name: 'Accueil', path: '/' }, { name: 'Tarifs', path: '/offres' }])} />
       <Offers variant="full" />
+      <Workflow />
 
       {/* FAQ SEO */}
       <section className="section" style={{ background: 'var(--color-surface-container-low)', paddingBottom: '8rem' }}>

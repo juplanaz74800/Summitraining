@@ -1,9 +1,8 @@
 import Hero from '@/components/sections/Hero';
+import ProblemStatement from '@/components/sections/ProblemStatement';
 import Methodology from '@/components/sections/Methodology';
-import Vision from '@/components/sections/Vision';
 import AboutTeaser from '@/components/sections/AboutTeaser';
-import Workflow from '@/components/sections/Workflow';
-import Values from '@/components/sections/Values';
+import Testimonials from '@/components/sections/Testimonials';
 import CalculatorTeaser from '@/components/sections/CalculatorTeaser';
 import Offers from '@/components/sections/Offers';
 import Contact from '@/components/sections/Contact';
@@ -21,11 +20,10 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <ProblemStatement />
       <Methodology />
-      <Vision />
       <AboutTeaser />
-      <Workflow />
-      <Values />
+      <Testimonials />
       <CalculatorTeaser />
       <Offers variant="teaser" />
       <RelatedPosts title="Conseils & articles du coach" />
